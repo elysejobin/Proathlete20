@@ -12,13 +12,12 @@ import {
   Menu, X, Star, Globe, Mail, Send,
   Accessibility, Footprints, Smile, Dumbbell, History,
   ArrowLeft, School, User, Heart, Zap, Timer, Star as StarIcon, Quote,
-  Facebook, Instagram, MessageSquare, Trophy, Sparkles
+  Facebook, Instagram, MessageSquare, Trophy
 } from 'lucide-react';
 import { UserRole, Sport } from './types';
 import { translations } from './translations';
 import AppointmentModal from './components/AppointmentModal';
 import { PricingPage } from './components/PricingPage';
-import { WaitlistPage } from './components/WaitlistPage';
 import PrivacyPolicy from './components/PrivacyPolicy';
 
 // Pantone Color Codes
@@ -113,7 +112,7 @@ const App: React.FC = () => {
   const [isSubscribed, setIsSubscribed] = useState(false);
   const [isAppointmentOpen, setIsAppointmentOpen] = useState(false);
   const [isPrivacyOpen, setIsPrivacyOpen] = useState(false);
-  const [currentPage, setCurrentPage] = useState<'home' | 'pricing' | 'waitlist'>('home');
+  const [currentPage, setCurrentPage] = useState<'home' | 'pricing'>('home');
   
   const t = translations[lang];
 
@@ -161,12 +160,10 @@ const App: React.FC = () => {
         
         <div className="hidden lg:flex gap-8 items-center">
           <div className="flex gap-6 xl:gap-8 text-[10px] font-bold uppercase tracking-[0.2em] items-center">
-            {['Mission', 'Founder', 'Features', 'Pricing', 'Waitlist', 'Community'].map(item => {
+            {['Mission', 'Founder', 'Features', 'Pricing', 'Community'].map(item => {
               const isPricing = item === 'Pricing';
-              const isWaitlist = item === 'Waitlist';
               const isFeatures = item === 'Features';
               const isPricingActive = isPricing && currentPage === 'pricing';
-              const isWaitlistActive = isWaitlist && currentPage === 'waitlist';
               const label = (t.nav as any)[item.toLowerCase()] || item;
 
               if (isFeatures) {
@@ -208,26 +205,6 @@ const App: React.FC = () => {
                 );
               }
 
-              if (isWaitlist) {
-                return (
-                  <button
-                    key={item}
-                    onClick={() => {
-                      setCurrentPage('waitlist');
-                      window.scrollTo(0, 0);
-                    }}
-                    className={`transition-all duration-300 px-3 py-1.5 rounded-full flex items-center gap-1.5 ${
-                      isWaitlistActive 
-                        ? 'bg-[#5CE1E6] text-[#002337] font-black shadow-lg shadow-[#5CE1E6]/20' 
-                        : 'bg-[#005776]/60 text-[#5CE1E6] hover:bg-[#5CE1E6] hover:text-[#002337] border border-[#5CE1E6]/40 font-black'
-                    }`}
-                  >
-                    <Sparkles size={12} />
-                    {label}
-                  </button>
-                );
-              }
-
               return (
                 <button
                   key={item}
@@ -257,21 +234,6 @@ const App: React.FC = () => {
         </div>
 
         <div className="flex items-center gap-2.5 sm:gap-4 md:gap-6">
-          <button
-            onClick={() => {
-              setCurrentPage('waitlist');
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            }}
-            className={`lg:hidden flex items-center gap-1 text-[10px] font-black uppercase tracking-wider px-2.5 py-1.5 rounded-full transition-all ${
-              currentPage === 'waitlist'
-                ? 'bg-[#5CE1E6] text-[#002337]'
-                : 'bg-[#005776]/80 text-[#5CE1E6] border border-[#5CE1E6]/40'
-            }`}
-          >
-            <Sparkles size={11} />
-            <span>{t.nav.waitlist || 'Waitlist'}</span>
-          </button>
-
           <div className="hidden md:flex items-center gap-4 border-r border-white/20 pr-6">
             <a href="https://www.facebook.com/proathletebasketball/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[#005776] transition-colors" title="Facebook" aria-label="Facebook">
               <Facebook size={20} />
@@ -304,15 +266,6 @@ const App: React.FC = () => {
           lang={lang} 
           activeSport="ALL" 
           onContactClick={() => setIsAppointmentOpen(true)} 
-          onBackToHome={() => {
-            setCurrentPage('home');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-          }}
-        />
-      ) : currentPage === 'waitlist' ? (
-        <WaitlistPage
-          lang={lang}
-          onContactClick={() => setIsAppointmentOpen(true)}
           onBackToHome={() => {
             setCurrentPage('home');
             window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -760,18 +713,6 @@ const App: React.FC = () => {
                   className="hover:text-white transition-colors text-left"
                 >
                   {t.footer.pricing}
-                </button>
-              </li>
-              <li>
-                <button 
-                  onClick={() => {
-                    setCurrentPage('waitlist');
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                  }} 
-                  className="hover:text-[#5CE1E6] transition-colors text-left flex items-center gap-1.5 text-[#5CE1E6]"
-                >
-                  <Sparkles size={12} />
-                  <span>{t.nav.waitlist || 'Waitlist'}</span>
                 </button>
               </li>
               <li><a href="#" className="hover:text-white transition-colors">{t.footer.forTeams}</a></li>
