@@ -1,0 +1,20 @@
+{
+  "redirects": [
+    { "source": "/fr/physiotherapie", "destination": "https://elysejobin.com/fr/physiotherapie", "permanent": true },
+    { "source": "/en/physiotherapy", "destination": "https://elysejobin.com/en/physiotherapy", "permanent": true },
+    { "source": "/en", "destination": "/", "permanent": true },
+    { "source": "/en/", "destination": "/", "permanent": true },
+    { "source": "/fr", "destination": "/", "permanent": true },
+    { "source": "/fr/", "destination": "/", "permanent": true },
+    { "source": "/en/subscription", "destination": "/", "permanent": true },
+    { "source": "/fr/abonnement", "destination": "/", "permanent": true },
+    { "source": "/en/shop", "destination": "/", "permanent": true },
+    { "source": "/fr/boutique", "destination": "/", "permanent": true },
+    { "source": "/en/contact-us", "destination": "/", "permanent": true },
+    { "source": "/fr/nous-joindre", "destination": "/", "permanent": true },
+    { "source": "/en/terms-conditions", "destination": "/", "permanent": true },
+    { "source": "/en/the-pro-athlete-team", "destination": "/", "permanent": true },
+    { "source": "/fr/l-equipe-pro-athlete", "destination": "/", "permanent": true },
+    { "source": "/fr/a-propos", "destination": "/", "permanent": true }
+  ]
+}
