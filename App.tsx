@@ -242,7 +242,7 @@ const App: React.FC = () => {
                 </button>
               );
             })}
-            <a href={RESOURCES_URL} className="hover:text-[#5CE1E6] text-white/80 transition-colors">
+            <a href={RESOURCES_URL} className="normal-case hover:text-[#5CE1E6] text-white/80 transition-colors">
               {t.nav.resources}
             </a>
           </div>
