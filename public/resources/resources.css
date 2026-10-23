@@ -170,3 +170,28 @@ td:first-child { font-weight: 700; white-space: nowrap; }
   .nav { gap: 10px; }
   .nav a.btn.nav-btn { padding: 7px 14px; font-size: 13px; }
 }
+
+/* Mobile menu (hamburger) */
+.menu-toggle { display: none; background: none; border: 1px solid rgba(255,255,255,0.2); color: #fff; width: 36px; height: 36px; border-radius: 999px; font-size: 18px; line-height: 1; cursor: pointer; padding: 0; }
+.menu-toggle:hover { border-color: #fff; }
+@media (max-width: 1023px) {
+  .site-header .wrap { position: relative; }
+  .menu-toggle { display: inline-flex; align-items: center; justify-content: center; }
+  .site-header.open .nav .menu { display: flex; flex-direction: column; align-items: stretch; gap: 0; position: absolute; top: 100%; left: 0; right: 0; margin: 0; padding: 8px 24px; background: var(--navy); border-bottom: 1px solid rgba(255,255,255,0.1); box-shadow: 0 20px 40px rgba(0,0,0,0.4); z-index: 60; }
+  .site-header.open .nav .menu a { display: block !important; padding: 16px 0; font-size: 12px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+  .site-header.open .nav .menu a:last-child { border-bottom: 0; }
+}
+@media (max-width: 480px) {
+  .site-header .wrap { padding: 12px 12px; }
+  .brand { gap: 8px; }
+  .brand span { font-size: 15px; }
+  .nav { gap: 8px; }
+  .lang { padding: 4px 9px !important; font-size: 11px !important; }
+  .nav a.btn.nav-btn { padding: 6px 12px; font-size: 12px; }
+  .menu-toggle { width: 32px; height: 32px; font-size: 16px; }
+}
+@media (max-width: 400px) {
+  .brand span { font-size: 13px; }
+  .nav { gap: 6px; }
+  .nav a.btn.nav-btn { padding: 6px 10px; }
+}
