@@ -134,6 +134,11 @@ const App: React.FC = () => {
   }, []);
 
   const RESOURCES_URL = lang === 'fr' ? '/fr/ressources/' : '/resources/';
+  // Opens the contact form and reports it to Google Analytics
+  const openContact = (source: string) => {
+    (window as any).gtag?.('event', 'open_contact_form', { source });
+    setIsAppointmentOpen(true);
+  };
 
   const APPLE_STORE_URL = "https://apps.apple.com/ca/app/pro-athlete-training-app/id6768344217";
   const GOOGLE_PLAY_URL = "https://play.google.com/store/apps/details?id=ca.proathlete.proathlete&hl=en_CA";
@@ -266,7 +271,7 @@ const App: React.FC = () => {
           </div>
 
           <button 
-            onClick={() => setIsAppointmentOpen(true)}
+            onClick={() => openContact('header')}
             className="flex items-center gap-2 bg-[#005776] text-white px-3 sm:px-4 md:px-6 py-1.5 sm:py-2 rounded-full font-bold text-xs md:text-sm hover:bg-white hover:text-[#002337] transition-all"
           >
             <MessageSquare size={16} className="hidden sm:block" /> 
@@ -287,7 +292,7 @@ const App: React.FC = () => {
         <PricingPage 
           lang={lang} 
           activeSport="ALL" 
-          onContactClick={() => setIsAppointmentOpen(true)} 
+          onContactClick={() => openContact('pricing')} 
           onBackToHome={() => {
             setCurrentPage('home');
             window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -748,7 +753,7 @@ const App: React.FC = () => {
               <li><a href={RESOURCES_URL} className="hover:text-white transition-colors">{t.footer.blog}</a></li>
               <li>
                 <button 
-                  onClick={() => setIsAppointmentOpen(true)}
+                  onClick={() => openContact('footer')}
                   className="hover:text-white transition-colors text-left"
                 >
                   {t.footer.contact}
