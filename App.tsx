@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: Apache-2.0
 */
 
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Apple, PlayCircle, CheckCircle2, Scan, Activity, 
@@ -106,7 +106,10 @@ const LogoMarquee = ({ partners }: { partners: { name: string; logo: string }[] 
 };
 
 const App: React.FC = () => {
-  const [lang, setLang] = useState<'en' | 'fr'>('en');
+  // Language can be set from the URL (?lang=fr), e.g. when coming from the French Resources page
+  const [lang, setLang] = useState<'en' | 'fr'>(() =>
+    typeof window !== 'undefined' && new URLSearchParams(window.location.search).get('lang') === 'fr' ? 'fr' : 'en'
+  );
   const [activeRole, setActiveRole] = useState<UserRole>('ATHLETES');
   const [newsletterEmail, setNewsletterEmail] = useState('');
   const [isSubscribed, setIsSubscribed] = useState(false);
@@ -115,6 +118,22 @@ const App: React.FC = () => {
   const [currentPage, setCurrentPage] = useState<'home' | 'pricing'>('home');
   
   const t = translations[lang];
+
+  // Open the right section when arriving from another page (e.g. /#pricing from Resources)
+  useEffect(() => {
+    const hash = window.location.hash.replace('#', '');
+    if (!hash) return;
+    if (hash === 'pricing') { setCurrentPage('pricing'); window.scrollTo(0, 0); return; }
+    if (hash === 'features') {
+      setCurrentPage('pricing');
+      setTimeout(() => document.getElementById('compare-features')?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 300);
+      return;
+    }
+    if (hash === 'contact') { setIsAppointmentOpen(true); return; }
+    setTimeout(() => document.getElementById(hash)?.scrollIntoView({ behavior: 'smooth' }), 300);
+  }, []);
+
+  const RESOURCES_URL = lang === 'fr' ? '/fr/ressources/' : '/resources/';
 
   const APPLE_STORE_URL = "https://apps.apple.com/ca/app/pro-athlete-training-app/id6768344217";
   const GOOGLE_PLAY_URL = "https://play.google.com/store/apps/details?id=ca.proathlete.proathlete&hl=en_CA";
@@ -223,6 +242,9 @@ const App: React.FC = () => {
                 </button>
               );
             })}
+            <a href={RESOURCES_URL} className="hover:text-[#5CE1E6] text-white/80 transition-colors">
+              {t.nav.resources}
+            </a>
           </div>
           <div className="h-4 w-px bg-white/20 mx-2" />
           <button 
@@ -723,7 +745,7 @@ const App: React.FC = () => {
             <h4 className="font-heading text-base md:text-lg font-black italic mb-6 md:mb-8 uppercase tracking-widest text-white">{t.footer.company}</h4>
             <ul className="space-y-3 md:space-y-4 text-white text-xs sm:text-sm">
               <li><a href="#" className="hover:text-white transition-colors">{t.footer.aboutUs}</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">{t.footer.blog}</a></li>
+              <li><a href={RESOURCES_URL} className="hover:text-white transition-colors">{t.footer.blog}</a></li>
               <li>
                 <button 
                   onClick={() => setIsAppointmentOpen(true)}
