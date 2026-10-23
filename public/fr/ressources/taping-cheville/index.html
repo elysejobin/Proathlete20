@@ -39,6 +39,15 @@
       y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "z2bv5wi9ky");
   </script>
+  <!-- Track app store clicks in Google Analytics -->
+  <script>
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('a[href]');
+      if (!a || typeof gtag !== 'function') return;
+      var name = a.href.indexOf('apps.apple.com') > -1 ? 'click_app_store' : a.href.indexOf('play.google.com') > -1 ? 'click_google_play' : null;
+      if (name) gtag('event', name, { link_url: a.href, link_page: location.pathname });
+    }, true);
+  </script>
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
