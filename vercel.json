@@ -15,6 +15,10 @@
     { "source": "/en/terms-conditions", "destination": "/", "permanent": true },
     { "source": "/en/the-pro-athlete-team", "destination": "/", "permanent": true },
     { "source": "/fr/l-equipe-pro-athlete", "destination": "/", "permanent": true },
-    { "source": "/fr/a-propos", "destination": "/", "permanent": true }
+    { "source": "/fr/a-propos", "destination": "/", "permanent": true },
+    { "source": "/fr/mon-compte", "destination": "/", "permanent": true },
+    { "source": "/en/my-account", "destination": "/", "permanent": true },
+    { "source": "/fr/er", "destination": "/", "permanent": true },
+    { "source": "/terms-conditions", "destination": "/", "permanent": true }
   ]
 }
