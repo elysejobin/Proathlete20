@@ -321,7 +321,7 @@ const App: React.FC = () => {
                   {(t.nav as any)[item.toLowerCase()] || item}
                 </button>
               ))}
-              <a href={RESOURCES_URL} className="py-4 border-b border-white/10 text-xs font-bold tracking-[0.2em] text-white/80 hover:text-[#5CE1E6] transition-colors">
+              <a href={RESOURCES_URL} className="py-4 border-b border-white/10 text-xs font-bold uppercase tracking-[0.2em] text-white/80 hover:text-[#5CE1E6] transition-colors">
                 {t.nav.resources}
               </a>
               <div className="flex items-center gap-6 py-4">
