@@ -1,0 +1,156 @@
+/* PRO ATHLETE resources — static pages, styled to match proathlete.ca */
+:root {
+  --navy: #002337;
+  --navy-2: #001726;
+  --blue: #005776;
+  --cyan: #5CE1E6;
+  --red: #E6331B;
+  --gray: #9AA3AB;
+  --line: rgba(255, 255, 255, 0.12);
+  --text: #ffffff;
+  --muted: rgba(255, 255, 255, 0.72);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--navy);
+  color: var(--text);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 18px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: #7cc4e4; }
+a:hover { color: #fff; }
+h1, h2, h3, .heading {
+  font-family: 'Oswald', 'Inter', sans-serif;
+  text-transform: uppercase;
+  font-style: italic;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+}
+
+/* Header */
+.site-header {
+  position: sticky; top: 0; z-index: 10;
+  background: rgba(0, 35, 55, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+.site-header .wrap {
+  max-width: 1100px; margin: 0 auto; padding: 14px 20px;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+}
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: #fff; }
+.brand img { width: 40px; height: 40px; filter: brightness(0) invert(1); } /* logo shown in white */
+.brand span { font-family: 'Oswald', sans-serif; font-weight: 700; font-style: italic; font-size: 20px; letter-spacing: 0.02em; }
+.nav { display: flex; gap: 20px; align-items: center; }
+.nav a { color: var(--muted); text-decoration: none; font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; }
+.nav a:hover, .nav a.active { color: #fff; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px; background: var(--blue); color: #fff !important; text-decoration: none;
+  font-weight: 700; font-size: 15px; padding: 12px 26px; border-radius: 16px;
+  box-shadow: 0 10px 20px -6px rgba(0, 87, 118, 0.5); transition: all .2s;
+}
+.btn:hover { background: #006b91; transform: scale(1.02); }
+.btn.secondary { background: transparent; border: 1px solid rgba(255,255,255,0.25); box-shadow: none; }
+.btn.secondary:hover { background: rgba(255,255,255,0.1); border-color: #fff; }
+.btn.nav-btn { border-radius: 999px; padding: 8px 22px; font-size: 14px; box-shadow: none; }
+.btn.nav-btn:hover { background: #fff; color: var(--navy) !important; transform: none; }
+
+/* Layout */
+.container { max-width: 760px; margin: 0 auto; padding: 0 20px; }
+.container.wide { max-width: 1100px; }
+
+/* Blog index */
+.res-hero { padding: 64px 0 32px; }
+.res-hero h1 { font-size: clamp(36px, 6vw, 60px); margin: 0 0 12px; }
+.res-hero p { color: var(--muted); max-width: 640px; margin: 0; }
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px; padding: 24px 0 80px; }
+.card {
+  background: var(--navy-2); border: 1px solid var(--line); border-radius: 20px; overflow: hidden;
+  text-decoration: none; color: #fff; display: flex; flex-direction: column; transition: transform .2s, border-color .2s;
+}
+.card:hover { transform: translateY(-3px); border-color: rgba(124,196,228,0.5); }
+.card img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; }
+.card .body { padding: 20px 22px 24px; }
+.card .tag { color: var(--cyan); font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; }
+.card h2 { font-size: 24px; margin: 8px 0 10px; }
+.card p { color: var(--muted); font-size: 16px; margin: 0; }
+
+/* Article */
+.article-head { padding: 56px 0 24px; }
+.breadcrumb { font-size: 14px; color: var(--muted); }
+.breadcrumb a { color: var(--muted); text-decoration: none; }
+.article-head h1 { font-size: clamp(32px, 5vw, 52px); margin: 14px 0 18px; }
+.byline { display: flex; align-items: center; gap: 12px; color: var(--muted); font-size: 15px; }
+.byline strong { color: #fff; }
+.cover { width: 100%; border-radius: 20px; margin: 28px 0 8px; display: block; }
+.article h2 { font-size: 30px; margin: 48px 0 12px; }
+.article h3 { font-size: 22px; margin: 28px 0 8px; font-style: normal; text-transform: none; font-family: 'Inter', sans-serif; font-weight: 700; }
+.article p, .article li { color: rgba(255,255,255,0.88); }
+.callout {
+  background: rgba(0, 87, 123, 0.25); border-left: 4px solid #7cc4e4;
+  padding: 16px 20px; border-radius: 0 12px 12px 0; margin: 28px 0;
+}
+.table-wrap { overflow-x: auto; margin: 20px 0; border: 1px solid var(--line); border-radius: 14px; }
+table { width: 100%; border-collapse: collapse; font-size: 16px; min-width: 560px; }
+th, td { text-align: left; padding: 12px 14px; vertical-align: top; border-bottom: 1px solid var(--line); }
+th { background: var(--navy-2); font-size: 13px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); }
+tr:last-child td { border-bottom: 0; }
+td:first-child { font-weight: 700; white-space: nowrap; }
+.video {
+  position: relative; aspect-ratio: 16/9; border-radius: 16px; overflow: hidden;
+  background: var(--navy-2); border: 1px dashed rgba(255,255,255,0.3);
+  display: flex; align-items: center; justify-content: center; color: var(--muted); margin: 28px 0;
+}
+.video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.cta {
+  background: linear-gradient(135deg, #00577B, #002337); border: 1px solid rgba(124,196,228,0.35);
+  border-radius: 20px; padding: 28px; margin: 48px 0; text-align: center;
+}
+.cta h2 { margin: 0 0 8px; font-size: 28px; }
+.cta p { color: var(--muted); margin: 0 0 18px; }
+.cta .buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.faq details { border-bottom: 1px solid var(--line); padding: 14px 0; }
+.faq summary { cursor: pointer; font-weight: 700; font-size: 18px; }
+.faq details p { margin: 10px 0 0; }
+.sources { font-size: 15px; color: var(--muted); }
+.sources li { color: var(--muted); }
+
+/* Footer */
+.site-footer { border-top: 1px solid var(--line); padding: 32px 0 48px; color: var(--muted); font-size: 14px; margin-top: 40px; }
+.site-footer .wrap { max-width: 1100px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.site-footer a { color: var(--muted); text-decoration: none; margin-right: 16px; }
+
+/* Preview-only review markers (remove before publishing) */
+.review { background: rgba(255, 214, 10, 0.18); outline: 1px dashed #ffd60a; border-radius: 4px; padding: 0 2px; }
+.review-note {
+  display: block; margin: 6px 0 0; font-size: 14px; color: #ffd60a; font-style: italic;
+}
+.preview-banner {
+  background: #ffd60a; color: #1a1a1a; text-align: center; font-size: 14px; font-weight: 700; padding: 8px 16px;
+}
+
+@media (max-width: 640px) {
+  body { font-size: 17px; }
+  .nav a:not(.btn):not(.lang) { display: none; }
+}
+
+/* Language switch (EN / FR) */
+.lang { color: var(--muted) !important; border: 1px solid rgba(255,255,255,0.2); border-radius: 999px; padding: 5px 12px !important; font-size: 12px !important; font-weight: 800 !important; letter-spacing: 0.15em !important; }
+.lang:hover { color: #fff !important; border-color: #fff; }
+.empty-note { color: var(--muted); font-style: italic; }
+.nav a.btn { text-transform: none; letter-spacing: normal; color: #fff; }
+
+/* Menu matching proathlete.ca */
+.nav { gap: 16px; }
+.nav .menu { display: flex; gap: 28px; align-items: center; margin-right: 8px; }
+.nav .menu a { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.2em; color: rgba(255,255,255,0.8); }
+.nav .menu a:hover, .nav .menu a.active { color: var(--cyan); }
+.nav a.btn.nav-btn { font-size: 14px; padding: 8px 22px; }
+@media (max-width: 1023px) { .nav .menu { display: none; } }
+.site-header .wrap { max-width: none; padding: 12px 64px; }
+.brand span, .nav a { white-space: nowrap; }
+@media (max-width: 1023px) { .site-header .wrap { padding: 12px 16px; } }
