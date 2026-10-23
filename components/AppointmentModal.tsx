@@ -40,6 +40,7 @@ const AppointmentModal: React.FC<AppointmentModalProps> = ({ isOpen, onClose, la
       });
       if (!response.ok) throw new Error('Failed to send');
       setIsSuccess(true);
+      (window as any).gtag?.('event', 'generate_lead', { form: 'contact' });
     } catch (error) {
       console.error('Error:', error);
       alert('Something went wrong. Please try again or email info@proathlete.ca directly.');
