@@ -1,7 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://www.proathlete.ca/</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-23</lastmod>
+  </url>
+  <url>
+    <loc>https://www.proathlete.ca/resources/</loc>
+    <lastmod>2026-10-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.proathlete.ca/resources/" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.proathlete.ca/fr/ressources/" />
+  </url>
+  <url>
+    <loc>https://www.proathlete.ca/fr/ressources/</loc>
+    <lastmod>2026-10-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.proathlete.ca/resources/" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.proathlete.ca/fr/ressources/" />
+  </url>
+  <url>
+    <loc>https://www.proathlete.ca/resources/how-to-tape-an-ankle/</loc>
+    <lastmod>2026-10-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.proathlete.ca/resources/how-to-tape-an-ankle/" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.proathlete.ca/fr/ressources/taping-cheville/" />
+  </url>
+  <url>
+    <loc>https://www.proathlete.ca/fr/ressources/taping-cheville/</loc>
+    <lastmod>2026-10-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.proathlete.ca/resources/how-to-tape-an-ankle/" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.proathlete.ca/fr/ressources/taping-cheville/" />
   </url>
 </urlset>

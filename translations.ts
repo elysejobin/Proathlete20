@@ -37,6 +37,7 @@ export const translations = {
       waitlist: "Waitlist",
       community: "Community",
       talkToUs: "Talk To Us",
+      resources: "Resources",
     },
     hero: {
       title: "PERFORM. PREVENT. PLAY LONGER.",
@@ -167,7 +168,7 @@ export const translations = {
       apiAccess: "API Access",
       aboutUs: "About Us",
       careers: "Careers",
-      blog: "Blog",
+      blog: "Resources",
       contact: "Contact",
       privacy: "PRIVACY",
       terms: "TERMS",
@@ -251,6 +252,7 @@ export const translations = {
       waitlist: "Liste d'attente",
       community: "Communauté",
       talkToUs: "Contactez-nous",
+      resources: "Ressources",
     },
     hero: {
       title: "PERFORME. PRÉVIENS. JOUE PLUS LONGTEMPS.",
@@ -381,7 +383,7 @@ export const translations = {
       apiAccess: "Accès API",
       aboutUs: "À propos",
       careers: "Carrières",
-      blog: "Blogue",
+      blog: "Ressources",
       contact: "Contact",
       privacy: "CONFIDENTIALITÉ",
       terms: "CONDITIONS",
