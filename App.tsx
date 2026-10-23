@@ -114,6 +114,7 @@ const App: React.FC = () => {
   const [newsletterEmail, setNewsletterEmail] = useState('');
   const [isSubscribed, setIsSubscribed] = useState(false);
   const [isAppointmentOpen, setIsAppointmentOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isPrivacyOpen, setIsPrivacyOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState<'home' | 'pricing'>('home');
   
@@ -138,6 +139,18 @@ const App: React.FC = () => {
   const openContact = (source: string) => {
     (window as any).gtag?.('event', 'open_contact_form', { source });
     setIsAppointmentOpen(true);
+  };
+  // Mobile menu: go to a section and close the menu
+  const goToSection = (item: string) => {
+    setIsMobileMenuOpen(false);
+    if (item === 'Pricing') { setCurrentPage('pricing'); window.scrollTo(0, 0); return; }
+    if (item === 'Features') {
+      setCurrentPage('pricing');
+      setTimeout(() => document.getElementById('compare-features')?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
+      return;
+    }
+    setCurrentPage('home');
+    setTimeout(() => document.getElementById(item.toLowerCase())?.scrollIntoView({ behavior: 'smooth' }), 50);
   };
 
   const APPLE_STORE_URL = "https://apps.apple.com/ca/app/pro-athlete-training-app/id6768344217";
@@ -285,7 +298,43 @@ const App: React.FC = () => {
           >
             <Globe size={12} /> {lang.toUpperCase()}
           </button>
+
+          <button
+            onClick={() => setIsMobileMenuOpen(prev => !prev)}
+            className="lg:hidden flex items-center justify-center w-9 h-9 rounded-full border border-white/20 hover:border-white transition-colors"
+            aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={isMobileMenuOpen}
+          >
+            {isMobileMenuOpen ? <X size={18} /> : <Menu size={18} />}
+          </button>
         </div>
+
+        {isMobileMenuOpen && (
+          <div className="lg:hidden absolute top-full left-0 w-full bg-[#002337] border-b border-white/10 shadow-2xl">
+            <div className="flex flex-col px-6 py-2">
+              {['Mission', 'Founder', 'Features', 'Pricing', 'Community'].map(item => (
+                <button
+                  key={item}
+                  onClick={() => goToSection(item)}
+                  className="text-left py-4 border-b border-white/10 text-xs font-bold uppercase tracking-[0.2em] text-white/80 hover:text-[#5CE1E6] transition-colors"
+                >
+                  {(t.nav as any)[item.toLowerCase()] || item}
+                </button>
+              ))}
+              <a href={RESOURCES_URL} className="py-4 border-b border-white/10 text-xs font-bold tracking-[0.2em] text-white/80 hover:text-[#5CE1E6] transition-colors">
+                {t.nav.resources}
+              </a>
+              <div className="flex items-center gap-6 py-4">
+                <a href="https://www.facebook.com/proathletebasketball/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[#5CE1E6] transition-colors" aria-label="Facebook">
+                  <Facebook size={20} />
+                </a>
+                <a href="https://www.instagram.com/proathlete.app/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[#5CE1E6] transition-colors" aria-label="Instagram">
+                  <Instagram size={20} />
+                </a>
+              </div>
+            </div>
+          </div>
+        )}
       </nav>
 
       {currentPage === 'pricing' ? (
