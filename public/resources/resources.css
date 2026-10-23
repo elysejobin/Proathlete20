@@ -147,7 +147,7 @@ td:first-child { font-weight: 700; white-space: nowrap; }
 /* Menu matching proathlete.ca */
 .nav { gap: 16px; }
 .nav .menu { display: flex; gap: 28px; align-items: center; margin-right: 8px; }
-.nav .menu a { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.2em; color: rgba(255,255,255,0.8); }
+.nav .menu a { font-size: 10px; font-weight: 700; text-transform: none; letter-spacing: 0.2em; color: rgba(255,255,255,0.8); }
 .nav .menu a:hover, .nav .menu a.active { color: var(--cyan); }
 .nav a.btn.nav-btn { font-size: 14px; padding: 8px 22px; }
 @media (max-width: 1023px) { .nav .menu { display: none; } }
