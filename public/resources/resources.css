@@ -154,3 +154,19 @@ td:first-child { font-weight: 700; white-space: nowrap; }
 .site-header .wrap { max-width: none; padding: 12px 64px; }
 .brand span, .nav a { white-space: nowrap; }
 @media (max-width: 1023px) { .site-header .wrap { padding: 12px 16px; } }
+
+/* Article details */
+.video:has(iframe) { border: 0; background: #000; }
+.article .lead { font-size: 20px; color: #fff; }
+.callout.highlight { margin-top: 8px; }
+.prescription { background: rgba(92, 225, 230, 0.08); border: 1px solid rgba(92, 225, 230, 0.25); border-radius: 12px; padding: 10px 16px; display: inline-block; }
+.article ol li, .article ul li { margin-bottom: 8px; }
+.back { margin: 48px 0 0; }
+.back a { color: var(--cyan); text-decoration: none; font-weight: 700; }
+.card h2 { text-transform: none; font-style: normal; font-family: 'Inter', sans-serif; font-weight: 800; font-size: 21px; }
+@media (max-width: 480px) {
+  .brand span { font-size: 17px; }
+  .brand img { width: 32px; height: 32px; }
+  .nav { gap: 10px; }
+  .nav a.btn.nav-btn { padding: 7px 14px; font-size: 13px; }
+}
