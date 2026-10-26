@@ -19,6 +19,13 @@
     { "source": "/fr/mon-compte", "destination": "/", "permanent": true },
     { "source": "/en/my-account", "destination": "/", "permanent": true },
     { "source": "/fr/er", "destination": "/", "permanent": true },
-    { "source": "/terms-conditions", "destination": "/", "permanent": true }
+    { "source": "/terms-conditions", "destination": "/", "permanent": true },
+    { "source": "/fr/vetements-pro-athlete", "destination": "/", "permanent": true },
+    { "source": "/en/pro-athlete-apparel", "destination": "/", "permanent": true },
+    { "source": "/fr/programmes-d-entrainement", "destination": "/", "permanent": true },
+    { "source": "/en/prevention-performance-program", "destination": "/", "permanent": true },
+    { "source": "/en/about", "destination": "/", "permanent": true },
+    { "source": "/en/index", "destination": "/", "permanent": true },
+    { "source": "/fr/index", "destination": "/", "permanent": true }
   ]
 }
