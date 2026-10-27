@@ -6,26 +6,50 @@
   </url>
   <url>
     <loc>https://www.proathlete.ca/resources/</loc>
-    <lastmod>2026-10-23</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.proathlete.ca/resources/" />
     <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.proathlete.ca/fr/ressources/" />
   </url>
   <url>
     <loc>https://www.proathlete.ca/fr/ressources/</loc>
-    <lastmod>2026-10-23</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.proathlete.ca/resources/" />
     <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.proathlete.ca/fr/ressources/" />
   </url>
   <url>
     <loc>https://www.proathlete.ca/resources/how-to-tape-an-ankle/</loc>
-    <lastmod>2026-10-23</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.proathlete.ca/resources/how-to-tape-an-ankle/" />
     <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.proathlete.ca/fr/ressources/taping-cheville/" />
   </url>
   <url>
     <loc>https://www.proathlete.ca/fr/ressources/taping-cheville/</loc>
-    <lastmod>2026-10-23</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.proathlete.ca/resources/how-to-tape-an-ankle/" />
     <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.proathlete.ca/fr/ressources/taping-cheville/" />
+  </url>
+  <url>
+    <loc>https://www.proathlete.ca/resources/free/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.proathlete.ca/resources/free/" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.proathlete.ca/fr/ressources/gratuites/" />
+  </url>
+  <url>
+    <loc>https://www.proathlete.ca/fr/ressources/gratuites/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.proathlete.ca/resources/free/" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.proathlete.ca/fr/ressources/gratuites/" />
+  </url>
+  <url>
+    <loc>https://www.proathlete.ca/resources/articles/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.proathlete.ca/resources/articles/" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.proathlete.ca/fr/ressources/articles/" />
+  </url>
+  <url>
+    <loc>https://www.proathlete.ca/fr/ressources/articles/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.proathlete.ca/resources/articles/" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.proathlete.ca/fr/ressources/articles/" />
   </url>
 </urlset>

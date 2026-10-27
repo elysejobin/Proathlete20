@@ -44,7 +44,7 @@
     document.addEventListener('click', function (e) {
       var a = e.target.closest && e.target.closest('a[href]');
       if (!a || typeof gtag !== 'function') return;
-      var name = a.href.indexOf('apps.apple.com') > -1 ? 'click_app_store' : a.href.indexOf('play.google.com') > -1 ? 'click_google_play' : null;
+      var name = a.href.indexOf('apps.apple.com') > -1 ? 'click_app_store' : a.href.indexOf('play.google.com') > -1 ? 'click_google_play' : a.href.indexOf('clientclub.net') > -1 ? 'click_free_resource' : null;
       if (name) gtag('event', name, { link_url: a.href, link_page: location.pathname });
     }, true);
   </script>
@@ -136,7 +136,7 @@
           <a href="/#features">Features</a>
           <a href="/#pricing">Pricing</a>
           <a href="/#community">Community</a>
-          <a href="/resources/" class="active" aria-current="page">Resources</a>
+          <div class="dd"><a href="/resources/" class="active">Resources</a><div class="dd-panel"><div class="inner"><a href="/resources/free/">Free resources<small>Video mini-courses, instant access</small></a><a href="/resources/articles/">Articles<small>Injury-prevention and training tips</small></a></div></div></div>
         </div>
         <a class="lang" href="/fr/ressources/taping-cheville/" hreflang="fr" title="Français">FR</a>
         <a class="btn nav-btn" href="/#contact">Talk To Us</a>
@@ -220,6 +220,16 @@
         <a class="btn secondary" href="https://play.google.com/store/apps/details?id=ca.proathlete.proathlete">Get it on Google Play</a>
       </div>
     </div>
+
+        <aside class="lm-box">
+      <div class="lm-box-top"><img src="https://assets.bigvu.tv/image/69651f9b96b4ad5756466e3c/asset.png" alt="" /><span class="badge">Free</span></div>
+      <h2>Want to go further?</h2>
+      <p>Our free mini-courses, designed by health professionals, help you prevent injuries and perform better. 4 practical pillars you can apply at your next practice.</p>
+      <div class="buttons">
+        <a class="btn free" href="https://u4h4sfdczzyttdiwzhlb.app.clientclub.net/courses/offers/fa3d5d32-71b9-49de-9485-02f221bf79b7?utm_source=proathlete.ca&amp;utm_medium=article">I'm an athlete or parent</a>
+        <a class="btn secondary" style="border-radius: 999px;" href="https://u4h4sfdczzyttdiwzhlb.app.clientclub.net/courses/offers/c0a53a79-7cbe-47eb-a8f8-1ec0af9d3683?utm_source=proathlete.ca&amp;utm_medium=article">I'm a coach</a>
+      </div>
+    </aside>
 
     <h2>Frequently asked questions</h2>
     <div class="faq"><details open><summary>How long does an ankle sprain take to heal?</summary><p>Depending on the severity of the sprain, it can take anywhere from 2 weeks for a minor sprain to 3–6 months for a major sprain.</p></details><details><summary>Can you walk on a sprained ankle?</summary><p><em>Disclaimer: this is not medical advice. See a health professional for an assessment and the right advice for your sprain.</em></p><p>It depends on the severity of the sprain, your pain and the judgement of the physiotherapist who assessed you. General rules of thumb:</p><ul><li>If it's too painful to walk, use crutches or a boot to take the load off for a few days.</li><li>If it's too painful to put any weight on the ankle, you might need an X-ray to rule out a fracture. Your physio will judge whether it's necessary.</li><li>If it's a bit painful but you're able to walk, you don't need crutches or a boot, but it's important to limit walking to let the ligaments heal.</li></ul></details><details><summary>How do I heal a sprained ankle quickly?</summary><p>You can't go faster than your body allows. The best way to heal as quickly as possible is to stop playing as soon as you injure your ankle, and apply general principles to reduce pain and swelling at the beginning. You should also be guided by a physiotherapist throughout your rehab and do your exercises consistently.</p><p>Going back to play too quickly can actually slow down your healing. Wait until you're cleared to get back on the court or field, so your ankle is ready for the demands of your sport.</p></details></div>

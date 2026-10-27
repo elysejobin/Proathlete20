@@ -42,7 +42,7 @@
     document.addEventListener('click', function (e) {
       var a = e.target.closest && e.target.closest('a[href]');
       if (!a || typeof gtag !== 'function') return;
-      var name = a.href.indexOf('apps.apple.com') > -1 ? 'click_app_store' : a.href.indexOf('play.google.com') > -1 ? 'click_google_play' : null;
+      var name = a.href.indexOf('apps.apple.com') > -1 ? 'click_app_store' : a.href.indexOf('play.google.com') > -1 ? 'click_google_play' : a.href.indexOf('clientclub.net') > -1 ? 'click_free_resource' : null;
       if (name) gtag('event', name, { link_url: a.href, link_page: location.pathname });
     }, true);
   </script>
@@ -61,7 +61,7 @@
           <a href="/?lang=fr#features">Fonctionnalités</a>
           <a href="/?lang=fr#pricing">Tarifs</a>
           <a href="/?lang=fr#community">Communauté</a>
-          <a href="/fr/ressources/" class="active">Ressources</a>
+          <div class="dd"><a href="/fr/ressources/" class="active">Ressources</a><div class="dd-panel"><div class="inner"><a href="/fr/ressources/gratuites/">Ressources gratuites<small>Mini-formations vidéo, accès immédiat</small></a><a href="/fr/ressources/articles/">Articles<small>Conseils de prévention et d'entraînement</small></a></div></div></div>
         </div>
         <a class="lang" href="/resources/" hreflang="en" title="English">EN</a>
         <a class="btn nav-btn" href="/?lang=fr#contact">Contactez-nous</a>
@@ -74,14 +74,69 @@
     <section class="res-hero">
       <h1>Ressources PRO ATHLETE</h1>
       <p>Échauffements, musculation et prévention des blessures en basketball, soccer et plus. Rédigés par des professionnels de la santé, avec des vidéos à suivre sur le terrain.</p>
+      <div class="jump"><a class="pill solid" href="#gratuit">Ressources gratuites</a><a class="pill" href="#articles">Articles</a></div>
     </section>
 
-    <section class="cards">
-      <!-- Article cards go here, newest first -->
+    <section class="res-section" id="gratuit" aria-labelledby="titre-gratuit">
+      <div class="section-head">
+        <div><h2 id="titre-gratuit">Ressources gratuites</h2><div class="bar"></div><p>Des mini-formations vidéo conçues par des professionnels de la santé. Gratuites, accès immédiat.</p></div>
+        <a class="see-all" href="/fr/ressources/gratuites/">Voir toutes les ressources gratuites →</a>
+      </div>
+      <div class="lm-grid">
+      <article class="lm-card">
+        <div class="lm-top"><div><span class="lm-kicker">Mini-formation vidéo</span><span class="lm-big">4 piliers</span></div><img src="https://assets.bigvu.tv/image/69651f9b96b4ad5756466e3c/asset.png" alt="" /></div>
+        <div class="lm-body">
+          <span class="badge">Gratuit · Athlètes et parents</span>
+          <h3>Mieux performer, moins se blesser</h3>
+          <p>Une courte formation vidéo en 4 piliers, conçue par des professionnels de la santé. À la fin, tu sauras :</p>
+          <ul>
+            <li><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5CE1E6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"></path></svg><span>faire un échauffement qui prépare vraiment ton corps à l'effort ;</span></li>
+            <li><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5CE1E6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"></path></svg><span>intégrer des exercices de prévention à ta routine ;</span></li>
+            <li><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5CE1E6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"></path></svg><span>structurer tes séances de musculation ;</span></li>
+            <li><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5CE1E6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"></path></svg><span>gérer ta récupération et ton volume d'entraînement.</span></li>
+          </ul>
+          <div class="lm-foot"><span class="meta">Accès immédiat · 0 $</span><a class="btn free" href="https://u4h4sfdczzyttdiwzhlb.app.clientclub.net/courses/offers/4e7b84a1-485c-4402-836e-05b297e502e8?utm_source=proathlete.ca&amp;utm_medium=ressources">Accéder gratuitement</a></div>
+        </div>
+      </article>
+      <article class="lm-card coach">
+        <div class="lm-top"><div><span class="lm-kicker">Mini-formation vidéo</span><span class="lm-big">Pour les coachs</span></div><img src="https://assets.bigvu.tv/image/69651f9b96b4ad5756466e3c/asset.png" alt="" /></div>
+        <div class="lm-body">
+          <span class="badge">Gratuit · Coachs</span>
+          <h3>4 piliers essentiels pour la prévention et la performance</h3>
+          <p>La formation express pour garder votre équipe en santé toute la saison. À la fin, vous saurez :</p>
+          <ul>
+            <li><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5CE1E6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"></path></svg><span>mettre en place un échauffement d'équipe efficace ;</span></li>
+            <li><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5CE1E6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"></path></svg><span>intégrer des exercices de prévention à vos entraînements ;</span></li>
+            <li><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5CE1E6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"></path></svg><span>planifier le travail en force de vos joueurs ;</span></li>
+            <li><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5CE1E6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"></path></svg><span>ajuster la charge d'entraînement et la récupération.</span></li>
+          </ul>
+          <div class="lm-foot"><span class="meta">Accès immédiat · 0 $</span><a class="btn free" href="https://u4h4sfdczzyttdiwzhlb.app.clientclub.net/courses/offers/b55d457c-adca-449b-8997-475e9aad080a?utm_source=proathlete.ca&amp;utm_medium=ressources">Accéder gratuitement</a></div>
+        </div>
+      </article>
+      <article class="lm-card soon">
+        <div class="lm-top"><div><span class="lm-kicker">Nouvelle ressource</span><span class="lm-big">Bientôt</span></div><img src="https://assets.bigvu.tv/image/69651f9b96b4ad5756466e3c/asset.png" alt="" /></div>
+        <div class="lm-body">
+          <span class="badge soon">Bientôt</span>
+          <h3>Nouvelle ressource gratuite</h3>
+          <p>Une nouvelle mini-formation gratuite arrive bientôt. Revenez nous voir!</p>
+          <div class="lm-foot"><span class="meta"></span><button class="btn-disabled" type="button" disabled>Bientôt disponible</button></div>
+        </div>
+      </article>
+      </div>
+    </section>
+
+    <section class="res-section" id="articles" aria-labelledby="titre-articles">
+      <div class="section-head">
+        <div><h2 id="titre-articles">Articles</h2><div class="bar"></div><p>Conseils de prévention des blessures et d'entraînement pour les athlètes, les parents et les coachs.</p></div>
+        <a class="see-all" href="/fr/ressources/articles/">Voir tous les articles →</a>
+      </div>
+      <div class="cards">
+        <!-- Article cards go here, newest first (keep the 3 most recent) -->
       <a class="card" href="/fr/ressources/taping-cheville/">
         <img src="/resources/how-to-tape-an-ankle/image.png" alt="" loading="lazy" />
-        <div class="body"><div class="tag">Basketball · Soccer · Cheville</div><h2>Taping de la cheville : quand l'utiliser et comment prévenir les entorses?</h2><p>Quand le taping aide, comment le faire étape par étape, et les exercices qui préviennent vraiment les entorses.</p></div>
+        <div class="body"><div class="tag">Basketball · Soccer · Cheville</div><h3>Taping de la cheville : quand l'utiliser et comment prévenir les entorses?</h3><p>Quand le taping aide, comment le faire étape par étape, et les exercices qui préviennent vraiment les entorses.</p></div>
       </a>
+      </div>
     </section>
   </main>
 

@@ -44,7 +44,7 @@
     document.addEventListener('click', function (e) {
       var a = e.target.closest && e.target.closest('a[href]');
       if (!a || typeof gtag !== 'function') return;
-      var name = a.href.indexOf('apps.apple.com') > -1 ? 'click_app_store' : a.href.indexOf('play.google.com') > -1 ? 'click_google_play' : null;
+      var name = a.href.indexOf('apps.apple.com') > -1 ? 'click_app_store' : a.href.indexOf('play.google.com') > -1 ? 'click_google_play' : a.href.indexOf('clientclub.net') > -1 ? 'click_free_resource' : null;
       if (name) gtag('event', name, { link_url: a.href, link_page: location.pathname });
     }, true);
   </script>
@@ -136,7 +136,7 @@
           <a href="/?lang=fr#features">Fonctionnalités</a>
           <a href="/?lang=fr#pricing">Tarifs</a>
           <a href="/?lang=fr#community">Communauté</a>
-          <a href="/fr/ressources/" class="active" aria-current="page">Ressources</a>
+          <div class="dd"><a href="/fr/ressources/" class="active">Ressources</a><div class="dd-panel"><div class="inner"><a href="/fr/ressources/gratuites/">Ressources gratuites<small>Mini-formations vidéo, accès immédiat</small></a><a href="/fr/ressources/articles/">Articles<small>Conseils de prévention et d'entraînement</small></a></div></div></div>
         </div>
         <a class="lang" href="/resources/how-to-tape-an-ankle/" hreflang="en" title="English">EN</a>
         <a class="btn nav-btn" href="/?lang=fr#contact">Contactez-nous</a>
@@ -228,6 +228,16 @@
         <a class="btn secondary" href="https://play.google.com/store/apps/details?id=ca.proathlete.proathlete">Télécharger sur Google Play</a>
       </div>
     </div>
+
+        <aside class="lm-box">
+      <div class="lm-box-top"><img src="https://assets.bigvu.tv/image/69651f9b96b4ad5756466e3c/asset.png" alt="" /><span class="badge">Gratuit</span></div>
+      <h2>Envie d'aller plus loin?</h2>
+      <p>Nos mini-formations gratuites, conçues par des professionnels de la santé, vous aident à prévenir les blessures et à mieux performer. 4 piliers concrets à appliquer dès votre prochain entraînement.</p>
+      <div class="buttons">
+        <a class="btn free" href="https://u4h4sfdczzyttdiwzhlb.app.clientclub.net/courses/offers/4e7b84a1-485c-4402-836e-05b297e502e8?utm_source=proathlete.ca&amp;utm_medium=article">Je suis athlète ou parent</a>
+        <a class="btn secondary" style="border-radius: 999px;" href="https://u4h4sfdczzyttdiwzhlb.app.clientclub.net/courses/offers/b55d457c-adca-449b-8997-475e9aad080a?utm_source=proathlete.ca&amp;utm_medium=article">Je suis coach</a>
+      </div>
+    </aside>
 
     <h2>Foire aux questions</h2>
     <div class="faq"><details open><summary>Combien de temps faut-il pour guérir d&#x27;une entorse de la cheville?</summary><p>Le temps de guérison dépend de la gravité de l'entorse. Une entorse légère peut nécessiter environ 2 semaines de récupération, tandis qu'une entorse plus importante peut demander de 3 à 6 mois avant un retour complet aux activités sportives.</p><p>Il est important de comprendre que la disparition de la douleur ne signifie pas nécessairement que les ligaments et les capacités fonctionnelles de la cheville sont complètement rétablis.</p></details><details><summary>Peut-on marcher avec une entorse de la cheville?</summary><p>Cela dépend de la gravité de l'entorse, de votre douleur et de l'évaluation réalisée par votre physiothérapeute ou un autre professionnel de la santé. Voici quelques principes généraux :</p><ul><li>Si la marche est très douloureuse, l'utilisation temporaire de béquilles ou d'une botte de marche peut être recommandée afin de diminuer la charge sur la cheville.</li><li>Si vous êtes incapable de mettre du poids sur votre pied, une radiographie pourrait être nécessaire pour exclure une fracture. Votre professionnel de la santé pourra déterminer si cet examen est indiqué.</li><li>Si vous êtes capable de marcher avec une douleur légère, il n'est pas toujours nécessaire d'utiliser des béquilles ou une botte. Il demeure toutefois important d'adapter la quantité de marche à votre tolérance et à la gravité de la blessure.</li></ul><p><strong>Important :</strong> ces recommandations sont générales et ne remplacent pas une évaluation médicale ou en physiothérapie. Chaque entorse est différente.</p></details><details><summary>Comment guérir rapidement d&#x27;une entorse de la cheville?</summary><p>Il n'existe pas de solution miracle pour accélérer la guérison d'une entorse : les tissus ont besoin de temps pour récupérer. La meilleure stratégie consiste à favoriser une guérison optimale dès le départ.</p><p>D'abord, cessez votre activité sportive dès que vous vous blessez et appliquez les principes de prise en charge initiale pour limiter la douleur et l'enflure. Ensuite, consultez un physiothérapeute pour obtenir un programme de réadaptation adapté à votre blessure et assurez-vous de réaliser vos exercices régulièrement.</p><p><strong>Un retour au jeu trop rapide peut augmenter le risque de récidive et prolonger votre processus de récupération.</strong> Attendez d'avoir obtenu le feu vert pour retourner sur le terrain ou sur le court. Votre cheville doit être prête à supporter les contraintes importantes de votre sport.</p></details></div>
