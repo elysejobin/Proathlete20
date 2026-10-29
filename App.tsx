@@ -8,7 +8,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Apple, PlayCircle, CheckCircle2, Scan, Activity, 
-  ShieldCheck, BrainCircuit, HeartPulse, ChevronRight, 
+  ShieldCheck, BrainCircuit, HeartPulse, ChevronRight, ChevronDown, 
   Menu, X, Star, Globe, Mail, Send,
   Accessibility, Footprints, Smile, Dumbbell, History,
   ArrowLeft, School, User, Heart, Zap, Timer, Star as StarIcon, Quote,
@@ -135,6 +135,15 @@ const App: React.FC = () => {
   }, []);
 
   const RESOURCES_URL = lang === 'fr' ? '/fr/ressources/' : '/resources/';
+  const RESOURCES_MENU = lang === 'fr'
+    ? [
+        { href: '/fr/ressources/gratuites/', label: 'Ressources gratuites', desc: 'Formations vidéo, guides PDF et encore plus' },
+        { href: '/fr/ressources/articles/', label: 'Articles', desc: 'Conseils de prévention et performance' },
+      ]
+    : [
+        { href: '/resources/free/', label: 'Free resources', desc: 'Video courses, PDF guides, and more' },
+        { href: '/resources/articles/', label: 'Articles', desc: 'Injury prevention and performance tips' },
+      ];
   // Opens the contact form and reports it to Google Analytics
   const openContact = (source: string) => {
     (window as any).gtag?.('event', 'open_contact_form', { source });
@@ -260,9 +269,22 @@ const App: React.FC = () => {
                 </button>
               );
             })}
-            <a href={RESOURCES_URL} className="normal-case hover:text-[#5CE1E6] text-white/80 transition-colors">
-              {t.nav.resources}
-            </a>
+            <div className="relative group">
+              <a href={RESOURCES_URL} className="normal-case hover:text-[#5CE1E6] text-white/80 transition-colors inline-flex items-center gap-1.5" aria-haspopup="true">
+                {t.nav.resources}
+                <ChevronDown size={12} className="transition-transform group-hover:rotate-180 group-focus-within:rotate-180" />
+              </a>
+              <div className="absolute left-[-16px] top-full pt-4 z-50 hidden group-hover:block group-focus-within:block">
+                <div className="w-[290px] bg-[#001726] border border-white/10 rounded-2xl p-2 shadow-2xl shadow-black/50 flex flex-col gap-0.5 normal-case tracking-normal">
+                  {RESOURCES_MENU.map(link => (
+                    <a key={link.href} href={link.href} className="flex flex-col gap-1 px-3.5 py-3 rounded-xl hover:bg-white/5 transition-colors">
+                      <span className="text-sm font-bold text-white">{link.label}</span>
+                      <span className="text-xs font-medium text-white/60">{link.desc}</span>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
           <div className="h-4 w-px bg-white/20 mx-2" />
           <button 
@@ -321,9 +343,17 @@ const App: React.FC = () => {
                   {(t.nav as any)[item.toLowerCase()] || item}
                 </button>
               ))}
-              <a href={RESOURCES_URL} className="py-4 border-b border-white/10 text-xs font-bold uppercase tracking-[0.2em] text-white/80 hover:text-[#5CE1E6] transition-colors">
+              <a href={RESOURCES_URL} className="pt-4 pb-2 text-xs font-bold uppercase tracking-[0.2em] text-white/80 hover:text-[#5CE1E6] transition-colors">
                 {t.nav.resources}
               </a>
+              <div className="flex flex-col pl-4 pb-3 border-b border-white/10">
+                {RESOURCES_MENU.map(link => (
+                  <a key={link.href} href={link.href} className="py-2.5 text-sm font-semibold text-white/80 hover:text-[#5CE1E6] transition-colors">
+                    {link.label}
+                    <span className="block text-xs font-medium text-white/50">{link.desc}</span>
+                  </a>
+                ))}
+              </div>
               <div className="flex items-center gap-6 py-4">
                 <a href="https://www.facebook.com/proathletebasketball/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[#5CE1E6] transition-colors" aria-label="Facebook">
                   <Facebook size={20} />
