@@ -814,8 +814,8 @@ const App: React.FC = () => {
         <div className="max-w-7xl mx-auto mt-12 md:mt-20 pt-8 md:pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 md:gap-8 text-[9px] sm:text-[10px] font-bold tracking-widest text-white uppercase">
           <div>© 2026 PRO ATHLETE INC. {t.footer.rights}</div>
           <div className="flex gap-4 sm:gap-6 md:gap-8">
-            <button onClick={() => setIsPrivacyOpen(true)} className="hover:text-white transition-colors text-left uppercase">{t.footer.privacy}</button>
-            <a href="#" className="hover:text-white transition-colors">{t.footer.terms}</a>
+            <a href={lang === 'fr' ? '/fr/confidentialite/' : '/privacy/'} className="hover:text-white transition-colors">{t.footer.privacy}</a>
+            <a href={lang === 'fr' ? '/fr/conditions/' : '/terms/'} className="hover:text-white transition-colors">{t.footer.terms}</a>
             <a href="#" className="hover:text-white transition-colors">{t.footer.cookies}</a>
           </div>
         </div>

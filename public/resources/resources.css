@@ -264,3 +264,11 @@ td:first-child { font-weight: 700; white-space: nowrap; }
   .site-header.open .nav .menu .dd-panel a small { display: none; }
 }
 .card h3 { font-family: 'Inter', sans-serif; font-style: normal; text-transform: none; font-weight: 800; font-size: 21px; margin: 8px 0 10px; line-height: 1.3; }
+
+/* Legal pages */
+.legal h2 { font-size: 26px; margin: 40px 0 12px; }
+.legal h3 { font-size: 18px; }
+.legal p, .legal li { font-size: 16px; line-height: 1.7; }
+.legal p.caps { font-size: 14px; letter-spacing: 0.01em; }
+.legal ul { padding-left: 22px; }
+.legal a { color: var(--cyan); }
