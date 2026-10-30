@@ -44,7 +44,7 @@
     document.addEventListener('click', function (e) {
       var a = e.target.closest && e.target.closest('a[href]');
       if (!a || typeof gtag !== 'function') return;
-      var name = a.href.indexOf('apps.apple.com') > -1 ? 'click_app_store' : a.href.indexOf('play.google.com') > -1 ? 'click_google_play' : a.href.indexOf('clientclub.net') > -1 ? 'click_free_resource' : null;
+      var name = a.href.indexOf('apps.apple.com') > -1 ? 'click_app_store' : a.href.indexOf('play.google.com') > -1 ? 'click_google_play' : (a.href.indexOf('clientclub.net') > -1 || /\/(formation-4-piliers|formation-coachs|4-pillars-course|coaches-course|trousse-soccer|trousse-basketball|soccer-starter-kit|basketball-starter-kit)\//.test(a.href)) ? 'click_free_resource' : null;
       if (name) gtag('event', name, { link_url: a.href, link_page: location.pathname });
     }, true);
   </script>
@@ -226,8 +226,8 @@
       <h2>Want to go further?</h2>
       <p>Our free mini-courses, designed by health professionals, help you prevent injuries and perform better. 4 practical pillars you can apply at your next practice.</p>
       <div class="buttons">
-        <a class="btn free" href="https://u4h4sfdczzyttdiwzhlb.app.clientclub.net/courses/offers/fa3d5d32-71b9-49de-9485-02f221bf79b7?utm_source=proathlete.ca&amp;utm_medium=article">I'm an athlete or parent</a>
-        <a class="btn secondary" style="border-radius: 999px;" href="https://u4h4sfdczzyttdiwzhlb.app.clientclub.net/courses/offers/c0a53a79-7cbe-47eb-a8f8-1ec0af9d3683?utm_source=proathlete.ca&amp;utm_medium=article">I'm a coach</a>
+        <a class="btn free" href="/resources/4-pillars-course/">I'm an athlete or parent</a>
+        <a class="btn secondary" style="border-radius: 999px;" href="/resources/coaches-course/">I'm a coach</a>
       </div>
     </aside>
 

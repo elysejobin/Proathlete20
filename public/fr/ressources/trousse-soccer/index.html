@@ -42,7 +42,7 @@
     document.addEventListener('click', function (e) {
       var a = e.target.closest && e.target.closest('a[href]');
       if (!a || typeof gtag !== 'function') return;
-      var name = a.href.indexOf('apps.apple.com') > -1 ? 'click_app_store' : a.href.indexOf('play.google.com') > -1 ? 'click_google_play' : a.href.indexOf('clientclub.net') > -1 ? 'click_free_resource' : null;
+      var name = a.href.indexOf('apps.apple.com') > -1 ? 'click_app_store' : a.href.indexOf('play.google.com') > -1 ? 'click_google_play' : (a.href.indexOf('clientclub.net') > -1 || /\/(formation-4-piliers|formation-coachs|4-pillars-course|coaches-course|trousse-soccer|trousse-basketball|soccer-starter-kit|basketball-starter-kit)\//.test(a.href)) ? 'click_free_resource' : null;
       if (name) gtag('event', name, { link_url: a.href, link_page: location.pathname });
     }, true);
   </script>

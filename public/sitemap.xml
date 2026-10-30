@@ -100,4 +100,28 @@
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.proathlete.ca/resources/basketball-starter-kit/" />
     <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.proathlete.ca/fr/ressources/trousse-basketball/" />
   </url>
+  <url>
+    <loc>https://www.proathlete.ca/resources/4-pillars-course/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.proathlete.ca/resources/4-pillars-course/" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.proathlete.ca/fr/ressources/formation-4-piliers/" />
+  </url>
+  <url>
+    <loc>https://www.proathlete.ca/fr/ressources/formation-4-piliers/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.proathlete.ca/resources/4-pillars-course/" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.proathlete.ca/fr/ressources/formation-4-piliers/" />
+  </url>
+  <url>
+    <loc>https://www.proathlete.ca/resources/coaches-course/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.proathlete.ca/resources/coaches-course/" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.proathlete.ca/fr/ressources/formation-coachs/" />
+  </url>
+  <url>
+    <loc>https://www.proathlete.ca/fr/ressources/formation-coachs/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.proathlete.ca/resources/coaches-course/" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.proathlete.ca/fr/ressources/formation-coachs/" />
+  </url>
 </urlset>
