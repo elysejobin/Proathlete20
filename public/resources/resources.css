@@ -310,3 +310,15 @@ td:first-child { font-weight: 700; white-space: nowrap; }
 .lm-grid.compact .lm-foot .btn { text-align: center; }
 @media (min-width: 640px) { .lm-grid.compact { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (min-width: 1040px) { .lm-grid.compact { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+/* Hub compact cards: larger, with a short description, equal banners */
+.lm-grid.compact .lm-card .lm-top { height: 118px; align-items: center; }
+.lm-grid.compact .lm-card .lm-kicker { font-size: 11.5px; white-space: nowrap; }
+.lm-grid.compact .lm-card .lm-big { font-size: 25px; }
+.lm-grid.compact .lm-card .lm-top img { width: 44px; height: 44px; }
+.lm-grid.compact .lm-card h3 { font-size: 19px; line-height: 1.3; }
+.lm-grid.compact .lm-card .lm-body > p { display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; font-size: 14.5px; line-height: 1.55; }
+.lm-grid.compact .badge { font-size: 11.5px; }
+.lm-grid.compact .lm-foot .meta { font-size: 13px; }
+.lm-grid.compact .lm-foot .btn { font-size: 15px; }
+.lm-grid.compact .lm-card .lm-body > p { -webkit-line-clamp: unset; display: block; overflow: visible; }
+.lm-card .lm-top { min-height: 118px; box-sizing: border-box; }
