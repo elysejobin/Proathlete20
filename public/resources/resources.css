@@ -272,3 +272,28 @@ td:first-child { font-weight: 700; white-space: nowrap; }
 .legal p.caps { font-size: 14px; letter-spacing: 0.01em; }
 .legal ul { padding-left: 22px; }
 .legal a { color: var(--cyan); }
+
+/* PDF starter kits */
+.lm-card.pdf .lm-top { background-size: cover; background-position: center; position: relative; min-height: 104px; }
+.lm-card.pdf .lm-top::before { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(0,23,38,0.95) 0%, rgba(0,23,38,0.75) 55%, rgba(0,23,38,0.35) 100%); }
+.lm-card.pdf .lm-top > * { position: relative; }
+.lm-card.pdf.soccer .lm-top { background-image: url(/resources/guides/soccer.jpg); }
+.lm-card.pdf.basket .lm-top { background-image: url(/resources/guides/basketball.jpg); background-position: 70% 30%; }
+.kit { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 520px); gap: 48px; align-items: start; padding: 8px 0 72px; }
+.kit h2 { font-size: 26px; margin: 28px 0 14px; }
+.kit .lead { font-size: 18px; color: rgba(255,255,255,0.9); line-height: 1.6; margin: 0; }
+.kit ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+.kit li { display: flex; gap: 12px; align-items: flex-start; font-size: 16px; line-height: 1.55; color: rgba(255,255,255,0.9); }
+.kit li svg { flex-shrink: 0; margin-top: 4px; }
+.kit .how { margin-top: 22px; color: var(--muted); font-size: 15px; }
+.kit .other { margin-top: 26px; font-size: 15px; color: var(--muted); }
+.kit .other a { color: var(--cyan); font-weight: 700; text-decoration: none; }
+.kit-form { background: #fff; border-radius: 20px; padding: 8px; box-shadow: 0 20px 50px rgba(0,0,0,0.35); position: sticky; top: 96px; }
+.kit-form h2 { color: #23273F; font-size: 22px; margin: 14px 16px 4px; }
+.kit-form iframe { width: 100%; min-height: 860px; border: 0; display: block; border-radius: 14px; }
+@media (max-width: 900px) {
+  .kit { grid-template-columns: 1fr; gap: 28px; }
+  .kit-form { position: static; }
+  .kit-form iframe { min-height: 820px; }
+}
+@media (min-width: 760px) { .lm-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }

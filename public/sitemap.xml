@@ -76,4 +76,28 @@
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.proathlete.ca/terms/" />
     <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.proathlete.ca/fr/conditions/" />
   </url>
+  <url>
+    <loc>https://www.proathlete.ca/resources/soccer-starter-kit/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.proathlete.ca/resources/soccer-starter-kit/" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.proathlete.ca/fr/ressources/trousse-soccer/" />
+  </url>
+  <url>
+    <loc>https://www.proathlete.ca/fr/ressources/trousse-soccer/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.proathlete.ca/resources/soccer-starter-kit/" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.proathlete.ca/fr/ressources/trousse-soccer/" />
+  </url>
+  <url>
+    <loc>https://www.proathlete.ca/resources/basketball-starter-kit/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.proathlete.ca/resources/basketball-starter-kit/" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.proathlete.ca/fr/ressources/trousse-basketball/" />
+  </url>
+  <url>
+    <loc>https://www.proathlete.ca/fr/ressources/trousse-basketball/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.proathlete.ca/resources/basketball-starter-kit/" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.proathlete.ca/fr/ressources/trousse-basketball/" />
+  </url>
 </urlset>
