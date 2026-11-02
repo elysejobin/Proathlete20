@@ -105,6 +105,7 @@ td:first-child { font-weight: 700; white-space: nowrap; }
   background: var(--navy-2); border: 1px dashed rgba(255,255,255,0.3);
   display: flex; align-items: center; justify-content: center; color: var(--muted); margin: 28px 0;
 }
+#video-taping { scroll-margin-top: 90px; }
 .video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 .cta {
   background: linear-gradient(135deg, #00577B, #002337); border: 1px solid rgba(124,196,228,0.35);
@@ -113,6 +114,17 @@ td:first-child { font-weight: 700; white-space: nowrap; }
 .cta h2 { margin: 0 0 8px; font-size: 28px; }
 .cta p { color: var(--muted); margin: 0 0 18px; }
 .cta .buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.cover-link { display: block; border-radius: 16px; }
+.cover-link .cover { transition: opacity .2s; }
+.cover-link:hover .cover { opacity: .9; }
+.cta-inline {
+  display: flex; align-items: center; gap: 16px; flex-wrap: wrap; justify-content: space-between;
+  background: linear-gradient(135deg, #00577B, #002337); border: 1px solid rgba(124,196,228,0.35);
+  border-radius: 16px; padding: 16px 20px; margin: 24px 0;
+}
+.cta-inline p { margin: 0; flex: 1 1 260px; font-size: 16px; }
+.cta-inline .buttons { display: flex; gap: 10px; flex-wrap: wrap; }
+.cta-inline .btn { padding: 10px 18px; font-size: 14px; }
 .faq details { border-bottom: 1px solid var(--line); padding: 14px 0; }
 .faq summary { cursor: pointer; font-weight: 700; font-size: 18px; }
 .faq details p { margin: 10px 0 0; }
