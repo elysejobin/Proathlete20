@@ -164,6 +164,9 @@ const App: React.FC = () => {
 
   const APPLE_STORE_URL = "https://apps.apple.com/ca/app/pro-athlete-training-app/id6768344217";
   const GOOGLE_PLAY_URL = "https://play.google.com/store/apps/details?id=ca.proathlete.proathlete&hl=en_CA";
+  // Phone mockup in the hero: visitors tap it (Clarity dead clicks), so it opens the store for their device.
+  const isAndroid = typeof navigator !== 'undefined' && /android/i.test(navigator.userAgent);
+  const MOCKUP_STORE_URL = isAndroid ? GOOGLE_PLAY_URL : APPLE_STORE_URL;
 
   const handleNewsletterSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -474,7 +477,14 @@ const App: React.FC = () => {
               className="lg:col-span-5 flex flex-col items-center justify-center lg:items-end lg:justify-stretch mt-8 lg:mt-0 h-full"
             >
               <div className="relative w-full max-w-[275px] sm:max-w-[323px] md:max-w-[361px] lg:max-w-none lg:w-auto lg:h-full flex items-center lg:items-stretch justify-center lg:justify-end">
-                <div className="relative overflow-hidden rounded-[36px] sm:rounded-[42px] md:rounded-[46px] lg:rounded-[48px] h-auto lg:h-full aspect-[352/762] max-h-[520px] sm:max-h-[580px] lg:max-h-full flex items-center justify-center">
+                <a
+                  href={MOCKUP_STORE_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={lang === 'fr' ? "Télécharger l'application PRO ATHLETE" : 'Download the PRO ATHLETE app'}
+                  title={lang === 'fr' ? "Télécharger l'application" : 'Download the app'}
+                  className="group relative overflow-hidden rounded-[36px] sm:rounded-[42px] md:rounded-[46px] lg:rounded-[48px] h-auto lg:h-full aspect-[352/762] max-h-[520px] sm:max-h-[580px] lg:max-h-full flex items-center justify-center cursor-pointer transition-transform hover:scale-[1.01]"
+                >
                   <video
                     className="w-full h-full object-contain select-none pointer-events-none"
                     autoPlay
@@ -486,7 +496,10 @@ const App: React.FC = () => {
                     <source src="/phone-preview.mp4" type="video/mp4" />
                     <source src="https://assets.bigvu.tv/video/6a959f1e9404970da2a8ed3d/4ea1c1c0-c5c5-4e40-9e87-fe0246598f8b/temp_bgNaQsIo_480.mp4" type="video/mp4" />
                   </video>
-                </div>
+                  <span className="absolute bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-[#005776] px-4 py-2 text-[10px] sm:text-xs font-bold uppercase tracking-wider text-white shadow-lg shadow-black/40 group-hover:bg-[#006b91]">
+                    {lang === 'fr' ? "Essayer l'app gratuitement" : 'Try the app for free'}
+                  </span>
+                </a>
               </div>
             </motion.div>
           </div>
