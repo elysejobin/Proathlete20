@@ -39,20 +39,12 @@ const ProAthleteLogo = ({ className = "w-12 h-12", animate = false }: { classNam
   />
 );
 
-const PARTNERS = [
-  { name: 'Partner 1', logo: 'https://assets.bigvu.tv/image/697260fe42169014d6ad6734/asset.png' },
-  { name: 'Partner 2', logo: 'https://assets.bigvu.tv/image/697261104739a3d7de25ce86/asset.png' }
+const PARTNERS: { name: string; logo: string; className?: string }[] = [
+  { name: 'Basketball Québec', logo: 'https://assets.bigvu.tv/image/697b99d650728d07219f3857/asset.png' },
+  { name: 'TeamSnap', logo: '/partners/teamsnap-white.svg', className: 'h-8 md:h-12' }
 ];
 
-const SOCCER_PARTNERS = [
-  { name: 'Soccer Partner 1', logo: 'https://assets.bigvu.tv/image/697cf9ce50728d0721b813da/asset.png-rotated.jpg' },
-  { name: 'Soccer Partner 2', logo: 'https://assets.bigvu.tv/image/697b99d650728d07219f3857/asset.png' }
-];
-
-const ALL_PARTNERS = [
-  ...PARTNERS,
-  ...SOCCER_PARTNERS
-];
+const ALL_PARTNERS = PARTNERS;
 
 const WhistleIcon = ({ className }: { className?: string }) => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
@@ -82,7 +74,7 @@ const SweatSmileIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
-const LogoMarquee = ({ partners }: { partners: { name: string; logo: string }[] }) => {
+const LogoMarquee = ({ partners }: { partners: { name: string; logo: string; className?: string }[] }) => {
   // Create a large enough set to fill wide screens.
   // 12 repeats ensures enough length for most screens before the wrap happens.
   const repeated = Array(12).fill(partners).flat();
@@ -97,7 +89,7 @@ const LogoMarquee = ({ partners }: { partners: { name: string; logo: string }[] 
             key={i}
             src={partner.logo} 
             alt={partner.name} 
-            className="h-12 md:h-20 w-auto object-contain transition-all duration-300 cursor-pointer hover:scale-105"
+            className={`${partner.className || 'h-12 md:h-20'} w-auto object-contain transition-all duration-300 cursor-pointer hover:scale-105`}
           />
         ))}
       </div>
