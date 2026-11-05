@@ -40,7 +40,7 @@ const ProAthleteLogo = ({ className = "w-12 h-12", animate = false }: { classNam
 );
 
 const PARTNERS: { name: string; logo: string; className?: string }[] = [
-  { name: 'Basketball Québec', logo: 'https://assets.bigvu.tv/image/697cf9ce50728d0721b813da/asset.png-rotated.jpg' },
+  { name: 'Basketball Québec', logo: 'https://assets.bigvu.tv/image/697b99d650728d07219f3857/asset.png' },
   { name: 'TeamSnap', logo: '/partners/teamsnap-white.png', className: 'h-7 md:h-11' }
 ];
 
