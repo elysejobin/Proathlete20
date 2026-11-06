@@ -5,7 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "prebuild": "node scripts/media-schema.mjs",
     "build": "vite build",
+    "media-schema": "node scripts/media-schema.mjs --check",
     "preview": "vite preview"
   },
   "dependencies": {
