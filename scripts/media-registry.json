@@ -1,0 +1,48 @@
+{
+  "_help": "Media metadata used by scripts/media-schema.mjs to build Schema.org markup (VideoObject, ImageObject, AudioObject). See scripts/MEDIA-SCHEMA.md.",
+  "videos": {
+    "vWi5oWwF3bo": {
+      "uploadDate": "2023-10-27T05:25:12-07:00",
+      "duration": 135,
+      "en": {
+        "name": "How to Tape an Ankle for Sports (Step by Step)",
+        "description": "Step-by-step ankle taping technique for return to play and ankle sprain prevention, shown by a physiotherapist."
+      },
+      "fr": {
+        "name": "Comment faire un taping de cheville pour le sport (étape par étape)",
+        "description": "Technique de taping de cheville étape par étape pour le retour au jeu et la prévention des entorses, démontrée par une physiothérapeute."
+      }
+    },
+    "rG2vXnHwEOQ": {
+      "uploadDate": "2026-10-19T12:34:39-07:00",
+      "duration": 15,
+      "en": {
+        "name": "Single-Leg Calf Raise With Hold: Ankle Injury Prevention",
+        "description": "Ankle sprain prevention exercise: stand on one leg, rise onto your toes, hold, then lower without putting the other foot down."
+      },
+      "fr": {
+        "name": "Élévation du talon sur une jambe avec maintien : prévention des blessures à la cheville",
+        "description": "Exercice de prévention des entorses : sur une jambe, montez sur la pointe du pied, maintenez, puis redescendez sans poser l'autre pied."
+      }
+    },
+    "3VDXYCbkVc4": {
+      "uploadDate": "2026-10-19T12:34:29-07:00",
+      "duration": 16,
+      "en": {
+        "name": "Single-Leg Cross Hops: Ankle Stability Drill",
+        "description": "Ankle stability drill to prevent sprains: hop forward, sideways and backward on one leg around an imaginary cross, stabilizing after each landing."
+      },
+      "fr": {
+        "name": "Sauts en croix sur une jambe : exercice de stabilité de la cheville",
+        "description": "Exercice de stabilité pour prévenir les entorses : sautez vers l'avant, sur le côté et vers l'arrière sur une jambe autour d'une croix imaginaire, en vous stabilisant à chaque réception."
+      }
+    }
+  },
+  "images": {
+    "/resources/how-to-tape-an-ankle/image.png": {
+      "en": { "name": "Physiotherapist taping an athlete's ankle" },
+      "fr": { "name": "Physiothérapeute appliquant un taping à la cheville d'un athlète" }
+    }
+  },
+  "audio": {}
+}
