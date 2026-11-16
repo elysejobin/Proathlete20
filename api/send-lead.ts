@@ -18,9 +18,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       return res.status(400).json({ error: 'Missing required fields' });
     }
 
-    // 1. Send notification email to info@proathlete.ca via SendGrid
+    // 1. Send notification email to info@proathlete.ca and the Gmail backup via SendGrid
     await sendgrid.send({
-      to: 'info@proathlete.ca',
+      to: ['info@proathlete.ca', 'proathletebasketball@gmail.com'],
       from: 'elyse@proathlete.ca',
       replyTo: email,
       subject: `New Lead - PRO ATHLETE: ${name} (${org || 'No organization'})`,
