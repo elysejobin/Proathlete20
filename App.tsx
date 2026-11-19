@@ -127,15 +127,34 @@ const App: React.FC = () => {
     setTimeout(() => document.getElementById(hash)?.scrollIntoView({ behavior: 'smooth' }), 300);
   }, []);
 
+  // FAQ links (#faq, or #faq-parents etc. to open a persona tab): show the homepage and close the mobile menu
+  useEffect(() => {
+    const onHash = () => {
+      if (!window.location.hash.startsWith('#faq')) return;
+      setIsMobileMenuOpen(false);
+      setCurrentPage('home');
+    };
+    window.addEventListener('hashchange', onHash);
+    return () => window.removeEventListener('hashchange', onHash);
+  }, []);
+  const FAQ_URL = (lang === 'fr' ? '/?lang=fr' : '/') + '#faq';
+  const goToFaq = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setCurrentPage('home');
+    setTimeout(() => document.getElementById('faq')?.scrollIntoView({ behavior: 'smooth' }), 50);
+  };
+
   const RESOURCES_URL = lang === 'fr' ? '/fr/ressources/' : '/resources/';
   const RESOURCES_MENU = lang === 'fr'
     ? [
         { href: '/fr/ressources/gratuites/', label: 'Ressources gratuites', desc: 'Formations vidéo, guides PDF et encore plus' },
         { href: '/fr/ressources/articles/', label: 'Articles', desc: 'Conseils de prévention et performance' },
+        { href: '/?lang=fr#faq', label: 'Questions fréquentes', desc: 'Réponses pour athlètes, parents, coachs et directeurs' },
       ]
     : [
         { href: '/resources/free/', label: 'Free resources', desc: 'Video courses, PDF guides, and more' },
         { href: '/resources/articles/', label: 'Articles', desc: 'Injury prevention and performance tips' },
+        { href: '/#faq', label: 'FAQ', desc: 'Answers for athletes, parents, coaches and directors' },
       ];
   // Opens the contact form and reports it to Google Analytics
   const openContact = (source: string) => {
@@ -838,6 +857,7 @@ const App: React.FC = () => {
             <ul className="space-y-3 md:space-y-4 text-white text-xs sm:text-sm">
               <li><a href="#" className="hover:text-white transition-colors">{t.footer.aboutUs}</a></li>
               <li><a href={RESOURCES_URL} className="hover:text-white transition-colors">{t.footer.blog}</a></li>
+              <li><a href={FAQ_URL} onClick={goToFaq} className="hover:text-white transition-colors">{lang === 'fr' ? 'Questions fréquentes' : 'FAQ'}</a></li>
               <li>
                 <button 
                   onClick={() => openContact('footer')}
