@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import faq from '../data/faq.json';
@@ -47,9 +47,28 @@ const renderAnswer = (text: string, storeUrl: string, onContactClick: () => void
   return parts;
 };
 
+// Links like proathlete.ca/#faq-parents open the FAQ on that tab (English or French names)
+const HASH_TO_PERSONA: Record<string, string> = {
+  athletes: 'athletes', parents: 'parents', coaches: 'coaches', coachs: 'coaches',
+  directors: 'directors', directeurs: 'directors',
+};
+
 const FAQ: React.FC<FAQProps> = ({ lang, storeUrl, onContactClick }) => {
   const [persona, setPersona] = useState(faq.personas[0].id);
   const [open, setOpen] = useState<number | null>(0);
+
+  useEffect(() => {
+    const fromHash = () => {
+      const hash = window.location.hash.replace('#', '');
+      if (!hash.startsWith('faq')) return;
+      const id = HASH_TO_PERSONA[hash.slice(4)];
+      if (id) { setPersona(id); setOpen(0); }
+      setTimeout(() => document.getElementById('faq')?.scrollIntoView({ behavior: 'smooth' }), 350);
+    };
+    fromHash();
+    window.addEventListener('hashchange', fromHash);
+    return () => window.removeEventListener('hashchange', fromHash);
+  }, []);
   const current = faq.personas.find(p => p.id === persona) || faq.personas[0];
 
   const choose = (id: string) => {
@@ -66,7 +85,7 @@ const FAQ: React.FC<FAQProps> = ({ lang, storeUrl, onContactClick }) => {
   };
 
   return (
-    <section id="faq" className="py-12 md:py-20 lg:py-32 px-4 bg-[#002337] border-t border-white/5">
+    <section id="faq" className="scroll-mt-16 py-12 md:py-20 lg:py-32 px-4 bg-[#002337] border-t border-white/5">
       <div className="max-w-4xl mx-auto">
         <h2 className="text-center text-3xl sm:text-4xl md:text-6xl font-heading font-black italic mb-4 md:mb-6 uppercase tracking-tight">
           {faq.title[lang]}
