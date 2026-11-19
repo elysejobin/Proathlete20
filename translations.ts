@@ -117,9 +117,9 @@ export const translations = {
       },
       team: "Our programs are developed with kinesiologists specialized in basketball and soccer.",
       stats: [
-        { value: "12+", label: "Years working with athletes" },
-        { value: "8", label: "International competitions" },
-        { value: "3000+", label: "Coaches and athletes helped" }
+        { value: "3000+", label: "Coaches and athletes helped" },
+        { value: "30+", label: "Schools and clubs" },
+        { value: "School → pro", label: "From student-athletes to pro athletes" }
       ]
     },
     science: {
@@ -351,9 +351,9 @@ export const translations = {
       },
       team: "Nos programmes sont développés avec des kinésiologues spécialisés en basketball et en soccer.",
       stats: [
-        { value: "12+", label: "Années auprès des athlètes" },
-        { value: "8", label: "Compétitions internationales" },
-        { value: "3000+", label: "Coachs et athlètes accompagnés" }
+        { value: "3000+", label: "Coachs et athlètes accompagnés" },
+        { value: "30+", label: "Écoles et clubs" },
+        { value: "Scolaire → pro", label: "Des élèves-athlètes aux athlètes pros" }
       ]
     },
     science: {
