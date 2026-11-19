@@ -645,7 +645,7 @@ const App: React.FC = () => {
       {/* Founder Section */}
       <section id="founder" className="py-12 md:py-20 lg:py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#002337] to-[#001f30]">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
             {/* Left Column: Story & Stats */}
             <div className="lg:col-span-7 flex flex-col items-start text-left">
               <div className="inline-flex items-center gap-2 bg-[#005776]/20 border border-[#5CE1E6]/30 px-3.5 py-1.5 rounded-full text-[10px] sm:text-xs font-bold tracking-[0.2em] uppercase text-[#5CE1E6] mb-6">
@@ -653,22 +653,21 @@ const App: React.FC = () => {
                 {t.founder.tag}
               </div>
 
-              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-black italic leading-[1.08] mb-6 md:mb-8 uppercase text-white tracking-tight">
-                {t.founder.quote.includes('-') ? (
-                  <>
-                    {t.founder.quote.split('-')[0].trim()}<br/>
-                    <span>{t.founder.quote.split('-')[1].trim()}</span>
-                  </>
-                ) : (
-                  t.founder.quote
-                )}
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-black italic leading-[1.08] mb-4 uppercase text-white tracking-tight text-balance">
+                {t.founder.title}
               </h2>
+              <p className="text-[#5CE1E6] italic text-sm sm:text-base mb-6 md:mb-8">{t.founder.quote}</p>
 
               <div className="space-y-6 text-sm sm:text-base text-white/85 font-light leading-relaxed max-w-xl">
                 <div className="space-y-2">
                   <h3 className="text-base sm:text-lg font-heading font-black italic uppercase tracking-wider text-white">
                     <span className="text-[#5CE1E6]">{t.founder.founder1.name}</span> — {t.founder.founder1.role}
                   </h3>
+                  <ul className="flex flex-wrap gap-2 pt-1">
+                    {t.founder.founder1.creds.map((c: string) => (
+                      <li key={c} className="text-[11px] sm:text-xs font-semibold text-white bg-[#005776]/30 border border-[#5CE1E6]/25 rounded-full px-3 py-1">{c}</li>
+                    ))}
+                  </ul>
                   <p className="text-white/80 leading-relaxed font-light text-sm sm:text-base">
                     {t.founder.founder1.bio}
                   </p>
@@ -678,21 +677,25 @@ const App: React.FC = () => {
                   <h3 className="text-base sm:text-lg font-heading font-black italic uppercase tracking-wider text-white">
                     <span className="text-[#5CE1E6]">{t.founder.founder2.name}</span> — {t.founder.founder2.role}
                   </h3>
+                  <ul className="flex flex-wrap gap-2 pt-1">
+                    {t.founder.founder2.creds.map((c: string) => (
+                      <li key={c} className="text-[11px] sm:text-xs font-semibold text-white bg-[#005776]/30 border border-[#5CE1E6]/25 rounded-full px-3 py-1">{c}</li>
+                    ))}
+                  </ul>
                   <p className="text-white/80 leading-relaxed font-light text-sm sm:text-base">
                     {t.founder.founder2.bio}
                   </p>
                 </div>
               </div>
 
-              <div className="flex justify-start gap-10 sm:gap-14 mt-8 sm:mt-10 pt-8 border-t border-white/10 w-full max-w-xl">
-                <div>
-                  <div className="text-3xl sm:text-4xl md:text-5xl font-black italic text-white mb-1.5 font-heading">40-67%</div>
-                  <div className="text-[10px] sm:text-xs tracking-widest text-white/70 uppercase max-w-[180px] leading-tight font-semibold">{t.founder.stat1}</div>
-                </div>
-                <div>
-                  <div className="text-3xl sm:text-4xl md:text-5xl font-black italic text-white mb-1.5 font-heading">3000+</div>
-                  <div className="text-[10px] sm:text-xs tracking-widest text-white/70 uppercase max-w-[180px] leading-tight font-semibold">{t.founder.stat2}</div>
-                </div>
+              <p className="mt-6 text-sm sm:text-base text-white/85 max-w-xl">{t.founder.team}</p>
+              <div className="flex justify-start gap-8 sm:gap-12 mt-8 sm:mt-10 pt-8 border-t border-white/10 w-full max-w-xl">
+                {t.founder.stats.map((stat: { value: string; label: string }) => (
+                  <div key={stat.label}>
+                    <div className="text-3xl sm:text-4xl md:text-5xl font-black italic text-white mb-1.5 font-heading">{stat.value}</div>
+                    <div className="text-[10px] sm:text-xs tracking-widest text-white/70 uppercase max-w-[180px] leading-tight font-semibold">{stat.label}</div>
+                  </div>
+                ))}
               </div>
             </div>
 
