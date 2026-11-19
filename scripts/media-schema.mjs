@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 // Adds Schema.org markup for the media on every static page in public/:
 //   - YouTube embeds and <video data-media="key">  -> VideoObject
-//   - <img class="cover"> and <img data-schema-image> -> ImageObject
+//   - every <img> with alt text inside <main>, plus <img class="cover"> / <img data-schema-image> -> ImageObject
+//     (add data-no-schema to an <img> to skip it)
 //   - <audio data-media="key"> / [data-audio="key"]  -> AudioObject
 // Metadata (dates, durations, titles in EN/FR) comes from scripts/media-registry.json.
 // The block is written as <script type="application/ld+json" data-media-schema> and is
@@ -33,6 +34,12 @@ const attr = (tag, name) => {
   return m ? m[1].replace(/&#x27;/g, "'").replace(/&amp;/g, '&').replace(/&quot;/g, '"') : null;
 };
 const pick = (entry, lang) => ({ ...(entry.en || {}), ...(entry[lang] || {}) });
+// Publication date of the page itself, used when a video has no date of its own.
+const pageDate = (html) => {
+  const d = (html.match(/property="article:(?:modified|published)_time" content="([^"]+)"/) || html.match(/"date(?:Modified|Published)":\s*"([^"]+)"/) || [])[1];
+  if (!d) return null;
+  return /T\d/.test(d) ? d : d + 'T09:00:00-05:00';
+};
 
 function htmlFiles(dir) {
   return fs.readdirSync(dir, { withFileTypes: true }).flatMap((d) => {
@@ -55,9 +62,17 @@ function build(html, file) {
   for (const m of html.matchAll(/<iframe[^>]*src="https:\/\/www\.youtube(?:-nocookie)?\.com\/embed\/([A-Za-z0-9_-]{6,})[^"]*"[^>]*>/g)) {
     const id = m[1];
     if (!once('yt:' + id)) continue;
-    const e = reg.videos[id];
-    if (!e || !e.uploadDate) { missing.push(`${rel}: video ${id} (add it to videos in media-registry.json)`); continue; }
+    const e = { ...(reg.videos[id] || {}) };
+    // Values written on the <iframe> itself win over the registry.
+    if (attr(m[0], 'data-upload-date')) e.uploadDate = attr(m[0], 'data-upload-date');
+    if (attr(m[0], 'data-duration')) e.duration = Number(attr(m[0], 'data-duration'));
+    if (!e.uploadDate) {
+      e.uploadDate = pageDate(html);
+      if (!e.uploadDate) { missing.push(`${rel}: video ${id} has no date (add it to media-registry.json or data-upload-date on the iframe)`); continue; }
+      missing.push(`${rel}: video ${id} not in media-registry.json, tagged with the page date and the iframe title (add it for exact date, duration and EN/FR text)`);
+    }
     const t = pick(e, lang);
+    if (attr(m[0], 'data-description')) t.description = attr(m[0], 'data-description');
     graph.push({
       '@type': 'VideoObject',
       '@id': canon + '#video-' + id,
@@ -101,11 +116,14 @@ function build(html, file) {
   }
 
   // Images: cover images and any <img data-schema-image>
+  const mainStart = html.search(/<main\b/), mainEnd = html.lastIndexOf('</main>');
   for (const m of html.matchAll(/<img\b[^>]*>/g)) {
     const tag = m[0];
-    if (!/class="[^"]*\bcover\b/.test(tag) && !/\sdata-schema-image\b/.test(tag)) continue;
+    if (/\sdata-no-schema\b/.test(tag)) continue;
+    const inMain = mainStart > -1 && m.index > mainStart && m.index < mainEnd && attr(tag, 'alt');
+    if (!inMain && !/class="[^"]*\bcover\b/.test(tag) && !/\sdata-schema-image\b/.test(tag)) continue;
     const src = attr(tag, 'src');
-    if (!src || !once('img:' + src)) continue;
+    if (!src || src.startsWith('data:') || (/^https?:/.test(src) && !src.startsWith(SITE)) || !once('img:' + src)) continue;
     const t = pick(reg.images[src] || {}, lang);
     const name = t.name || attr(tag, 'alt');
     if (!name) { missing.push(`${rel}: image ${src} (add alt text or a name in media-registry.json)`); continue; }
@@ -138,7 +156,7 @@ for (const file of htmlFiles(PUBLIC)) {
   let out = html.replace(BLOCK, '');
   if (graph.length) {
     const json = JSON.stringify({ '@context': 'https://schema.org', '@graph': graph }, null, 2);
-    out = out.replace('</head>', `  <script type="application/ld+json" data-media-schema>\n${json}\n  </script>\n</head>`);
+    out = out.replace(/\s*<\/head>/, () => `\n  <script type="application/ld+json" data-media-schema>\n${json}\n  </script>\n</head>`);
   }
   if (out !== html) { fs.writeFileSync(file, out); changed++; console.log('media-schema: updated', path.relative(ROOT, file), `(${graph.length} item${graph.length === 1 ? '' : 's'})`); }
 }
