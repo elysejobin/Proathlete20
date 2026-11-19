@@ -558,7 +558,7 @@ const App: React.FC = () => {
       <section id="mission" className="py-12 md:py-20 lg:py-32 px-4 md:px-6 bg-[#002337]">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-center text-3xl sm:text-4xl md:text-6xl font-heading font-black italic mb-4 md:mb-6 uppercase tracking-tight">{t.entrance.title}</h2>
-          <p className="text-center text-white/80 text-sm sm:text-base md:text-lg mb-8 md:mb-12 max-w-2xl mx-auto">{t.entrance.lead}</p>
+          <p className="text-center text-white/80 text-sm sm:text-base md:text-lg mb-8 md:mb-12 max-w-2xl mx-auto text-balance">{t.entrance.lead}</p>
           
           <div className="flex justify-center mb-12 md:mb-16 lg:mb-24 overflow-x-auto hide-scrollbar pb-2">
             <div className="bg-[#005776]/10 p-1.5 rounded-full border border-white/20 flex gap-1 whitespace-nowrap">
