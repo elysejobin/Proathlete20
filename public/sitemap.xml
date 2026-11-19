@@ -18,13 +18,13 @@
   </url>
   <url>
     <loc>https://www.proathlete.ca/resources/how-to-tape-an-ankle/</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-11-06</lastmod>
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.proathlete.ca/resources/how-to-tape-an-ankle/" />
     <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.proathlete.ca/fr/ressources/taping-cheville/" />
   </url>
   <url>
     <loc>https://www.proathlete.ca/fr/ressources/taping-cheville/</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-11-06</lastmod>
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.proathlete.ca/resources/how-to-tape-an-ankle/" />
     <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.proathlete.ca/fr/ressources/taping-cheville/" />
   </url>
@@ -123,5 +123,17 @@
     <lastmod>2026-10-30</lastmod>
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.proathlete.ca/resources/coaches-course/" />
     <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.proathlete.ca/fr/ressources/formation-coachs/" />
+  </url>
+  <url>
+    <loc>https://www.proathlete.ca/image-use/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.proathlete.ca/image-use/" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.proathlete.ca/fr/utilisation-images/" />
+  </url>
+  <url>
+    <loc>https://www.proathlete.ca/fr/utilisation-images/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.proathlete.ca/image-use/" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.proathlete.ca/fr/utilisation-images/" />
   </url>
 </urlset>
