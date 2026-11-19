@@ -12,7 +12,7 @@ import {
   Menu, X, Star, Globe, Mail, Send,
   Accessibility, Footprints, Smile, Dumbbell, History,
   ArrowLeft, School, User, Heart, Zap, Timer, Star as StarIcon, Quote,
-  Facebook, Instagram, MessageSquare, Trophy
+  Facebook, Instagram, MessageSquare, Trophy, Flame, BatteryCharging, TrendingUp
 } from 'lucide-react';
 import { UserRole, Sport } from './types';
 import { translations } from './translations';
@@ -447,8 +447,10 @@ const App: React.FC = () => {
                   }`} 
                 />
 
-                <p className="text-base sm:text-lg md:text-xl text-white/90 font-light leading-relaxed max-w-xl mb-8">
-                  {t.hero.desc}
+                {/* First sentence (what it is, who made it) stands out; the second explains what's inside */}
+                <p className="text-base sm:text-lg md:text-xl leading-relaxed max-w-2xl mb-8 text-pretty">
+                  <span className="block font-semibold text-white">{t.hero.desc.split(/(?<=\.)\s/)[0]}</span>
+                  <span className="block mt-2 font-light text-white/85">{t.hero.desc.split(/(?<=\.)\s/).slice(1).join(' ')}</span>
                 </p>
               </div>
 
@@ -479,6 +481,12 @@ const App: React.FC = () => {
                   </div>
                 </a>
               </div>
+
+              {/* What is free vs premium, right where people decide to download */}
+              <p className="mt-4 flex items-start gap-2 text-xs sm:text-sm text-white/80 max-w-2xl text-pretty">
+                <CheckCircle2 size={16} className="text-[#5CE1E6] shrink-0 mt-0.5" />
+                <span>{t.hero.offer}</span>
+              </p>
             </motion.div>
 
             {/* Right Column: Embedded Mobile App Mockup */}
@@ -515,6 +523,24 @@ const App: React.FC = () => {
               </div>
             </motion.div>
           </div>
+        </div>
+      </section>
+
+      {/* What the app includes */}
+      <section className="bg-[#001f30] py-10 md:py-14 px-4 border-b border-white/5">
+        <div className="max-w-6xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+          {t.hero.pillars.map((pillar: { title: string; desc: string }, i: number) => {
+            const Icon = [Dumbbell, Flame, BatteryCharging, TrendingUp][i];
+            return (
+              <div key={pillar.title} className="flex flex-col items-start gap-3 p-5 md:p-6 rounded-2xl bg-[#002337] border border-white/10">
+                <div className="w-10 h-10 rounded-full bg-[#005776]/30 flex items-center justify-center">
+                  <Icon size={20} className="text-[#5CE1E6]" />
+                </div>
+                <div className="font-heading font-black italic uppercase tracking-wide text-white text-lg md:text-xl">{pillar.title}</div>
+                <p className="text-white/80 text-xs sm:text-sm leading-relaxed">{pillar.desc}</p>
+              </div>
+            );
+          })}
         </div>
       </section>
 
