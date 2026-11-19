@@ -57,7 +57,7 @@ export const translations = {
       COACHES: {
         badge: "KEEP YOUR PLAYERS HEALTHY & ROSTERS FULL",
         title: "STRONGER TEAMS. FEWER SIDELINES.",
-        desc: "Ready-to-use warm-ups and team programs designed by health professionals. Assign them to your team and track every player's progress in real time.",
+        desc: "Ready-to-use warm-ups and training programs designed by health professionals. Assign them to your team and track every player's progress in real time.",
         cta: "Talk to us",
         features: [
           { title: "Team warm-ups", desc: "10–15 minute injury prevention warm-ups for every practice, no special equipment needed." },
@@ -71,7 +71,7 @@ export const translations = {
         desc: "Follow strength, injury prevention and recovery programs built for your sport, step by step in the app, and track your progress all season.",
         cta: "Download the app for free",
         features: [
-          { title: "Strength & power", desc: "Off-season and in-season programs to get stronger, faster and jump higher." },
+          { title: "Strength & power", desc: "Off-season and in-season programs to get stronger, faster and more athletic." },
           { title: "Injury prevention", desc: "Injury- and joint-specific prevention programs to protect your ankles, knees and more." },
           { title: "Recovery & tracking", desc: "Recovery sessions and progress tracking to stay at your best." }
         ]
@@ -94,7 +94,7 @@ export const translations = {
         cta: "Download the app for free",
         features: [
           { title: "Age-appropriate strength", desc: "Programs start with bodyweight and progress at a safe pace." },
-          { title: "Injury prevention warm-ups", desc: "Short routines shown to reduce knee and ankle injuries in young athletes." },
+          { title: "Injury prevention warm-ups", desc: "Short routines shown to reduce knee, ankle and other injuries in young athletes." },
           { title: "Free to start", desc: "Free multi-sport version, with sport-specific programs for basketball and soccer." }
         ]
       }
@@ -284,7 +284,7 @@ export const translations = {
       COACHES: {
         badge: "GARDEZ VOS JOUEURS EN SANTÉ ET VOS ÉQUIPES COMPLÈTES",
         title: "ÉQUIPES FORTES. MOINS DE BLESSURES.",
-        desc: "Des échauffements et des programmes d'équipe prêts à utiliser, conçus par des professionnels de la santé. Assignez-les à votre équipe et suivez la progression de chaque joueur en temps réel.",
+        desc: "Des échauffements et des programmes d'entraînement prêts à utiliser, conçus par des professionnels de la santé. Assignez-les à votre équipe et suivez la progression de chaque joueur en temps réel.",
         cta: "Parlez-nous",
         features: [
           { title: "Échauffements d'équipe", desc: "10 à 15 minutes de prévention des blessures à chaque pratique, sans équipement particulier." },
@@ -298,7 +298,7 @@ export const translations = {
         desc: "Suivez des programmes de force, de prévention des blessures et de récupération adaptés à votre sport, étape par étape dans l'app, et suivez vos progrès toute la saison.",
         cta: "Téléchargez l'app gratuitement",
         features: [
-          { title: "Force et puissance", desc: "Programmes hors-saison et en saison pour devenir plus fort, plus rapide et sauter plus haut." },
+          { title: "Force et puissance", desc: "Programmes hors-saison et en saison pour devenir plus fort, plus rapide et plus athlétique." },
           { title: "Prévention des blessures", desc: "Programmes de prévention spécifiques aux blessures et aux articulations pour protéger vos chevilles, vos genoux et plus encore." },
           { title: "Récupération et suivi", desc: "Séances de récupération et suivi de vos progrès pour rester à votre meilleur." }
         ]
@@ -321,7 +321,7 @@ export const translations = {
         cta: "Téléchargez l'app gratuitement",
         features: [
           { title: "Force adaptée à l'âge", desc: "Les programmes commencent au poids du corps et progressent à un rythme sécuritaire." },
-          { title: "Échauffements de prévention", desc: "De courtes routines qui réduisent les blessures au genou et à la cheville chez les jeunes athlètes." },
+          { title: "Échauffements de prévention", desc: "De courtes routines qui réduisent les blessures aux genoux, aux chevilles et autres chez les jeunes athlètes." },
           { title: "Gratuit pour commencer", desc: "Version multisport gratuite, avec des programmes spécifiques au basketball et au soccer." }
         ]
       }
