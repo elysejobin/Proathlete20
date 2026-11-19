@@ -689,7 +689,7 @@ const App: React.FC = () => {
               </div>
 
               <p className="mt-6 text-sm sm:text-base text-white/85 max-w-xl">{t.founder.team}</p>
-              <div className="flex justify-start gap-8 sm:gap-12 mt-8 sm:mt-10 pt-8 border-t border-white/10 w-full max-w-xl">
+              <div className="flex flex-wrap justify-start gap-x-8 gap-y-6 sm:gap-x-10 mt-8 sm:mt-10 pt-8 border-t border-white/10 w-full max-w-xl">
                 {t.founder.stats.map((stat: { value: string; label: string }) => (
                   <div key={stat.label}>
                     <div className="text-3xl sm:text-4xl md:text-5xl font-black italic text-white mb-1.5 font-heading whitespace-nowrap">{stat.value}</div>
