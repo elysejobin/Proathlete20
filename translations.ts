@@ -119,7 +119,7 @@ export const translations = {
       stats: [
         { value: "3000+", label: "Coaches and athletes helped" },
         { value: "30+", label: "Schools and clubs" },
-        { value: "Pro → school", label: "From pro athletes to student-athletes" }
+        { value: "School → pro", label: "From student-athletes to pro athletes" }
       ]
     },
     science: {
@@ -353,7 +353,7 @@ export const translations = {
       stats: [
         { value: "3000+", label: "Coachs et athlètes accompagnés" },
         { value: "30+", label: "Écoles et clubs" },
-        { value: "Pro → scolaire", label: "Des athlètes pros aux élèves-athlètes" }
+        { value: "Scolaire → pro", label: "Des élèves-athlètes aux athlètes pros" }
       ]
     },
     science: {
