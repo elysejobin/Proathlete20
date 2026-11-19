@@ -101,19 +101,26 @@ export const translations = {
     },
     founder: {
       tag: "MEET THE FOUNDERS",
-      quote: "PERFORMANCE STARTS WITH HEALTH - DRIVEN BY THE RIGHT EXERCISES.",
+      title: "BUILT BY PHYSIOTHERAPISTS WHO KNOW THE REALITY OF THE GAME",
+      quote: "Performance starts with health, driven by the right exercises.",
       founder1: {
         name: "Elyse Jobin",
         role: "Founder & CEO",
-        bio: "A former high-level basketball athlete and physiotherapist, Elyse has spent more than a decade working with athletes at every level. Her experience as both an athlete and clinician shaped the vision behind PRO ATHLETE: making evidence-based injury prevention and performance training more accessible to athletes and the people who support them."
+        creds: ["Physiotherapist · Université Laval", "Canada junior women's national basketball team, 2016–2023", "8 U19 Women's World Championships: 2 as an athlete, 6 as a physio"],
+        bio: "A physiotherapist and former high-level basketball player, Elyse has worked with athletes for more than 12 years, including as physiotherapist for Canada's junior women's national basketball team. She created PRO ATHLETE to put the injury prevention used with elite athletes in the hands of every athlete, coach and parent."
       },
       founder2: {
         name: "Léa Couture Fernandez",
         role: "Co-Founder",
-        bio: "A former competitive swimmer and rower, Léa is a sports physiotherapist with experience working with professional and national-level athletes, including in hockey and football. She brings strong expertise in injury prevention, with a particular interest in youth and female athletes. As co-founder of PRO ATHLETE, she contributes to the development of the platform and its training programs, helping ensure they remain practical, evidence-based, and adapted to the realities of sport."
+        creds: ["Sports physiotherapist · Université de Montréal", "Montréal Victoire (PWHL) · Montréal Roses · Montreal Alouettes", "Italian national hockey team"],
+        bio: "A sports physiotherapist and former competitive swimmer and rower, Léa works with professional and national-level athletes. She brings strong expertise in injury prevention for youth and female athletes, and makes sure PRO ATHLETE's programs stay practical, evidence-based and adapted to the realities of sport."
       },
-      stat1: "INJURY REDUCTION ACCORDING TO RESEARCH",
-      stat2: "COACHES AND ATHLETES HELPED"
+      team: "Our programs are developed with kinesiologists specialized in basketball and soccer.",
+      stats: [
+        { value: "12+", label: "Years working with athletes" },
+        { value: "8", label: "U19 Women's World Championships" },
+        { value: "3000+", label: "Coaches and athletes helped" }
+      ]
     },
     science: {
       title: "SCIENCE-BACKED WELLNESS AND PERFORMANCE",
@@ -328,19 +335,26 @@ export const translations = {
     },
     founder: {
       tag: "LES FONDATRICES",
-      quote: "LA PERFORMANCE COMMENCE PAR LA SANTÉ - GRÂCE AUX BONS EXERCICES.",
+      title: "CONÇU PAR DES PHYSIOTHÉRAPEUTES QUI CONNAISSENT LA RÉALITÉ SUR LE TERRAIN",
+      quote: "La performance commence par la santé, grâce aux bons exercices.",
       founder1: {
         name: "Elyse Jobin",
-        role: "Fondatrice & PDG",
-        bio: "Ancienne athlète de basketball de haut niveau et physiothérapeute, Elyse cumule plus d'une décennie d'expérience auprès d'athlètes de tous les niveaux. Son parcours d'athlète et de clinicienne a façonné la vision derrière PRO ATHLETE : rendre la prévention des blessures fondée sur les données probantes et l'entraînement de performance plus accessibles aux athlètes ainsi qu'aux personnes qui les soutiennent."
+        role: "Fondatrice et PDG",
+        creds: ["Physiothérapeute · Université Laval", "Équipe nationale junior féminine de basketball du Canada, 2016–2023", "8 Championnats du monde féminins U19 : 2 comme athlète, 6 comme physio"],
+        bio: "Physiothérapeute et ancienne joueuse de basketball de haut niveau, Elyse travaille auprès des athlètes depuis plus de 12 ans, notamment comme physiothérapeute de l'équipe nationale junior féminine de basketball du Canada. Elle a créé PRO ATHLETE pour mettre la prévention des blessures utilisée avec les athlètes d'élite entre les mains de chaque athlète, coach et parent."
       },
       founder2: {
         name: "Léa Couture Fernandez",
-        role: "Co-fondatrice",
-        bio: "Ancienne nageuse et rameuse de compétition, Léa est une physiothérapeute du sport cumulant de l'expérience auprès d'athlètes professionnels et de niveau national, notamment au hockey et au football. Elle apporte une solide expertise en prévention des blessures, avec un intérêt particulier pour les jeunes athlètes et les athlètes féminines. En tant que co-fondatrice de PRO ATHLETE, elle contribue au développement de la plateforme et de ses programmes d'entraînement, veillant à ce qu'ils demeurent pratiques, fondés sur des données probantes et adaptés aux réalités du sport."
+        role: "Cofondatrice",
+        creds: ["Physiothérapeute du sport · Université de Montréal", "Victoire de Montréal (LPHF) · Roses de Montréal · Alouettes de Montréal", "Équipe nationale italienne de hockey"],
+        bio: "Physiothérapeute du sport et ancienne nageuse et rameuse de compétition, Léa travaille auprès d'athlètes professionnels et de niveau national. Elle apporte une solide expertise en prévention des blessures chez les jeunes athlètes et les athlètes féminines, et veille à ce que les programmes de PRO ATHLETE restent pratiques, fondés sur la science et adaptés aux réalités du sport."
       },
-      stat1: "RÉDUCTION DES BLESSURES SELON LA RECHERCHE",
-      stat2: "ENTRAÎNEURS ET ATHLÈTES AIDÉS"
+      team: "Nos programmes sont développés avec des kinésiologues spécialisés en basketball et en soccer.",
+      stats: [
+        { value: "12+", label: "Années auprès des athlètes" },
+        { value: "8", label: "Championnats du monde féminins U19" },
+        { value: "3000+", label: "Coachs et athlètes accompagnés" }
+      ]
     },
     science: {
       title: "BIEN-ÊTRE ET PERFORMANCE APPUYÉS PAR LA SCIENCE",
