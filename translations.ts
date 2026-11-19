@@ -106,19 +106,19 @@ export const translations = {
       founder1: {
         name: "Elyse Jobin",
         role: "Founder & CEO",
-        creds: ["Physiotherapist · Université Laval", "Canada junior women's national basketball team, 2016–2023", "8 U19 Women's World Championships: 2 as an athlete, 6 as a physio"],
-        bio: "A physiotherapist and former high-level basketball player, Elyse has worked with athletes for more than 12 years, including as physiotherapist for Canada's junior women's national basketball team. She created PRO ATHLETE to put the injury prevention used with elite athletes in the hands of every athlete, coach and parent."
+        creds: ["Physiotherapist · Université Laval", "Athlete, Canada junior & development national basketball teams, 2006–2011", "Physio, Canada junior women's national basketball team, 2016–2023"],
+        bio: "A physiotherapist and former national-team basketball player, Elyse has worked with athletes for more than 12 years, including as physiotherapist for Canada's junior women's national basketball team. She created PRO ATHLETE to put the injury prevention used with elite athletes in the hands of every athlete, coach and parent."
       },
       founder2: {
         name: "Léa Couture Fernandez",
         role: "Co-Founder",
-        creds: ["Sports physiotherapist · Université de Montréal", "Montréal Victoire (PWHL) · Montréal Roses · Montreal Alouettes", "Italian national hockey team"],
+        creds: ["Sports physiotherapist · Université de Montréal", "Former competitive swimmer and rower", "Montréal Victoire (PWHL) · Montréal Roses · Montreal Alouettes", "Italian national hockey team"],
         bio: "A sports physiotherapist and former competitive swimmer and rower, Léa works with professional and national-level athletes. She brings strong expertise in injury prevention for youth and female athletes, and makes sure PRO ATHLETE's programs stay practical, evidence-based and adapted to the realities of sport."
       },
       team: "Our programs are developed with kinesiologists specialized in basketball and soccer.",
       stats: [
         { value: "12+", label: "Years working with athletes" },
-        { value: "8", label: "U19 Women's World Championships" },
+        { value: "8", label: "International competitions" },
         { value: "3000+", label: "Coaches and athletes helped" }
       ]
     },
@@ -340,19 +340,19 @@ export const translations = {
       founder1: {
         name: "Elyse Jobin",
         role: "Fondatrice et PDG",
-        creds: ["Physiothérapeute · Université Laval", "Équipe nationale junior féminine de basketball du Canada, 2016–2023", "8 Championnats du monde féminins U19 : 2 comme athlète, 6 comme physio"],
-        bio: "Physiothérapeute et ancienne joueuse de basketball de haut niveau, Elyse travaille auprès des athlètes depuis plus de 12 ans, notamment comme physiothérapeute de l'équipe nationale junior féminine de basketball du Canada. Elle a créé PRO ATHLETE pour mettre la prévention des blessures utilisée avec les athlètes d'élite entre les mains de chaque athlète, coach et parent."
+        creds: ["Physiothérapeute · Université Laval", "Athlète, équipes nationales junior et de développement de basketball du Canada, 2006–2011", "Physio, équipe nationale junior féminine de basketball du Canada, 2016–2023"],
+        bio: "Physiothérapeute et ancienne joueuse des équipes nationales de basketball, Elyse travaille auprès des athlètes depuis plus de 12 ans, notamment comme physiothérapeute de l'équipe nationale junior féminine de basketball du Canada. Elle a créé PRO ATHLETE pour mettre la prévention des blessures utilisée avec les athlètes d'élite entre les mains de chaque athlète, coach et parent."
       },
       founder2: {
         name: "Léa Couture Fernandez",
         role: "Cofondatrice",
-        creds: ["Physiothérapeute du sport · Université de Montréal", "Victoire de Montréal (LPHF) · Roses de Montréal · Alouettes de Montréal", "Équipe nationale italienne de hockey"],
+        creds: ["Physiothérapeute du sport · Université de Montréal", "Ancienne athlète de compétition en natation et aviron", "Victoire de Montréal (LPHF) · Roses de Montréal · Alouettes de Montréal", "Équipe nationale italienne de hockey"],
         bio: "Physiothérapeute du sport et ancienne nageuse et rameuse de compétition, Léa travaille auprès d'athlètes professionnels et de niveau national. Elle apporte une solide expertise en prévention des blessures chez les jeunes athlètes et les athlètes féminines, et veille à ce que les programmes de PRO ATHLETE restent pratiques, fondés sur la science et adaptés aux réalités du sport."
       },
       team: "Nos programmes sont développés avec des kinésiologues spécialisés en basketball et en soccer.",
       stats: [
         { value: "12+", label: "Années auprès des athlètes" },
-        { value: "8", label: "Championnats du monde féminins U19" },
+        { value: "8", label: "Compétitions internationales" },
         { value: "3000+", label: "Coachs et athlètes accompagnés" }
       ]
     },
