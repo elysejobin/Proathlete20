@@ -109,7 +109,7 @@ const FAQ: React.FC<FAQProps> = ({ lang, storeUrl, onContactClick }) => {
                     onClick={() => toggle(i)}
                     className="w-full flex items-center justify-between gap-4 text-left px-5 sm:px-6 py-4 sm:py-5"
                   >
-                    <span className="font-bold text-white text-sm sm:text-base md:text-lg leading-snug">{item.q[lang]}</span>
+                    <span className="font-semibold text-white text-[15px] sm:text-base md:text-[17px] leading-snug" style={{ fontFamily: "'Inter', sans-serif" }}>{item.q[lang]}</span>
                     <ChevronDown
                       size={20}
                       className={`shrink-0 text-[#5CE1E6] transition-transform ${isOpen ? 'rotate-180' : ''}`}
