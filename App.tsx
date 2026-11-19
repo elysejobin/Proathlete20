@@ -645,7 +645,7 @@ const App: React.FC = () => {
       {/* Founder Section */}
       <section id="founder" className="py-12 md:py-20 lg:py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#002337] to-[#001f30]">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
             {/* Left Column: Story & Stats */}
             <div className="lg:col-span-7 flex flex-col items-start text-left">
               <div className="inline-flex items-center gap-2 bg-[#005776]/20 border border-[#5CE1E6]/30 px-3.5 py-1.5 rounded-full text-[10px] sm:text-xs font-bold tracking-[0.2em] uppercase text-[#5CE1E6] mb-6">
