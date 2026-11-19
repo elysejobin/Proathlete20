@@ -2,7 +2,7 @@
 export const translations = {
   en: {
     entrance: {
-      title: "ATHLETE PERFORMANCE & INJURY PREVENTION",
+      title: "PERFORMANCE & INJURY PREVENTION PROGRAMS",
       lead: "For athletes, coaches, parents and athletic directors. Choose your profile.",
       subtitle: "Select your focus to enter PRO ATHLETE",
       tailoring: "Training for your game",
@@ -229,7 +229,7 @@ export const translations = {
   },
   fr: {
     entrance: {
-      title: "PERFORMANCE ET PRÉVENTION DES BLESSURES",
+      title: "PROGRAMMES DE PERFORMANCE ET DE PRÉVENTION DES BLESSURES",
       lead: "Pour les athlètes, coachs, parents et directeurs des sports. Choisissez votre profil.",
       subtitle: "Sélectionnez votre profil pour entrer PRO ATHLETE",
       tailoring: "Entraînement spécifique à votre sport",
