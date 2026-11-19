@@ -557,7 +557,8 @@ const App: React.FC = () => {
       {/* Role Switcher Section */}
       <section id="mission" className="py-12 md:py-20 lg:py-32 px-4 md:px-6 bg-[#002337]">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-center text-3xl sm:text-4xl md:text-6xl font-heading font-black italic mb-8 md:mb-12 uppercase tracking-tight">{t.entrance.title}</h2>
+          <h2 className="text-center text-3xl sm:text-4xl md:text-6xl font-heading font-black italic mb-4 md:mb-6 uppercase tracking-tight">{t.entrance.title}</h2>
+          <p className="text-center text-white/80 text-sm sm:text-base md:text-lg mb-8 md:mb-12 max-w-2xl mx-auto text-balance">{t.entrance.lead}</p>
           
           <div className="flex justify-center mb-12 md:mb-16 lg:mb-24 overflow-x-auto hide-scrollbar pb-2">
             <div className="bg-[#005776]/10 p-1.5 rounded-full border border-white/20 flex gap-1 whitespace-nowrap">
@@ -595,9 +596,26 @@ const App: React.FC = () => {
                 <p className="text-base sm:text-lg md:text-xl text-white leading-relaxed mb-6 md:mb-8">
                   {roleDescription}
                 </p>
-                <button className="flex items-center gap-2 text-[#005776] font-bold uppercase tracking-[0.2em] text-xs group hover:text-white transition-colors">
-                  LEARN MORE <ChevronRight size={16} className="group-hover:translate-x-1 transition-transform" />
-                </button>
+                {/* Athletes and parents download the app; coaches and athletic directors talk to us */}
+                {activeRole === 'ATHLETES' || activeRole === 'PARENTS' ? (
+                  <a
+                    href={MOCKUP_STORE_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => (window as any).gtag?.('event', 'role_cta', { role: activeRole })}
+                    className="inline-flex items-center gap-2 bg-[#005776] hover:bg-[#006b91] text-white px-6 py-3 rounded-full font-bold uppercase tracking-[0.15em] text-xs transition-colors group"
+                  >
+                    {currentRoleData.cta} <ChevronRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                  </a>
+                ) : (
+                  <button
+                    type="button"
+                    onClick={() => openContact('role_' + activeRole.toLowerCase())}
+                    className="inline-flex items-center gap-2 bg-[#005776] hover:bg-[#006b91] text-white px-6 py-3 rounded-full font-bold uppercase tracking-[0.15em] text-xs transition-colors group"
+                  >
+                    {currentRoleData.cta} <ChevronRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                  </button>
+                )}
               </motion.div>
             </AnimatePresence>
 
