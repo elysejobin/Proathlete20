@@ -4,6 +4,7 @@
 //   - every <img> with alt text inside <main>, plus <img class="cover"> / <img data-schema-image> -> ImageObject
 //     (add data-no-schema to an <img> to skip it)
 //   - <audio data-media="key"> / [data-audio="key"]  -> AudioObject
+// and a BreadcrumbList built from the page's visible breadcrumb (<… class="breadcrumb">).
 // Metadata (dates, durations, titles in EN/FR) comes from scripts/media-registry.json.
 // The block is written as <script type="application/ld+json" data-media-schema> and is
 // replaced on every run, so the script is safe to run again (it runs before each build).
@@ -148,17 +149,41 @@ function build(html, file) {
   return graph;
 }
 
+
+// BreadcrumbList from the visible breadcrumb: each link is a step, the last step is the page itself.
+function breadcrumbs(html, file) {
+  const m = html.match(/<(p|div|nav)\b[^>]*class="breadcrumb"[^>]*>([\s\S]*?)<\/\1>/);
+  if (!m) return null;
+  const canon = (html.match(/<link rel="canonical" href="([^"]+)"/) || [])[1] ||
+    SITE + '/' + path.relative(PUBLIC, file).replace(/index\.html$/, '');
+  const text = (s) => s.replace(/<[^>]+>/g, '').replace(/&amp;/g, '&').replace(/&#x27;|&#39;/g, "'").replace(/\s+/g, ' ').trim();
+  const steps = [...m[2].matchAll(/<a\b[^>]*href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/g)].map((a) => ({ name: text(a[2]), item: abs(a[1]) }));
+  const current = m[2].match(/<span[^>]*aria-current="page"[^>]*>([\s\S]*?)<\/span>/);
+  steps.push({ name: current ? text(current[1]) : text((html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/) || [])[1] || ''), item: canon });
+  if (steps.length < 2 || steps.some((s) => !s.name)) return null;
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: steps.map((s, i) => ({ '@type': 'ListItem', position: i + 1, name: s.name, item: s.item }))
+  };
+}
+
 const BLOCK = /\n?\s*<script type="application\/ld\+json" data-media-schema>[\s\S]*?<\/script>/;
+const CRUMB_BLOCK = /\n?\s*<script type="application\/ld\+json" data-breadcrumb-schema>[\s\S]*?<\/script>/;
 let changed = 0;
 for (const file of htmlFiles(PUBLIC)) {
   const html = fs.readFileSync(file, 'utf8');
   const graph = build(html, file);
-  let out = html.replace(BLOCK, '');
+  let out = html.replace(BLOCK, '').replace(CRUMB_BLOCK, '');
+  const crumbs = /"BreadcrumbList"/.test(out) ? null : breadcrumbs(out, file);
+  if (crumbs) {
+    out = out.replace(/\s*<\/head>/, () => `\n  <script type="application/ld+json" data-breadcrumb-schema>\n${JSON.stringify(crumbs, null, 2)}\n  </script>\n</head>`);
+  }
   if (graph.length) {
     const json = JSON.stringify({ '@context': 'https://schema.org', '@graph': graph }, null, 2);
     out = out.replace(/\s*<\/head>/, () => `\n  <script type="application/ld+json" data-media-schema>\n${json}\n  </script>\n</head>`);
   }
-  if (out !== html) { fs.writeFileSync(file, out); changed++; console.log('media-schema: updated', path.relative(ROOT, file), `(${graph.length} item${graph.length === 1 ? '' : 's'})`); }
+  if (out !== html) { fs.writeFileSync(file, out); changed++; console.log('media-schema: updated', path.relative(ROOT, file), `(${graph.length} media item${graph.length === 1 ? '' : 's'}${crumbs ? ', breadcrumb' : ''})`); }
 }
 for (const m of missing) console.warn('media-schema: missing metadata ->', m);
 console.log(`media-schema: ${changed} page(s) updated, ${missing.length} warning(s)`);

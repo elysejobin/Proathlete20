@@ -334,3 +334,11 @@ td:first-child { font-weight: 700; white-space: nowrap; }
 .lm-grid.compact .lm-foot .btn { font-size: 15px; }
 .lm-grid.compact .lm-card .lm-body > p { -webkit-line-clamp: unset; display: block; overflow: visible; }
 .lm-card .lm-top { min-height: 118px; box-sizing: border-box; }
+
+/* Breadcrumbs (all static pages) */
+.legal p.breadcrumb { font-size: 14px; line-height: 1.5; }
+.legal .breadcrumb a { color: var(--muted); }
+.res-hero .breadcrumb { margin-bottom: 12px; }
+.breadcrumb a:hover { color: var(--text, #fff); text-decoration: underline; }
+.article-tags { font-size: 13px; color: var(--muted); margin-top: 6px; letter-spacing: 0.02em; }
+.breadcrumb [aria-current="page"] { font-weight: 700; color: var(--text, #fff); }
