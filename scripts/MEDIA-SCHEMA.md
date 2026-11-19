@@ -6,15 +6,23 @@
 |---|---|
 | Une vidéo YouTube intégrée (`<iframe src="https://www.youtube-nocookie.com/embed/ID">`) | `VideoObject` |
 | Une vidéo hébergée ailleurs : `<video data-media="cle">` | `VideoObject` |
-| Une image principale `<img class="cover">` ou toute image avec `data-schema-image` | `ImageObject` (créateur, droits d'auteur, page de licence) |
+| Toute image du site avec un texte `alt` dans `<main>`, l'image principale `<img class="cover">` ou toute image avec `data-schema-image` | `ImageObject` (créateur, droits d'auteur, page de licence) |
 | Un audio : `<audio data-media="cle">` ou un lecteur de balado avec `data-audio="cle"` | `AudioObject` |
 
-Le bloc est écrit dans `<script type="application/ld+json" data-media-schema>` et remplacé à chaque exécution. Le script tourne aussi automatiquement avant chaque build (`prebuild`).
+Le bloc est écrit dans `<script type="application/ld+json" data-media-schema>` et remplacé à chaque exécution.
+
+**C'est automatique :** le script tourne au début de chaque build Vite (plugin `media-schema` dans `vite.config.ts`), donc à chaque déploiement Vercel. Une nouvelle vidéo YouTube ou une nouvelle image ajoutée à une page est balisée même si personne n'y pense :
+- vidéo absente du registre : balisée avec le titre de l'`<iframe>` et la date de publication de la page (`article:published_time`). Un avertissement s'affiche dans le build pour rappeler d'ajouter les vraies infos ;
+- image : balisée si elle est dans `<main>`, hébergée sur proathlete.ca et a un texte `alt`. Ajouter `data-no-schema` pour exclure une image décorative.
+
+Pour un balisage plus précis (vraie date de la vidéo, durée, titres FR/EN), suivre les étapes ci-dessous.
 
 ## Ajouter un nouveau contenu
 
 1. **Intégrer le média dans la page** comme d'habitude (voir le tableau ci-dessus).
-2. **Ajouter ses informations dans `scripts/media-registry.json`** :
+2. **Ajouter ses informations** dans `scripts/media-registry.json`, ou directement sur l'`<iframe>` : `data-upload-date="2026-12-01"`, `data-duration="95"` (secondes), `data-description="..."`.
+
+   Dans `scripts/media-registry.json` :
 
    **Vidéo YouTube** : la clé est l'identifiant YouTube (la partie après `v=`).
    ```json
@@ -57,7 +65,7 @@ Le bloc est écrit dans `<script type="application/ld+json" data-media-schema>` 
      }
    }
    ```
-3. **Lancer `npm run media-schema`.** La commande met les pages à jour et signale ce qui manque. Faire le commit des pages modifiées.
+3. **Optionnel : lancer `npm run media-schema`** pour voir le résultat et les avertissements avant de publier. Le build le fait de toute façon.
 4. **Vérifier** la page avec l'outil de test des résultats enrichis de Google : https://search.google.com/test/rich-results
 
 ## Bonnes pratiques
