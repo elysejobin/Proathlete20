@@ -447,8 +447,10 @@ const App: React.FC = () => {
                   }`} 
                 />
 
-                <p className="text-base sm:text-lg md:text-xl text-white/90 font-light leading-relaxed max-w-xl mb-8">
-                  {t.hero.desc}
+                {/* First sentence (what it is, who made it) stands out; the second explains what's inside */}
+                <p className="text-base sm:text-lg md:text-xl leading-relaxed max-w-2xl mb-8 text-pretty">
+                  <span className="block font-semibold text-white">{t.hero.desc.split(/(?<=\.)\s/)[0]}</span>
+                  <span className="block mt-2 font-light text-white/85">{t.hero.desc.split(/(?<=\.)\s/).slice(1).join(' ')}</span>
                 </p>
               </div>
 
@@ -481,7 +483,7 @@ const App: React.FC = () => {
               </div>
 
               {/* What is free vs premium, right where people decide to download */}
-              <p className="mt-4 flex items-start gap-2 text-xs sm:text-sm text-white/80 max-w-xl">
+              <p className="mt-4 flex items-start gap-2 text-xs sm:text-sm text-white/80 max-w-2xl text-pretty">
                 <CheckCircle2 size={16} className="text-[#5CE1E6] shrink-0 mt-0.5" />
                 <span>{t.hero.offer}</span>
               </p>
