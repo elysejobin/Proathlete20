@@ -2,7 +2,8 @@
 export const translations = {
   en: {
     entrance: {
-      title: "WHO ARE YOU?",
+      title: "ATHLETE PERFORMANCE & INJURY PREVENTION",
+      lead: "For athletes, coaches, parents and athletic directors. Choose your profile.",
       subtitle: "Select your focus to enter PRO ATHLETE",
       tailoring: "Training for your game",
       coaches: "FOR COACHES",
@@ -56,41 +57,45 @@ export const translations = {
       COACHES: {
         badge: "KEEP YOUR PLAYERS HEALTHY & ROSTERS FULL",
         title: "STRONGER TEAMS. FEWER SIDELINES.",
-        desc: "Your assistant coach for injury prevention. Integrate key exercises for injury prevention, deliver targeted training plans, and track athlete progress in real time.",
+        desc: "Ready-to-use warm-ups and team programs designed by health professionals. Assign them to your team and track every player's progress in real time.",
+        cta: "Talk to us",
         features: [
-          { title: 'Performance', desc: 'Training programs helping your team perform.' },
-          { title: 'Tracking', desc: 'See athlete progress and keep them engaged.' },
-          { title: 'Prevention', desc: 'Integrate key exercises to reduce risk.' }
+          { title: "Team warm-ups", desc: "10–15 minute injury prevention warm-ups for every practice, no special equipment needed." },
+          { title: "Strength programs for your team(s)", desc: "Assign strength, prevention and recovery programs to your team." },
+          { title: "Player tracking", desc: "See each player's progress and engagement in real time." }
         ]
       },
       ATHLETES: {
         badge: "PLAY HARD. PLAY SMART. DON'T GET SIDELINED.",
         title: "TRAIN SMART. PLAY FOREVER.",
-        desc: "Your personal sports performance partner. Spot risks before they turn into injuries and track your progress to stay in the game longer.",
+        desc: "Follow strength, injury prevention and recovery programs built for your sport, step by step in the app, and track your progress all season.",
+        cta: "Download the app for free",
         features: [
-          { title: 'Health', desc: 'Improve joint stability to perform all season' },
-          { title: 'Performance', desc: 'Improve strength, power, and prevention.' },
-          { title: 'Engagement', desc: 'Performance tracking for maximal engagement.' }
+          { title: "Strength & power", desc: "Off-season and in-season programs to get stronger, faster and jump higher." },
+          { title: "Injury prevention", desc: "Injury- and joint-specific prevention programs to protect your ankles, knees and more." },
+          { title: "Recovery & tracking", desc: "Recovery sessions and progress tracking to stay at your best." }
         ]
       },
       ATHLETIC_DIRECTORS: {
         badge: "PROGRAM-WIDE SAFETY & BUDGET EFFICIENCY",
         title: "BUILD A STRONGER PROGRAM.",
-        desc: "If you're trying to reduce athlete injuries across your athletic program and support your coaches with better tools without increasing your budget, this is absolutely for you. Stop dealing with complaints about player health and pull ahead with smarter systems.",
+        desc: "One system for every team in your school or club: injury prevention warm-ups, sport-specific training and progress tracking, with setup and coach training included.",
+        cta: "Talk to us",
         features: [
-          { title: 'Program Safety', desc: 'Reduce injuries across every team in your program.' },
-          { title: 'Budget Friendly', desc: 'Institutional tools that don\'t break the bank.' },
-          { title: 'Competitive Edge', desc: 'Adopt the systems that elite schools are using to win.' }
+          { title: "Programs for every team", desc: "Personalized programs for each team and sport." },
+          { title: "Setup & coach training", desc: "A short training for coaches and athletes, and our team supports the rollout." },
+          { title: "Safe, evidence-based practices", desc: "Ensure safe, evidence-based training practices throughout your athletic program." }
         ]
       },
       PARENTS: {
         badge: "PEACE OF MIND FOR EVERY LANDING",
         title: "PROTECTING THEIR PASSION. PRESERVING THEIR FUTURE.",
-        desc: "A mobile safety net for your young athlete. Create customized training programs, guided by health professionals, to reduce injury risk and protect your child's health.",
+        desc: "Safe, age-appropriate programs designed by physiotherapists and kinesiologists, so your child gets stronger and lowers injury risk while growing.",
+        cta: "Download the app for free",
         features: [
-          { title: 'Safety First', desc: 'Prioritizing well-being and athlete health.' },
-          { title: 'Customized', desc: 'Create customized training programs.' },
-          { title: 'Guidance', desc: 'Guided by health professionals.' }
+          { title: "Age-appropriate strength", desc: "Programs start with bodyweight and progress at a safe pace." },
+          { title: "Injury prevention warm-ups", desc: "Short routines shown to reduce knee and ankle injuries in young athletes." },
+          { title: "Free to start", desc: "Free multi-sport version, with sport-specific programs for basketball and soccer." }
         ]
       }
     },
@@ -224,7 +229,8 @@ export const translations = {
   },
   fr: {
     entrance: {
-      title: "QUI ÊTES-VOUS ?",
+      title: "PERFORMANCE ET PRÉVENTION DES BLESSURES",
+      lead: "Pour les athlètes, coachs, parents et directeurs des sports. Choisissez votre profil.",
       subtitle: "Sélectionnez votre profil pour entrer PRO ATHLETE",
       tailoring: "Entraînement spécifique à votre sport",
       coaches: "POUR ENTRAÎNEURS",
@@ -278,41 +284,45 @@ export const translations = {
       COACHES: {
         badge: "GARDEZ VOS JOUEURS EN SANTÉ ET VOS ÉQUIPES COMPLÈTES",
         title: "ÉQUIPES FORTES. MOINS DE BLESSURES.",
-        desc: "Votre assistant pour la prévention des blessures. Intégrez des exercices clés, livrez des plans d'entraînement ciblés et suivez les progrès en temps réel.",
+        desc: "Des échauffements et des programmes d'équipe prêts à utiliser, conçus par des professionnels de la santé. Assignez-les à votre équipe et suivez la progression de chaque joueur en temps réel.",
+        cta: "Parlez-nous",
         features: [
-          { title: 'Performance', desc: 'Des programmes qui aident votre équipe à performer.' },
-          { title: 'Suivi', desc: 'Voyez les progrès des athlètes et gardez-les engagés.' },
-          { title: 'Prévention', desc: 'Intégrez des exercices clés pour réduire les risques.' }
+          { title: "Échauffements d'équipe", desc: "10 à 15 minutes de prévention des blessures à chaque pratique, sans équipement particulier." },
+          { title: "Programmes de force pour vos équipes", desc: "Assignez des programmes de force, de prévention et de récupération à votre équipe." },
+          { title: "Suivi des joueurs", desc: "Voyez la progression et l'engagement de chaque joueur en temps réel." }
         ]
       },
       ATHLETES: {
         badge: "JOUEZ FORT. JOUEZ INTELLIGENT.",
         title: "TRAVAILLEZ MIEUX. JOUEZ PLUS.",
-        desc: "Votre partenaire personnel de performance. Repérez les risques avant qu'ils ne deviennent des blessures et suivez vos progrès.",
+        desc: "Suivez des programmes de force, de prévention des blessures et de récupération adaptés à votre sport, étape par étape dans l'app, et suivez vos progrès toute la saison.",
+        cta: "Téléchargez l'app gratuitement",
         features: [
-          { title: 'Santé', desc: 'Améliorer la stabilité articulaire pour performer toute la saison.' },
-          { title: 'Performance', desc: 'Améliorer la force, la puissance et la prévention.' },
-          { title: 'Engagement', desc: 'Suivi de la performance pour un engagement maximal.' }
+          { title: "Force et puissance", desc: "Programmes hors-saison et en saison pour devenir plus fort, plus rapide et sauter plus haut." },
+          { title: "Prévention des blessures", desc: "Programmes de prévention spécifiques aux blessures et aux articulations pour protéger vos chevilles, vos genoux et plus encore." },
+          { title: "Récupération et suivi", desc: "Séances de récupération et suivi de vos progrès pour rester à votre meilleur." }
         ]
       },
       ATHLETIC_DIRECTORS: {
         badge: "SÉCURITÉ GLOBALE ET EFFICACITÉ BUDGÉTAIRE",
         title: "UN PROGRAMME PLUS FORT.",
-        desc: "Si vous voulez réduire les blessures dans votre programme sportif et soutenir vos entraîneurs avec de meilleurs outils sans augmenter votre budget, ceci est pour vous. Ne subissez plus les plaintes sur la santé des joueurs.",
+        desc: "Un seul système pour toutes les équipes de votre école ou club : échauffements de prévention, entraînement spécifique au sport et suivi des progrès, avec mise en place et formation des coachs incluses.",
+        cta: "Parlez-nous",
         features: [
-          { title: 'Sécurité Globale', desc: 'Réduisez les blessures dans chaque équipe.' },
-          { title: 'Budget Optimisé', desc: 'Des outils institutionnels abordables.' },
-          { title: 'Avantage Compétitif', desc: 'Utilisez les systèmes des meilleures écoles.' }
+          { title: "Des programmes pour chaque équipe", desc: "Programmes personnalisés par équipe et par sport." },
+          { title: "Mise en place et formation", desc: "Une courte formation pour les coachs et les athlètes, et notre équipe accompagne le déploiement." },
+          { title: "Pratiques sécuritaires et fondées sur la science", desc: "Assurez des pratiques d'entraînement sécuritaires et appuyées par la science dans tout votre programme sportif." }
         ]
       },
       PARENTS: {
         badge: "LA TRANQUILLITÉ D'ESPRIT À CHAQUE RÉCEPTION",
         title: "PROTÉGER LEUR PASSION. PRÉSERVER LEUR AVENIR.",
-        desc: "Un filet de sécurité mobile pour votre jeune athlète. Créez des programmes personnalisés, guidés par des professionnels de la santé, pour réduire les risques.",
+        desc: "Des programmes sécuritaires et adaptés à l'âge, conçus par des physiothérapeutes et kinésiologues, pour que votre enfant devienne plus fort et réduise son risque de blessure pendant sa croissance.",
+        cta: "Téléchargez l'app gratuitement",
         features: [
-          { title: 'Sécurité d\'abord', desc: 'Priorité au bien-être et à la santé de l\'athlète.' },
-          { title: 'Personnalisé', desc: 'Créez des programmes d\'entraînement personnalisés.' },
-          { title: 'Guidance', desc: 'Guidé par des professionnels de la santé.' }
+          { title: "Force adaptée à l'âge", desc: "Les programmes commencent au poids du corps et progressent à un rythme sécuritaire." },
+          { title: "Échauffements de prévention", desc: "De courtes routines qui réduisent les blessures au genou et à la cheville chez les jeunes athlètes." },
+          { title: "Gratuit pour commencer", desc: "Version multisport gratuite, avec des programmes spécifiques au basketball et au soccer." }
         ]
       }
     },
