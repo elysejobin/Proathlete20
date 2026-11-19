@@ -17,6 +17,7 @@ import {
 import { UserRole, Sport } from './types';
 import { translations } from './translations';
 import AppointmentModal from './components/AppointmentModal';
+import FAQ from './components/FAQ';
 import { PricingPage } from './components/PricingPage';
 import PrivacyPolicy from './components/PrivacyPolicy';
 
@@ -735,6 +736,8 @@ const App: React.FC = () => {
           </div>
         </div>
       </section>
+
+      <FAQ lang={lang} storeUrl={MOCKUP_STORE_URL} onContactClick={() => openContact('faq')} />
 
       {/* CTA */}
       <section className="py-16 md:py-24 px-4 bg-[#002337] border-t border-white/5">
