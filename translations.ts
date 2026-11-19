@@ -41,7 +41,14 @@ export const translations = {
     },
     hero: {
       title: "PERFORM. PREVENT. PLAY LONGER.",
-      desc: "Your personal sports performance partner. Strengthen your joints to stay injury-free all season and track your progress to stay in the game longer.",
+      desc: "The training app built for you by physiotherapists and kinesiologists who specialize in sports. Sport-specific strength, warm-up and recovery programs to help you perform and stay injury-free all season.",
+      offer: "Free multi-sport version · Premium sport-specific programs for basketball and soccer",
+      pillars: [
+        { title: "Strength", desc: "Build strength, power and speed for your sport." },
+        { title: "Warm-ups", desc: "Evidence-based exercises to protect your ankles and knees." },
+        { title: "Recovery", desc: "Recover faster and stay at your best." },
+        { title: "Tracking", desc: "See your progress and stay consistent." },
+      ],
       appStore: "Download on the",
       googlePlay: "Get it on",
     },
@@ -256,7 +263,14 @@ export const translations = {
     },
     hero: {
       title: "PERFORME. PRÉVIENS. JOUE PLUS LONGTEMPS.",
-      desc: "Votre partenaire personnel de performance sportive. Renforcez vos articulations pour rester sans blessure toute la saison et suivez vos progrès pour jouer plus longtemps.",
+      desc: "L'app d'entraînement conçue pour vous par des physiothérapeutes et kinésiologues spécialisés en sport. Des programmes de force, d'échauffement et de récupération adaptés à votre sport, pour performer et rester sans blessure toute la saison.",
+      offer: "Version multisport gratuite · Programmes premium spécifiques au basketball et au soccer",
+      pillars: [
+        { title: "Force", desc: "Développez force, puissance et vitesse pour votre sport." },
+        { title: "Échauffements", desc: "Des exercices validés par la science pour protéger chevilles et genoux." },
+        { title: "Récupération", desc: "Récupérez plus vite et restez à votre meilleur." },
+        { title: "Suivi", desc: "Voyez vos progrès et restez constant." },
+      ],
       appStore: "Télécharger sur",
       googlePlay: "Disponible sur",
     },
