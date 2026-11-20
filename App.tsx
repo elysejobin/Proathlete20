@@ -119,6 +119,11 @@ const App: React.FC = () => {
     const hash = window.location.hash.replace('#', '');
     if (!hash) return;
     if (hash === 'pricing') { setCurrentPage('pricing'); window.scrollTo(0, 0); return; }
+    if (hash === 'features') {
+      setCurrentPage('pricing');
+      setTimeout(() => document.getElementById('compare-features')?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 300);
+      return;
+    }
     if (hash === 'contact') { setIsAppointmentOpen(true); return; }
     setTimeout(() => document.getElementById(hash)?.scrollIntoView({ behavior: 'smooth' }), 300);
   }, []);
@@ -161,6 +166,11 @@ const App: React.FC = () => {
   const goToSection = (item: string) => {
     setIsMobileMenuOpen(false);
     if (item === 'Pricing') { setCurrentPage('pricing'); window.scrollTo(0, 0); return; }
+    if (item === 'Features') {
+      setCurrentPage('pricing');
+      setTimeout(() => document.getElementById('compare-features')?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
+      return;
+    }
     setCurrentPage('home');
     setTimeout(() => document.getElementById(item.toLowerCase())?.scrollIntoView({ behavior: 'smooth' }), 50);
   };
@@ -223,9 +233,9 @@ const App: React.FC = () => {
                   <button
                     key={item}
                     onClick={() => {
-                      setCurrentPage('home');
+                      setCurrentPage('pricing');
                       setTimeout(() => {
-                        const element = document.getElementById('features');
+                        const element = document.getElementById('compare-features');
                         if (element) {
                           element.scrollIntoView({ behavior: 'smooth', block: 'start' });
                         }
@@ -723,7 +733,32 @@ const App: React.FC = () => {
       </section>
 
       {/* Science Grid */}
-      <Programs lang={lang} storeUrl={MOCKUP_STORE_URL} onContactClick={() => openContact('programs')} />
+      <Programs lang={lang} />
+
+      <section id="features" className="py-12 md:py-20 lg:py-32 px-4">
+        <div className="max-w-7xl mx-auto text-center">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-heading font-black italic mb-4 md:mb-6 uppercase tracking-tight">{t.science.title}</h2>
+          <p className="text-white text-sm sm:text-base md:text-lg mb-12 md:mb-16 lg:mb-24 max-w-2xl mx-auto">{t.science.subtitle}</p>
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+            {[
+              { icon: ShieldCheck, ...t.science.prevention },
+              { icon: Zap, ...t.science.performance },
+              { icon: Dumbbell, ...t.science.sportSpecific }
+            ].map((feature, i) => (
+              <div key={i} className="bg-[#005776]/10 border border-white/10 p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl text-left flex flex-col items-start gap-4 md:gap-6 hover:bg-[#005776]/20 transition-all cursor-default group">
+                <div className="p-3 md:p-4 rounded-xl bg-[#005776]/20 text-white">
+                  <feature.icon className="w-6 h-6 md:w-8 md:h-8" />
+                </div>
+                <div>
+                  <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-2 md:mb-3 font-heading italic tracking-wide uppercase text-white">{feature.title}</h3>
+                  <p className="text-white leading-relaxed text-xs sm:text-sm group-hover:text-white transition-colors">{feature.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Testimonials Section */}
       <section id="community" className="py-12 md:py-20 lg:py-32 px-4 bg-[#001f30] border-t border-white/5">
