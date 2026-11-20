@@ -33,6 +33,7 @@ export const translations = {
     nav: {
       mission: "Mission",
       founder: "Founders",
+      programs: "Training programs",
       features: "Features",
       pricing: "Pricing",
       waitlist: "Waitlist",
@@ -267,6 +268,7 @@ export const translations = {
     nav: {
       mission: "Mission",
       founder: "Fondatrices",
+      programs: "Programmes",
       features: "Fonctionnalités",
       pricing: "Tarifs",
       waitlist: "Liste d'attente",
