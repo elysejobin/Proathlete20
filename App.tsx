@@ -218,12 +218,12 @@ const App: React.FC = () => {
             title="PRO ATHLETE"
           >
             <ProAthleteLogo className="w-10 h-10" />
-            <span className="font-heading text-xl md:text-2xl font-black italic uppercase">PRO <span className="text-white">ATHLETE</span></span>
+            <span className="font-heading text-xl md:text-2xl font-black italic uppercase whitespace-nowrap">PRO <span className="text-white">ATHLETE</span></span>
           </button>
         </div>
         
-        <div className="hidden lg:flex gap-8 items-center">
-          <div className="flex gap-6 xl:gap-8 text-[10px] font-bold uppercase tracking-[0.2em] items-center">
+        <div className="hidden xl:flex gap-6 items-center">
+          <div className="flex gap-5 2xl:gap-8 text-[10px] font-bold uppercase tracking-[0.2em] items-center whitespace-nowrap">
             {['Mission', 'Founder', 'Programs', 'Features', 'Pricing', 'Community'].map(item => {
               const isPricing = item === 'Pricing';
               const isFeatures = item === 'Features';
@@ -319,7 +319,7 @@ const App: React.FC = () => {
         </div>
 
         <div className="flex items-center gap-2.5 sm:gap-4 md:gap-6">
-          <div className="hidden md:flex items-center gap-4 border-r border-white/20 pr-6">
+          <div className="hidden md:flex xl:hidden 2xl:flex items-center gap-4 border-r border-white/20 pr-6">
             <a href="https://www.facebook.com/proathletebasketball/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[#005776] transition-colors" title="Facebook" aria-label="Facebook">
               <Facebook size={20} />
             </a>
@@ -330,7 +330,7 @@ const App: React.FC = () => {
 
           <button 
             onClick={() => openContact('header')}
-            className="flex items-center gap-2 bg-[#005776] text-white px-3 sm:px-4 md:px-6 py-1.5 sm:py-2 rounded-full font-bold text-xs md:text-sm hover:bg-white hover:text-[#002337] transition-all"
+            className="flex items-center gap-2 whitespace-nowrap bg-[#005776] text-white px-3 sm:px-4 md:px-6 py-1.5 sm:py-2 rounded-full font-bold text-xs md:text-sm hover:bg-white hover:text-[#002337] transition-all"
           >
             <MessageSquare size={16} className="hidden sm:block" /> 
             <span className="hidden sm:inline">{t.nav.talkToUs}</span>
@@ -339,14 +339,14 @@ const App: React.FC = () => {
 
           <button 
             onClick={() => setLang(prev => prev === 'en' ? 'fr' : 'en')}
-            className="lg:hidden flex items-center gap-1.5 text-[10px] font-black hover:text-[#005776] transition-colors tracking-widest border border-white/20 px-2.5 py-1.5 rounded-full"
+            className="xl:hidden flex items-center gap-1.5 text-[10px] font-black hover:text-[#005776] transition-colors tracking-widest border border-white/20 px-2.5 py-1.5 rounded-full"
           >
             <Globe size={12} /> {lang.toUpperCase()}
           </button>
 
           <button
             onClick={() => setIsMobileMenuOpen(prev => !prev)}
-            className="lg:hidden flex items-center justify-center w-9 h-9 rounded-full border border-white/20 hover:border-white transition-colors"
+            className="xl:hidden flex items-center justify-center w-9 h-9 rounded-full border border-white/20 hover:border-white transition-colors"
             aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={isMobileMenuOpen}
           >
@@ -355,7 +355,7 @@ const App: React.FC = () => {
         </div>
 
         {isMobileMenuOpen && (
-          <div className="lg:hidden absolute top-full left-0 w-full bg-[#002337] border-b border-white/10 shadow-2xl">
+          <div className="xl:hidden absolute top-full left-0 w-full bg-[#002337] border-b border-white/10 shadow-2xl">
             <div className="flex flex-col px-6 py-2">
               {['Mission', 'Founder', 'Programs', 'Features', 'Pricing', 'Community'].map(item => (
                 <button
