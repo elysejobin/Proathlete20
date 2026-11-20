@@ -23,7 +23,8 @@ const Programs: React.FC<ProgramsProps> = ({ lang, storeUrl, onContactClick }) =
   const week = data.week.tabs[tab];
 
   return (
-    <section id="features" className="scroll-mt-16 py-12 md:py-20 lg:py-28 px-4">
+    <>
+    <section id="programs" className="scroll-mt-16 py-12 md:py-20 lg:py-28 px-4">
       <div className="max-w-7xl mx-auto">
         {/* Heading */}
         <div className="text-center mb-10 md:mb-14">
@@ -61,9 +62,9 @@ const Programs: React.FC<ProgramsProps> = ({ lang, storeUrl, onContactClick }) =
           })}
         </div>
 
-        {/* Example week + how it works */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start mb-16 md:mb-20">
-          <div className="lg:col-span-7">
+        {/* Example week */}
+        <div className="max-w-4xl mx-auto">
+          <div>
             <div className="flex flex-wrap items-end justify-between gap-4 mb-5">
               <h3 className="text-2xl md:text-4xl font-heading font-black italic uppercase tracking-tight text-white">{data.week.title[lang]}</h3>
               <div role="tablist" className="flex gap-1 bg-white/5 border border-white/10 rounded-full p-1">
@@ -102,22 +103,29 @@ const Programs: React.FC<ProgramsProps> = ({ lang, storeUrl, onContactClick }) =
             </div>
             <p className="text-white/60 text-xs mt-3 italic">{data.week.note[lang]}</p>
           </div>
-
-          <div className="lg:col-span-5">
-            <h3 className="text-2xl md:text-4xl font-heading font-black italic uppercase tracking-tight text-white mb-5">{data.steps.title[lang]}</h3>
-            <ol className="space-y-4">
-              {data.steps.items.map((s, i) => (
-                <li key={s.title.en} className="flex gap-4">
-                  <span className="shrink-0 w-9 h-9 rounded-full bg-[#005776] text-white font-heading font-black italic flex items-center justify-center">{i + 1}</span>
-                  <div>
-                    <div className="text-white font-bold text-base">{s.title[lang]}</div>
-                    <p className="text-white/75 text-sm leading-relaxed">{s.desc[lang]}</p>
-                  </div>
-                </li>
-              ))}
-            </ol>
-          </div>
         </div>
+      </div>
+    </section>
+
+    <section id="features" className="scroll-mt-16 pb-12 md:pb-20 lg:pb-28 px-4">
+      <div className="max-w-7xl mx-auto">
+        {/* Features: how it works */}
+        <div className="text-center mb-10 md:mb-12">
+          <div className="inline-flex items-center gap-2 bg-[#005776]/20 border border-[#5CE1E6]/30 px-3.5 py-1.5 rounded-full text-[10px] sm:text-xs font-bold tracking-[0.2em] uppercase text-[#5CE1E6] mb-5">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#5CE1E6]" />
+            {data.features.tag[lang]}
+          </div>
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-heading font-black italic uppercase tracking-tight">{data.features.title[lang]}</h2>
+        </div>
+        <ol className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 mb-10 md:mb-14">
+          {data.steps.items.map((s, i) => (
+            <li key={s.title.en} className="bg-[#001f30] border border-white/10 rounded-2xl p-5 md:p-6">
+              <span className="w-9 h-9 rounded-full bg-[#005776] text-white font-heading font-black italic flex items-center justify-center mb-4">{i + 1}</span>
+              <div className="text-white font-bold text-base mb-1.5">{s.title[lang]}</div>
+              <p className="text-white/75 text-sm leading-relaxed">{s.desc[lang]}</p>
+            </li>
+          ))}
+        </ol>
 
         {/* Included + CTAs */}
         <div className="bg-[#005776]/10 border border-white/10 rounded-3xl p-6 sm:p-8 md:p-10 flex flex-col lg:flex-row gap-8 lg:items-center lg:justify-between">
@@ -142,6 +150,7 @@ const Programs: React.FC<ProgramsProps> = ({ lang, storeUrl, onContactClick }) =
         </div>
       </div>
     </section>
+    </>
   );
 };
 
