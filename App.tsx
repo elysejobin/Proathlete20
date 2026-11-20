@@ -740,7 +740,12 @@ const App: React.FC = () => {
       </section>
 
       {/* Science Grid */}
-      <Programs lang={lang} />
+      <Programs
+        lang={lang}
+        storeUrl={MOCKUP_STORE_URL}
+        onContactClick={() => openContact('programs')}
+        onPricingClick={() => { setPricingNav('Pricing'); setCurrentPage('pricing'); window.scrollTo(0, 0); }}
+      />
 
       <section id="features" className="py-12 md:py-20 lg:py-32 px-4">
         <div className="max-w-7xl mx-auto text-center">
