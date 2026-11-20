@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
-import { Dumbbell, ShieldCheck, Flame, BatteryCharging, CheckCircle2, Clock, ChevronRight } from 'lucide-react';
+import { Dumbbell, ShieldCheck, Flame, BatteryCharging, Clock } from 'lucide-react';
 import data from '../data/programs.json';
 
 type Lang = 'en' | 'fr';
 
 interface ProgramsProps {
   lang: Lang;
-  storeUrl: string;
-  onContactClick: () => void;
 }
 
 const ICONS: Record<string, React.ElementType> = {
@@ -17,13 +15,12 @@ const ICONS: Record<string, React.ElementType> = {
   recovery: BatteryCharging,
 };
 
-// "What you get in the app": program cards, an example training week, how it works, and what's included.
-const Programs: React.FC<ProgramsProps> = ({ lang, storeUrl, onContactClick }) => {
+// "What you get in the app": program cards and an example training week.
+const Programs: React.FC<ProgramsProps> = ({ lang }) => {
   const [tab, setTab] = useState(0);
   const week = data.week.tabs[tab];
 
   return (
-    <>
     <section id="programs" className="scroll-mt-16 py-12 md:py-20 lg:py-28 px-4">
       <div className="max-w-7xl mx-auto">
         {/* Heading */}
@@ -106,51 +103,6 @@ const Programs: React.FC<ProgramsProps> = ({ lang, storeUrl, onContactClick }) =
         </div>
       </div>
     </section>
-
-    <section id="features" className="scroll-mt-16 pb-12 md:pb-20 lg:pb-28 px-4">
-      <div className="max-w-7xl mx-auto">
-        {/* Features: how it works */}
-        <div className="text-center mb-10 md:mb-12">
-          <div className="inline-flex items-center gap-2 bg-[#005776]/20 border border-[#5CE1E6]/30 px-3.5 py-1.5 rounded-full text-[10px] sm:text-xs font-bold tracking-[0.2em] uppercase text-[#5CE1E6] mb-5">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#5CE1E6]" />
-            {data.features.tag[lang]}
-          </div>
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-heading font-black italic uppercase tracking-tight">{data.features.title[lang]}</h2>
-        </div>
-        <ol className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 mb-10 md:mb-14">
-          {data.steps.items.map((s, i) => (
-            <li key={s.title.en} className="bg-[#001f30] border border-white/10 rounded-2xl p-5 md:p-6">
-              <span className="w-9 h-9 rounded-full bg-[#005776] text-white font-heading font-black italic flex items-center justify-center mb-4">{i + 1}</span>
-              <div className="text-white font-bold text-base mb-1.5">{s.title[lang]}</div>
-              <p className="text-white/75 text-sm leading-relaxed">{s.desc[lang]}</p>
-            </li>
-          ))}
-        </ol>
-
-        {/* Included + CTAs */}
-        <div className="bg-[#005776]/10 border border-white/10 rounded-3xl p-6 sm:p-8 md:p-10 flex flex-col lg:flex-row gap-8 lg:items-center lg:justify-between">
-          <div>
-            <h3 className="text-xl md:text-2xl font-heading font-black italic uppercase tracking-wide text-white mb-4">{data.included.title[lang]}</h3>
-            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2.5">
-              {data.included.items.map(item => (
-                <li key={item.en} className="flex items-start gap-2 text-white/90 text-sm">
-                  <CheckCircle2 className="w-4 h-4 text-[#5CE1E6] shrink-0 mt-0.5" />{item[lang]}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="flex flex-col sm:flex-row lg:flex-col gap-3 shrink-0">
-            <a href={storeUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 bg-[#005776] hover:bg-[#006b91] text-white px-6 py-3.5 rounded-full font-bold uppercase tracking-[0.15em] text-xs transition-colors">
-              {data.cta.download[lang]} <ChevronRight size={16} />
-            </a>
-            <button type="button" onClick={onContactClick} className="inline-flex items-center justify-center gap-2 border border-white/20 hover:border-white text-white px-6 py-3.5 rounded-full font-bold uppercase tracking-[0.15em] text-xs transition-colors">
-              {data.cta.team[lang]} <ChevronRight size={16} />
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
-    </>
   );
 };
 
