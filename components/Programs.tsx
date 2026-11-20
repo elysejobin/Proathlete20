@@ -123,19 +123,28 @@ const Programs: React.FC<ProgramsProps> = ({ lang, storeUrl, onContactClick, onP
               </div>
             </div>
 
-            {/* App screenshot or short screen recording for this plan (set media.image or media.video in data/programs.json) */}
+            {/* iPhone mockup with an app screenshot or short screen recording for this plan (media.image / media.video in data/programs.json) */}
             <div className="lg:col-span-5 flex justify-center">
-              <div className="w-[220px] sm:w-[250px] aspect-[9/19] rounded-[2.2rem] border-[6px] border-white/15 bg-[#002337] overflow-hidden shadow-2xl">
-                {week.media.video ? (
-                  <video key={week.media.video} src={week.media.video} poster={week.media.image || undefined} autoPlay muted loop playsInline preload="metadata" className="w-full h-full object-cover" />
-                ) : week.media.image ? (
-                  <img src={week.media.image} alt={week.label[lang]} loading="lazy" className="w-full h-full object-cover" />
-                ) : (
-                  <div className="w-full h-full flex flex-col items-center justify-center gap-3 text-center px-6 border-2 border-dashed border-white/10 rounded-[1.7rem]">
-                    <Smartphone className="w-8 h-8 text-white/30" />
-                    <span className="text-white/45 text-xs font-semibold uppercase tracking-widest">{data.week.screenshotPlaceholder[lang]}</span>
+              <div className="relative w-[230px] sm:w-[260px]">
+                <span aria-hidden className="absolute -left-[3px] top-[17%] w-[3px] h-[5%] rounded-l bg-[#2a2d31]" />
+                <span aria-hidden className="absolute -left-[3px] top-[25%] w-[3px] h-[9%] rounded-l bg-[#2a2d31]" />
+                <span aria-hidden className="absolute -left-[3px] top-[36%] w-[3px] h-[9%] rounded-l bg-[#2a2d31]" />
+                <span aria-hidden className="absolute -right-[3px] top-[28%] w-[3px] h-[13%] rounded-r bg-[#2a2d31]" />
+                <div className="rounded-[2.9rem] bg-[#0b0c0e] p-[9px] ring-1 ring-white/25 shadow-2xl shadow-black/60">
+                  <div className="relative rounded-[2.3rem] overflow-hidden aspect-[1170/2532] bg-[#002337]">
+                    <span aria-hidden className="absolute top-[1.4%] left-1/2 -translate-x-1/2 w-[31%] h-[3.3%] rounded-full bg-black z-10" />
+                    {week.media.video ? (
+                      <video key={week.media.video} src={week.media.video} poster={week.media.image || undefined} autoPlay muted loop playsInline preload="metadata" className="w-full h-full object-cover" />
+                    ) : week.media.image ? (
+                      <img src={week.media.image} alt={week.label[lang]} loading="lazy" className="w-full h-full object-cover" />
+                    ) : (
+                      <div className="w-full h-full flex flex-col items-center justify-center gap-3 text-center px-6">
+                        <Smartphone className="w-8 h-8 text-white/30" />
+                        <span className="text-white/45 text-xs font-semibold uppercase tracking-widest">{data.week.screenshotPlaceholder[lang]}</span>
+                      </div>
+                    )}
                   </div>
-                )}
+                </div>
               </div>
             </div>
           </div>
