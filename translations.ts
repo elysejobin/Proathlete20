@@ -33,6 +33,7 @@ export const translations = {
     nav: {
       mission: "Mission",
       founder: "Founders",
+      programs: "Training programs",
       features: "Features",
       pricing: "Pricing",
       waitlist: "Waitlist",
@@ -45,7 +46,7 @@ export const translations = {
       desc: "The training app built for you by physiotherapists and kinesiologists who specialize in sports. Sport-specific strength, warm-up and recovery programs to help you perform and stay injury-free all season.",
       offer: "Free multi-sport version · Premium sport-specific programs for basketball and soccer",
       pillars: [
-        { title: "Strength", desc: "Build strength, power and speed for your sport." },
+        { title: "Strength & prevention", desc: "Build strength, power and speed for your sport, while preventing key injuries." },
         { title: "Warm-ups", desc: "Evidence-based exercises to protect your ankles and knees." },
         { title: "Recovery", desc: "Recover faster and stay at your best." },
         { title: "Tracking", desc: "See your progress and stay consistent." },
@@ -267,6 +268,7 @@ export const translations = {
     nav: {
       mission: "Mission",
       founder: "Fondatrices",
+      programs: "Programmes",
       features: "Fonctionnalités",
       pricing: "Tarifs",
       waitlist: "Liste d'attente",
@@ -279,7 +281,7 @@ export const translations = {
       desc: "L'app d'entraînement conçue pour vous par des physiothérapeutes et kinésiologues spécialisés en sport. Des programmes de force, d'échauffement et de récupération adaptés à votre sport, pour performer et rester sans blessure toute la saison.",
       offer: "Version multisport gratuite · Programmes premium spécifiques au basketball et au soccer",
       pillars: [
-        { title: "Force", desc: "Développez force, puissance et vitesse pour votre sport." },
+        { title: "Force et prévention", desc: "Développez force, puissance et vitesse pour votre sport, tout en prévenant les blessures clés." },
         { title: "Échauffements", desc: "Des exercices validés par la science pour protéger chevilles et genoux." },
         { title: "Récupération", desc: "Récupérez plus vite et restez à votre meilleur." },
         { title: "Suivi", desc: "Voyez vos progrès et restez constant." },

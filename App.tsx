@@ -18,6 +18,7 @@ import { UserRole, Sport } from './types';
 import { translations } from './translations';
 import AppointmentModal from './components/AppointmentModal';
 import FAQ from './components/FAQ';
+import Programs from './components/Programs';
 import { PricingPage } from './components/PricingPage';
 import PrivacyPolicy from './components/PrivacyPolicy';
 
@@ -110,6 +111,8 @@ const App: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isPrivacyOpen, setIsPrivacyOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState<'home' | 'pricing'>('home');
+  // Which menu item opened the pricing page (Features or Pricing), so only that one is highlighted
+  const [pricingNav, setPricingNav] = useState<'Features' | 'Pricing'>('Pricing');
   
   const t = translations[lang];
 
@@ -117,9 +120,9 @@ const App: React.FC = () => {
   useEffect(() => {
     const hash = window.location.hash.replace('#', '');
     if (!hash) return;
-    if (hash === 'pricing') { setCurrentPage('pricing'); window.scrollTo(0, 0); return; }
+    if (hash === 'pricing') { setPricingNav('Pricing'); setCurrentPage('pricing'); window.scrollTo(0, 0); return; }
     if (hash === 'features') {
-      setCurrentPage('pricing');
+      setPricingNav('Features'); setCurrentPage('pricing');
       setTimeout(() => document.getElementById('compare-features')?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 300);
       return;
     }
@@ -164,9 +167,9 @@ const App: React.FC = () => {
   // Mobile menu: go to a section and close the menu
   const goToSection = (item: string) => {
     setIsMobileMenuOpen(false);
-    if (item === 'Pricing') { setCurrentPage('pricing'); window.scrollTo(0, 0); return; }
+    if (item === 'Pricing') { setPricingNav('Pricing'); setCurrentPage('pricing'); window.scrollTo(0, 0); return; }
     if (item === 'Features') {
-      setCurrentPage('pricing');
+      setPricingNav('Features'); setCurrentPage('pricing');
       setTimeout(() => document.getElementById('compare-features')?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
       return;
     }
@@ -215,16 +218,17 @@ const App: React.FC = () => {
             title="PRO ATHLETE"
           >
             <ProAthleteLogo className="w-10 h-10" />
-            <span className="font-heading text-xl md:text-2xl font-black italic uppercase">PRO <span className="text-white">ATHLETE</span></span>
+            <span className="font-heading text-xl md:text-2xl font-black italic uppercase whitespace-nowrap">PRO <span className="text-white">ATHLETE</span></span>
           </button>
         </div>
         
-        <div className="hidden lg:flex gap-8 items-center">
-          <div className="flex gap-6 xl:gap-8 text-[10px] font-bold uppercase tracking-[0.2em] items-center">
-            {['Mission', 'Founder', 'Features', 'Pricing', 'Community'].map(item => {
+        <div className="hidden xl:flex gap-6 items-center">
+          <div className="flex gap-5 2xl:gap-8 text-[10px] font-bold uppercase tracking-[0.2em] items-center whitespace-nowrap">
+            {['Mission', 'Founder', 'Programs', 'Features', 'Pricing', 'Community'].map(item => {
               const isPricing = item === 'Pricing';
               const isFeatures = item === 'Features';
-              const isPricingActive = isPricing && currentPage === 'pricing';
+              const isPricingActive = isPricing && currentPage === 'pricing' && pricingNav === 'Pricing';
+              const isFeaturesActive = isFeatures && currentPage === 'pricing' && pricingNav === 'Features';
               const label = (t.nav as any)[item.toLowerCase()] || item;
 
               if (isFeatures) {
@@ -232,7 +236,7 @@ const App: React.FC = () => {
                   <button
                     key={item}
                     onClick={() => {
-                      setCurrentPage('pricing');
+                      setPricingNav('Features'); setCurrentPage('pricing');
                       setTimeout(() => {
                         const element = document.getElementById('compare-features');
                         if (element) {
@@ -240,7 +244,11 @@ const App: React.FC = () => {
                         }
                       }, 100);
                     }}
-                    className="hover:text-[#5CE1E6] text-white/80 transition-colors"
+                    className={`transition-all duration-300 px-3 py-1.5 rounded-full ${
+                      isFeaturesActive
+                        ? 'bg-[#5CE1E6] text-[#002337] font-black shadow-lg shadow-[#5CE1E6]/20'
+                        : 'hover:text-[#5CE1E6] text-white/80'
+                    }`}
                   >
                     {label}
                   </button>
@@ -252,7 +260,7 @@ const App: React.FC = () => {
                   <button
                     key={item}
                     onClick={() => {
-                      setCurrentPage('pricing');
+                      setPricingNav('Pricing'); setCurrentPage('pricing');
                       window.scrollTo(0, 0);
                     }}
                     className={`transition-all duration-300 px-3 py-1.5 rounded-full ${
@@ -311,7 +319,7 @@ const App: React.FC = () => {
         </div>
 
         <div className="flex items-center gap-2.5 sm:gap-4 md:gap-6">
-          <div className="hidden md:flex items-center gap-4 border-r border-white/20 pr-6">
+          <div className="hidden md:flex xl:hidden 2xl:flex items-center gap-4 border-r border-white/20 pr-6">
             <a href="https://www.facebook.com/proathletebasketball/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[#005776] transition-colors" title="Facebook" aria-label="Facebook">
               <Facebook size={20} />
             </a>
@@ -322,7 +330,7 @@ const App: React.FC = () => {
 
           <button 
             onClick={() => openContact('header')}
-            className="flex items-center gap-2 bg-[#005776] text-white px-3 sm:px-4 md:px-6 py-1.5 sm:py-2 rounded-full font-bold text-xs md:text-sm hover:bg-white hover:text-[#002337] transition-all"
+            className="flex items-center gap-2 whitespace-nowrap bg-[#005776] text-white px-3 sm:px-4 md:px-6 py-1.5 sm:py-2 rounded-full font-bold text-xs md:text-sm hover:bg-white hover:text-[#002337] transition-all"
           >
             <MessageSquare size={16} className="hidden sm:block" /> 
             <span className="hidden sm:inline">{t.nav.talkToUs}</span>
@@ -331,14 +339,14 @@ const App: React.FC = () => {
 
           <button 
             onClick={() => setLang(prev => prev === 'en' ? 'fr' : 'en')}
-            className="lg:hidden flex items-center gap-1.5 text-[10px] font-black hover:text-[#005776] transition-colors tracking-widest border border-white/20 px-2.5 py-1.5 rounded-full"
+            className="xl:hidden flex items-center gap-1.5 text-[10px] font-black hover:text-[#005776] transition-colors tracking-widest border border-white/20 px-2.5 py-1.5 rounded-full"
           >
             <Globe size={12} /> {lang.toUpperCase()}
           </button>
 
           <button
             onClick={() => setIsMobileMenuOpen(prev => !prev)}
-            className="lg:hidden flex items-center justify-center w-9 h-9 rounded-full border border-white/20 hover:border-white transition-colors"
+            className="xl:hidden flex items-center justify-center w-9 h-9 rounded-full border border-white/20 hover:border-white transition-colors"
             aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={isMobileMenuOpen}
           >
@@ -347,9 +355,9 @@ const App: React.FC = () => {
         </div>
 
         {isMobileMenuOpen && (
-          <div className="lg:hidden absolute top-full left-0 w-full bg-[#002337] border-b border-white/10 shadow-2xl">
+          <div className="xl:hidden absolute top-full left-0 w-full bg-[#002337] border-b border-white/10 shadow-2xl">
             <div className="flex flex-col px-6 py-2">
-              {['Mission', 'Founder', 'Features', 'Pricing', 'Community'].map(item => (
+              {['Mission', 'Founder', 'Programs', 'Features', 'Pricing', 'Community'].map(item => (
                 <button
                   key={item}
                   onClick={() => goToSection(item)}
@@ -732,30 +740,12 @@ const App: React.FC = () => {
       </section>
 
       {/* Science Grid */}
-      <section id="features" className="py-12 md:py-20 lg:py-32 px-4">
-        <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-heading font-black italic mb-4 md:mb-6 uppercase tracking-tight">{t.science.title}</h2>
-          <p className="text-white text-sm sm:text-base md:text-lg mb-12 md:mb-16 lg:mb-24 max-w-2xl mx-auto">{t.science.subtitle}</p>
-          
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-            {[
-              { icon: ShieldCheck, ...t.science.prevention },
-              { icon: Zap, ...t.science.performance },
-              { icon: Dumbbell, ...t.science.sportSpecific }
-            ].map((feature, i) => (
-              <div key={i} className="bg-[#005776]/10 border border-white/10 p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl text-left flex flex-col items-start gap-4 md:gap-6 hover:bg-[#005776]/20 transition-all cursor-default group">
-                <div className="p-3 md:p-4 rounded-xl bg-[#005776]/20 text-white">
-                  <feature.icon className="w-6 h-6 md:w-8 md:h-8" />
-                </div>
-                <div>
-                  <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-2 md:mb-3 font-heading italic tracking-wide uppercase text-white">{feature.title}</h3>
-                  <p className="text-white leading-relaxed text-xs sm:text-sm group-hover:text-white transition-colors">{feature.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <Programs
+        lang={lang}
+        storeUrl={MOCKUP_STORE_URL}
+        onContactClick={() => openContact('programs')}
+        onPricingClick={() => { setPricingNav('Pricing'); setCurrentPage('pricing'); window.scrollTo(0, 0); }}
+      />
 
       {/* Testimonials Section */}
       <section id="community" className="py-12 md:py-20 lg:py-32 px-4 bg-[#001f30] border-t border-white/5">
@@ -871,7 +861,7 @@ const App: React.FC = () => {
               <li>
                 <button 
                   onClick={() => {
-                    setCurrentPage('pricing');
+                    setPricingNav('Features'); setCurrentPage('pricing');
                     setTimeout(() => {
                       const element = document.getElementById('compare-features');
                       if (element) {
@@ -887,7 +877,7 @@ const App: React.FC = () => {
               <li>
                 <button 
                   onClick={() => {
-                    setCurrentPage('pricing');
+                    setPricingNav('Pricing'); setCurrentPage('pricing');
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                   }} 
                   className="hover:text-white transition-colors text-left"

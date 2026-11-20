@@ -1,0 +1,258 @@
+{
+  "_help": "Programs section on the homepage (components/Programs.tsx). Edit text here; FR and EN side by side.",
+  "tag": { "en": "Training programs", "fr": "Programmes d'entraînement" },
+  "title": { "en": "What you get in the app", "fr": "Ce qui vous attend dans l'app" },
+  "subtitle": {
+    "en": "Programs designed by health professionals for your sport. Here is exactly what's inside, and what a training week looks like.",
+    "fr": "Des programmes conçus par des professionnels de la santé pour votre sport. Voici exactement ce qu'il y a dedans, et à quoi ressemble une semaine d'entraînement."
+  },
+  "programs": [
+    {
+      "icon": "strength",
+      "name": { "en": "Strength & power", "fr": "Force et puissance" },
+      "goal": { "en": "Get stronger, faster and more athletic, with weights or bodyweight.", "fr": "Devenir plus fort, plus rapide et plus athlétique, avec charges ou au poids du corps." },
+      "facts": [
+        { "label": { "en": "When", "fr": "Quand" }, "value": { "en": "Off-season and in-season", "fr": "Hors-saison et en saison" } },
+        { "label": { "en": "Session", "fr": "Séance" }, "value": { "en": "30–50 min", "fr": "30 à 50 min" } },
+        { "label": { "en": "Frequency", "fr": "Fréquence" }, "value": { "en": "2–3 times a week", "fr": "2 à 3 fois par semaine" } },
+        { "label": { "en": "Format", "fr": "Format" }, "value": { "en": "Progression every ~4 weeks", "fr": "Progression aux ~4 semaines" } }
+      ]
+    },
+    {
+      "icon": "prevention",
+      "name": { "en": "Injury prevention", "fr": "Prévention des blessures" },
+      "goal": { "en": "Injury- and joint-specific programs: ankles, knees (ACL) and more.", "fr": "Programmes spécifiques aux blessures et aux articulations : chevilles, genoux (LCA) et plus." },
+      "facts": [
+        { "label": { "en": "When", "fr": "Quand" }, "value": { "en": "All year", "fr": "Toute l'année" } },
+        { "label": { "en": "Session", "fr": "Séance" }, "value": { "en": "15–20 min", "fr": "15 à 20 min" } },
+        { "label": { "en": "Frequency", "fr": "Fréquence" }, "value": { "en": "2–3 times a week", "fr": "2 à 3 fois par semaine" } },
+        { "label": { "en": "Format", "fr": "Format" }, "value": { "en": "Balance, strength, landing", "fr": "Équilibre, force, réceptions" } }
+      ]
+    },
+    {
+      "icon": "warmup",
+      "name": { "en": "Warm-ups", "fr": "Échauffements" },
+      "goal": { "en": "Neuromuscular warm-ups that prepare the body and reduce injuries.", "fr": "Des échauffements neuromusculaires qui préparent le corps et réduisent les blessures." },
+      "facts": [
+        { "label": { "en": "When", "fr": "Quand" }, "value": { "en": "Before practices and games", "fr": "Avant les pratiques et les matchs" } },
+        { "label": { "en": "Session", "fr": "Séance" }, "value": { "en": "10–15 min", "fr": "10 à 15 min" } },
+        { "label": { "en": "Frequency", "fr": "Fréquence" }, "value": { "en": "Every practice", "fr": "À chaque pratique" } },
+        { "label": { "en": "Options", "fr": "Options" }, "value": { "en": "With or without a ball", "fr": "Avec ou sans ballon" } }
+      ]
+    },
+    {
+      "icon": "recovery",
+      "name": { "en": "Recovery & mobility", "fr": "Récupération et mobilité" },
+      "goal": { "en": "Recover faster between practices and games, and keep moving well.", "fr": "Récupérer plus vite entre les pratiques et les matchs, et bien bouger." },
+      "facts": [
+        { "label": { "en": "When", "fr": "Quand" }, "value": { "en": "After games and hard sessions", "fr": "Après les matchs et les grosses séances" } },
+        { "label": { "en": "Session", "fr": "Séance" }, "value": { "en": "5–15 min", "fr": "5 à 15 min" } },
+        { "label": { "en": "Frequency", "fr": "Fréquence" }, "value": { "en": "1–3 times a week", "fr": "1 à 3 fois par semaine" } },
+        { "label": { "en": "Format", "fr": "Format" }, "value": { "en": "Mobility and stretching", "fr": "Mobilité et étirements" } }
+      ]
+    }
+  ],
+  "week": {
+    "title": {
+      "en": "What a week looks like",
+      "fr": "À quoi ressemble une semaine"
+    },
+    "subtitle": {
+      "en": "Depending on your plan: athlete, coach or organization.",
+      "fr": "Selon votre forfait : athlète, coach ou organisation."
+    },
+    "note": {
+      "en": "Typical week. Programs are adapted to your sport and level.",
+      "fr": "Semaine type. Les programmes sont adaptés à votre sport et à votre niveau."
+    },
+    "screenshotPlaceholder": {
+      "en": "App screenshot coming soon",
+      "fr": "Capture d'écran de l'app à venir"
+    },
+    "tabs": [
+      {
+        "label": {
+          "en": "Athlete",
+          "fr": "Athlète"
+        },
+        "items": [
+          {
+            "icon": "strength",
+            "title": {
+              "en": "Strength & prevention training",
+              "fr": "Entraînement de force et prévention"
+            },
+            "detail": {
+              "en": "2–3 times a week, with weights or bodyweight",
+              "fr": "2 à 3 fois par semaine, avec charges ou au poids du corps"
+            }
+          },
+          {
+            "icon": "prevention",
+            "title": {
+              "en": "Targeted injury prevention session",
+              "fr": "Séance de prévention ciblée"
+            },
+            "detail": {
+              "en": "Depending on your needs, e.g. ankle strength & stability",
+              "fr": "Selon vos besoins, ex. : force et stabilité de la cheville"
+            },
+            "tag": {
+              "en": "Optional",
+              "fr": "Optionnel"
+            }
+          },
+          {
+            "icon": "recovery",
+            "title": {
+              "en": "Recovery & mobility session",
+              "fr": "Séance de récupération et mobilité"
+            },
+            "detail": {
+              "en": "Depending on your needs",
+              "fr": "Selon vos besoins"
+            },
+            "tag": {
+              "en": "Optional",
+              "fr": "Optionnel"
+            }
+          }
+        ],
+        "media": {
+          "image": "/media/app-demo.jpg",
+          "video": "/media/app-demo.mp4"
+        },
+        "cta": {
+          "type": "store",
+          "label": {
+            "en": "Download the app for free",
+            "fr": "Téléchargez l'app gratuitement"
+          }
+        }
+      },
+      {
+        "label": {
+          "en": "Coach",
+          "fr": "Coach"
+        },
+        "items": [
+          {
+            "icon": "warmup",
+            "title": {
+              "en": "PRO ATHLETE warm-up",
+              "fr": "Échauffement PRO ATHLETE"
+            },
+            "detail": {
+              "en": "Before every practice and game, 10–15 min",
+              "fr": "Avant chaque pratique et chaque match, 10 à 15 min"
+            }
+          },
+          {
+            "icon": "recovery",
+            "title": {
+              "en": "Team mobility & recovery",
+              "fr": "Mobilité et récupération en équipe"
+            },
+            "detail": {
+              "en": "After practices, e.g. lower-body mobility",
+              "fr": "Après les pratiques, ex. : mobilité du bas du corps"
+            }
+          },
+          {
+            "icon": "strength",
+            "title": {
+              "en": "Bodyweight strength program",
+              "fr": "Programme de force au poids du corps"
+            },
+            "detail": {
+              "en": "2–3 times a week, if your athletes don't already have a strength program",
+              "fr": "2 à 3 fois par semaine, si vos athlètes n'ont pas déjà de programme de force"
+            },
+            "tag": {
+              "en": "If needed",
+              "fr": "Au besoin"
+            }
+          }
+        ],
+        "media": {
+          "image": "/media/app-demo-coach.jpg",
+          "video": "/media/app-demo-coach.mp4"
+        },
+        "cta": {
+          "type": "pricing",
+          "label": {
+            "en": "See plans",
+            "fr": "Voir les forfaits"
+          }
+        }
+      },
+      {
+        "label": {
+          "en": "Organization",
+          "fr": "Organisation"
+        },
+        "items": [
+          {
+            "icon": "warmup",
+            "title": {
+              "en": "Coaches run a PRO ATHLETE warm-up",
+              "fr": "Les coachs font un échauffement PRO ATHLETE"
+            },
+            "detail": {
+              "en": "At the start of every practice, 10–15 min",
+              "fr": "Au début de chaque pratique, 10 à 15 min"
+            }
+          },
+          {
+            "icon": "strength",
+            "title": {
+              "en": "Athletes strength train",
+              "fr": "Les athlètes s'entraînent en force"
+            },
+            "detail": {
+              "en": "2–3 times a week, with weights or bodyweight",
+              "fr": "2 à 3 fois par semaine, avec charges ou au poids du corps"
+            }
+          },
+          {
+            "icon": "prevention",
+            "title": {
+              "en": "Personalized prehab and/or mobility & recovery sessions",
+              "fr": "Séances personnalisées de prévention et/ou de mobilité et récupération"
+            },
+            "detail": {
+              "en": "For the athletes who need them",
+              "fr": "Pour les athlètes qui en ont besoin"
+            },
+            "tag": {
+              "en": "Optional",
+              "fr": "Optionnel"
+            }
+          },
+          {
+            "icon": "tracking",
+            "title": {
+              "en": "Coaches track performance and engagement",
+              "fr": "Les coachs suivent la performance et l'engagement"
+            },
+            "detail": {
+              "en": "For their whole team",
+              "fr": "Pour toute leur équipe"
+            }
+          }
+        ],
+        "media": {
+          "image": "/media/app-demo.jpg",
+          "video": "/media/app-demo.mp4"
+        },
+        "cta": {
+          "type": "contact",
+          "label": {
+            "en": "Talk to us",
+            "fr": "Parlez-nous"
+          }
+        }
+      }
+    ]
+  }
+}
