@@ -119,8 +119,8 @@
           }
         ],
         "media": {
-          "image": "",
-          "video": ""
+          "image": "/media/app-demo.jpg",
+          "video": "/media/app-demo.mp4"
         },
         "cta": {
           "type": "store",
@@ -242,8 +242,8 @@
           }
         ],
         "media": {
-          "image": "",
-          "video": ""
+          "image": "/media/app-demo.jpg",
+          "video": "/media/app-demo.mp4"
         },
         "cta": {
           "type": "contact",
