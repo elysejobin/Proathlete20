@@ -13,7 +13,7 @@
       "goal": { "en": "Get stronger, faster and more athletic, with weights or bodyweight.", "fr": "Devenir plus fort, plus rapide et plus athlétique, avec charges ou au poids du corps." },
       "facts": [
         { "label": { "en": "When", "fr": "Quand" }, "value": { "en": "Off-season and in-season", "fr": "Hors-saison et en saison" } },
-        { "label": { "en": "Session", "fr": "Séance" }, "value": { "en": "30–45 min", "fr": "30 à 45 min" } },
+        { "label": { "en": "Session", "fr": "Séance" }, "value": { "en": "30–50 min", "fr": "30 à 50 min" } },
         { "label": { "en": "Frequency", "fr": "Fréquence" }, "value": { "en": "2–3 times a week", "fr": "2 à 3 fois par semaine" } },
         { "label": { "en": "Format", "fr": "Format" }, "value": { "en": "Progression every ~4 weeks", "fr": "Progression aux ~4 semaines" } }
       ]
@@ -83,32 +83,5 @@
         ]
       }
     ]
-  },
-  "features": {
-    "tag": { "en": "Features", "fr": "Fonctionnalités" },
-    "title": { "en": "How it works", "fr": "Comment ça marche" }
-  },
-  "steps": {
-    "items": [
-      { "title": { "en": "Download the app", "fr": "Téléchargez l'app" }, "desc": { "en": "Free on iPhone and Android. Choose your sport, or join your team through your school or club.", "fr": "Gratuite sur iPhone et Android. Choisissez votre sport, ou rejoignez votre équipe par votre école ou votre club." } },
-      { "title": { "en": "Get your programs", "fr": "Recevez vos programmes" }, "desc": { "en": "Strength, prevention, warm-up and recovery, organized by phase and season.", "fr": "Force, prévention, échauffement et récupération, organisés par phase et par saison." } },
-      { "title": { "en": "Train with video", "fr": "Entraînez-vous avec la vidéo" }, "desc": { "en": "Every exercise is demonstrated in video, with sets and reps, step by step.", "fr": "Chaque exercice est démontré en vidéo, avec séries et répétitions, étape par étape." } },
-      { "title": { "en": "Track your progress", "fr": "Suivez vos progrès" }, "desc": { "en": "See your progress over the season. Coaches follow their whole team in real time.", "fr": "Voyez vos progrès au fil de la saison. Les coachs suivent toute leur équipe en temps réel." } }
-    ]
-  },
-  "included": {
-    "title": { "en": "Included", "fr": "Inclus" },
-    "items": [
-      { "en": "Video demo for every exercise", "fr": "Vidéo de démonstration pour chaque exercice" },
-      { "en": "Progression by phases and levels", "fr": "Progression par phases et niveaux" },
-      { "en": "Progress tracking", "fr": "Suivi des progrès" },
-      { "en": "Coach view to assign programs and follow players", "fr": "Vue coach pour assigner des programmes et suivre les joueurs" },
-      { "en": "Free multi-sport version", "fr": "Version multisport gratuite" },
-      { "en": "Premium basketball and soccer programs", "fr": "Programmes premium basketball et soccer" }
-    ]
-  },
-  "cta": {
-    "download": { "en": "Download the app for free", "fr": "Téléchargez l'app gratuitement" },
-    "team": { "en": "Equip your team", "fr": "Équipez votre équipe" }
   }
 }
