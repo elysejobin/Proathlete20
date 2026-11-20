@@ -1,0 +1,111 @@
+{
+  "_help": "Programs section on the homepage (components/Programs.tsx). Edit text here; FR and EN side by side.",
+  "tag": { "en": "Training programs", "fr": "Programmes d'entraînement" },
+  "title": { "en": "What you get in the app", "fr": "Ce qui vous attend dans l'app" },
+  "subtitle": {
+    "en": "Programs designed by health professionals for your sport. Here is exactly what's inside, and what a training week looks like.",
+    "fr": "Des programmes conçus par des professionnels de la santé pour votre sport. Voici exactement ce qu'il y a dedans, et à quoi ressemble une semaine d'entraînement."
+  },
+  "programs": [
+    {
+      "icon": "strength",
+      "name": { "en": "Strength & power", "fr": "Force et puissance" },
+      "goal": { "en": "Get stronger, faster and more athletic.", "fr": "Devenir plus fort, plus rapide et plus athlétique." },
+      "facts": [
+        { "label": { "en": "When", "fr": "Quand" }, "value": { "en": "Off-season and in-season", "fr": "Hors-saison et en saison" } },
+        { "label": { "en": "Session", "fr": "Séance" }, "value": { "en": "30–45 min", "fr": "30 à 45 min" } },
+        { "label": { "en": "Frequency", "fr": "Fréquence" }, "value": { "en": "2–3 times a week", "fr": "2 à 3 fois par semaine" } },
+        { "label": { "en": "Format", "fr": "Format" }, "value": { "en": "Progressive phases, by level", "fr": "Phases progressives, par niveau" } }
+      ]
+    },
+    {
+      "icon": "prevention",
+      "name": { "en": "Injury prevention", "fr": "Prévention des blessures" },
+      "goal": { "en": "Injury- and joint-specific programs: ankles, knees (ACL) and more.", "fr": "Programmes spécifiques aux blessures et aux articulations : chevilles, genoux (LCA) et plus." },
+      "facts": [
+        { "label": { "en": "When", "fr": "Quand" }, "value": { "en": "All year", "fr": "Toute l'année" } },
+        { "label": { "en": "Session", "fr": "Séance" }, "value": { "en": "15–20 min", "fr": "15 à 20 min" } },
+        { "label": { "en": "Frequency", "fr": "Fréquence" }, "value": { "en": "2 times a week", "fr": "2 fois par semaine" } },
+        { "label": { "en": "Format", "fr": "Format" }, "value": { "en": "Balance, strength, landing", "fr": "Équilibre, force, réceptions" } }
+      ]
+    },
+    {
+      "icon": "warmup",
+      "name": { "en": "Warm-ups", "fr": "Échauffements" },
+      "goal": { "en": "Neuromuscular warm-ups that prepare the body and reduce injuries.", "fr": "Des échauffements neuromusculaires qui préparent le corps et réduisent les blessures." },
+      "facts": [
+        { "label": { "en": "When", "fr": "Quand" }, "value": { "en": "Before practices and games", "fr": "Avant les pratiques et les matchs" } },
+        { "label": { "en": "Session", "fr": "Séance" }, "value": { "en": "10–15 min", "fr": "10 à 15 min" } },
+        { "label": { "en": "Frequency", "fr": "Fréquence" }, "value": { "en": "Every practice", "fr": "À chaque pratique" } },
+        { "label": { "en": "Equipment", "fr": "Équipement" }, "value": { "en": "None needed", "fr": "Aucun" } }
+      ]
+    },
+    {
+      "icon": "recovery",
+      "name": { "en": "Recovery & mobility", "fr": "Récupération et mobilité" },
+      "goal": { "en": "Recover faster between practices and games, and keep moving well.", "fr": "Récupérer plus vite entre les pratiques et les matchs, et bien bouger." },
+      "facts": [
+        { "label": { "en": "When", "fr": "Quand" }, "value": { "en": "After games and hard sessions", "fr": "Après les matchs et les grosses séances" } },
+        { "label": { "en": "Session", "fr": "Séance" }, "value": { "en": "10–20 min", "fr": "10 à 20 min" } },
+        { "label": { "en": "Frequency", "fr": "Fréquence" }, "value": { "en": "1–2 times a week", "fr": "1 à 2 fois par semaine" } },
+        { "label": { "en": "Format", "fr": "Format" }, "value": { "en": "Mobility, stretching, breathing", "fr": "Mobilité, étirements, respiration" } }
+      ]
+    }
+  ],
+  "week": {
+    "title": { "en": "What a training week looks like", "fr": "À quoi ressemble une semaine" },
+    "note": { "en": "Example week. Your program depends on your sport, level and season.", "fr": "Exemple de semaine. Votre programme dépend de votre sport, de votre niveau et de la saison." },
+    "tabs": [
+      {
+        "label": { "en": "Off-season", "fr": "Hors-saison" },
+        "days": [
+          { "day": { "en": "Day 1", "fr": "Jour 1" }, "blocks": [
+            { "name": { "en": "Warm-up", "fr": "Échauffement" }, "min": 10, "icon": "warmup" },
+            { "name": { "en": "Lower-body strength & power", "fr": "Force et puissance, bas du corps" }, "min": 40, "icon": "strength" } ] },
+          { "day": { "en": "Day 2", "fr": "Jour 2" }, "blocks": [
+            { "name": { "en": "Ankle & knee prevention", "fr": "Prévention chevilles et genoux" }, "min": 20, "icon": "prevention" },
+            { "name": { "en": "Mobility", "fr": "Mobilité" }, "min": 10, "icon": "recovery" } ] },
+          { "day": { "en": "Day 3", "fr": "Jour 3" }, "blocks": [
+            { "name": { "en": "Warm-up", "fr": "Échauffement" }, "min": 10, "icon": "warmup" },
+            { "name": { "en": "Full-body strength & speed", "fr": "Force et vitesse, tout le corps" }, "min": 40, "icon": "strength" } ] }
+        ]
+      },
+      {
+        "label": { "en": "In-season", "fr": "En saison" },
+        "days": [
+          { "day": { "en": "Before every practice", "fr": "Avant chaque pratique" }, "blocks": [
+            { "name": { "en": "Team warm-up", "fr": "Échauffement d'équipe" }, "min": 15, "icon": "warmup" } ] },
+          { "day": { "en": "1–2 times a week", "fr": "1 à 2 fois par semaine" }, "blocks": [
+            { "name": { "en": "In-season strength", "fr": "Force en saison" }, "min": 30, "icon": "strength" },
+            { "name": { "en": "Injury prevention", "fr": "Prévention des blessures" }, "min": 15, "icon": "prevention" } ] },
+          { "day": { "en": "After games", "fr": "Après les matchs" }, "blocks": [
+            { "name": { "en": "Recovery", "fr": "Récupération" }, "min": 15, "icon": "recovery" } ] }
+        ]
+      }
+    ]
+  },
+  "steps": {
+    "title": { "en": "How it works", "fr": "Comment ça marche" },
+    "items": [
+      { "title": { "en": "Download the app", "fr": "Téléchargez l'app" }, "desc": { "en": "Free on iPhone and Android. Choose your sport, or join your team through your school or club.", "fr": "Gratuite sur iPhone et Android. Choisissez votre sport, ou rejoignez votre équipe par votre école ou votre club." } },
+      { "title": { "en": "Get your programs", "fr": "Recevez vos programmes" }, "desc": { "en": "Strength, prevention, warm-up and recovery, organized by phase and season.", "fr": "Force, prévention, échauffement et récupération, organisés par phase et par saison." } },
+      { "title": { "en": "Train with video", "fr": "Entraînez-vous avec la vidéo" }, "desc": { "en": "Every exercise is demonstrated in video, with sets and reps, step by step.", "fr": "Chaque exercice est démontré en vidéo, avec séries et répétitions, étape par étape." } },
+      { "title": { "en": "Track your progress", "fr": "Suivez vos progrès" }, "desc": { "en": "See your progress over the season. Coaches follow their whole team in real time.", "fr": "Voyez vos progrès au fil de la saison. Les coachs suivent toute leur équipe en temps réel." } }
+    ]
+  },
+  "included": {
+    "title": { "en": "Included", "fr": "Inclus" },
+    "items": [
+      { "en": "Video demo for every exercise", "fr": "Vidéo de démonstration pour chaque exercice" },
+      { "en": "Progression by phases and levels", "fr": "Progression par phases et niveaux" },
+      { "en": "Progress tracking", "fr": "Suivi des progrès" },
+      { "en": "Coach view to assign programs and follow players", "fr": "Vue coach pour assigner des programmes et suivre les joueurs" },
+      { "en": "Free multi-sport version", "fr": "Version multisport gratuite" },
+      { "en": "Premium basketball and soccer programs", "fr": "Programmes premium basketball et soccer" }
+    ]
+  },
+  "cta": {
+    "download": { "en": "Download the app for free", "fr": "Téléchargez l'app gratuitement" },
+    "team": { "en": "Equip your team", "fr": "Équipez votre équipe" }
+  }
+}
