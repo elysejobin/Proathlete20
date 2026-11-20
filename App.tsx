@@ -119,11 +119,6 @@ const App: React.FC = () => {
     const hash = window.location.hash.replace('#', '');
     if (!hash) return;
     if (hash === 'pricing') { setCurrentPage('pricing'); window.scrollTo(0, 0); return; }
-    if (hash === 'features') {
-      setCurrentPage('pricing');
-      setTimeout(() => document.getElementById('compare-features')?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 300);
-      return;
-    }
     if (hash === 'contact') { setIsAppointmentOpen(true); return; }
     setTimeout(() => document.getElementById(hash)?.scrollIntoView({ behavior: 'smooth' }), 300);
   }, []);
@@ -166,11 +161,6 @@ const App: React.FC = () => {
   const goToSection = (item: string) => {
     setIsMobileMenuOpen(false);
     if (item === 'Pricing') { setCurrentPage('pricing'); window.scrollTo(0, 0); return; }
-    if (item === 'Features') {
-      setCurrentPage('pricing');
-      setTimeout(() => document.getElementById('compare-features')?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
-      return;
-    }
     setCurrentPage('home');
     setTimeout(() => document.getElementById(item.toLowerCase())?.scrollIntoView({ behavior: 'smooth' }), 50);
   };
@@ -222,7 +212,7 @@ const App: React.FC = () => {
         
         <div className="hidden lg:flex gap-8 items-center">
           <div className="flex gap-6 xl:gap-8 text-[10px] font-bold uppercase tracking-[0.2em] items-center">
-            {['Mission', 'Founder', 'Features', 'Pricing', 'Community'].map(item => {
+            {['Mission', 'Founder', 'Programs', 'Features', 'Pricing', 'Community'].map(item => {
               const isPricing = item === 'Pricing';
               const isFeatures = item === 'Features';
               const isPricingActive = isPricing && currentPage === 'pricing';
@@ -233,9 +223,9 @@ const App: React.FC = () => {
                   <button
                     key={item}
                     onClick={() => {
-                      setCurrentPage('pricing');
+                      setCurrentPage('home');
                       setTimeout(() => {
-                        const element = document.getElementById('compare-features');
+                        const element = document.getElementById('features');
                         if (element) {
                           element.scrollIntoView({ behavior: 'smooth', block: 'start' });
                         }
@@ -350,7 +340,7 @@ const App: React.FC = () => {
         {isMobileMenuOpen && (
           <div className="lg:hidden absolute top-full left-0 w-full bg-[#002337] border-b border-white/10 shadow-2xl">
             <div className="flex flex-col px-6 py-2">
-              {['Mission', 'Founder', 'Features', 'Pricing', 'Community'].map(item => (
+              {['Mission', 'Founder', 'Programs', 'Features', 'Pricing', 'Community'].map(item => (
                 <button
                   key={item}
                   onClick={() => goToSection(item)}
