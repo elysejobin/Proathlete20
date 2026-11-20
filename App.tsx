@@ -111,6 +111,8 @@ const App: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isPrivacyOpen, setIsPrivacyOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState<'home' | 'pricing'>('home');
+  // Which menu item opened the pricing page (Features or Pricing), so only that one is highlighted
+  const [pricingNav, setPricingNav] = useState<'Features' | 'Pricing'>('Pricing');
   
   const t = translations[lang];
 
@@ -118,9 +120,9 @@ const App: React.FC = () => {
   useEffect(() => {
     const hash = window.location.hash.replace('#', '');
     if (!hash) return;
-    if (hash === 'pricing') { setCurrentPage('pricing'); window.scrollTo(0, 0); return; }
+    if (hash === 'pricing') { setPricingNav('Pricing'); setCurrentPage('pricing'); window.scrollTo(0, 0); return; }
     if (hash === 'features') {
-      setCurrentPage('pricing');
+      setPricingNav('Features'); setCurrentPage('pricing');
       setTimeout(() => document.getElementById('compare-features')?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 300);
       return;
     }
@@ -165,9 +167,9 @@ const App: React.FC = () => {
   // Mobile menu: go to a section and close the menu
   const goToSection = (item: string) => {
     setIsMobileMenuOpen(false);
-    if (item === 'Pricing') { setCurrentPage('pricing'); window.scrollTo(0, 0); return; }
+    if (item === 'Pricing') { setPricingNav('Pricing'); setCurrentPage('pricing'); window.scrollTo(0, 0); return; }
     if (item === 'Features') {
-      setCurrentPage('pricing');
+      setPricingNav('Features'); setCurrentPage('pricing');
       setTimeout(() => document.getElementById('compare-features')?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
       return;
     }
@@ -225,7 +227,8 @@ const App: React.FC = () => {
             {['Mission', 'Founder', 'Programs', 'Features', 'Pricing', 'Community'].map(item => {
               const isPricing = item === 'Pricing';
               const isFeatures = item === 'Features';
-              const isPricingActive = isPricing && currentPage === 'pricing';
+              const isPricingActive = isPricing && currentPage === 'pricing' && pricingNav === 'Pricing';
+              const isFeaturesActive = isFeatures && currentPage === 'pricing' && pricingNav === 'Features';
               const label = (t.nav as any)[item.toLowerCase()] || item;
 
               if (isFeatures) {
@@ -233,7 +236,7 @@ const App: React.FC = () => {
                   <button
                     key={item}
                     onClick={() => {
-                      setCurrentPage('pricing');
+                      setPricingNav('Features'); setCurrentPage('pricing');
                       setTimeout(() => {
                         const element = document.getElementById('compare-features');
                         if (element) {
@@ -241,7 +244,11 @@ const App: React.FC = () => {
                         }
                       }, 100);
                     }}
-                    className="hover:text-[#5CE1E6] text-white/80 transition-colors"
+                    className={`transition-all duration-300 px-3 py-1.5 rounded-full ${
+                      isFeaturesActive
+                        ? 'bg-[#5CE1E6] text-[#002337] font-black shadow-lg shadow-[#5CE1E6]/20'
+                        : 'hover:text-[#5CE1E6] text-white/80'
+                    }`}
                   >
                     {label}
                   </button>
@@ -253,7 +260,7 @@ const App: React.FC = () => {
                   <button
                     key={item}
                     onClick={() => {
-                      setCurrentPage('pricing');
+                      setPricingNav('Pricing'); setCurrentPage('pricing');
                       window.scrollTo(0, 0);
                     }}
                     className={`transition-all duration-300 px-3 py-1.5 rounded-full ${
@@ -874,7 +881,7 @@ const App: React.FC = () => {
               <li>
                 <button 
                   onClick={() => {
-                    setCurrentPage('pricing');
+                    setPricingNav('Features'); setCurrentPage('pricing');
                     setTimeout(() => {
                       const element = document.getElementById('compare-features');
                       if (element) {
@@ -890,7 +897,7 @@ const App: React.FC = () => {
               <li>
                 <button 
                   onClick={() => {
-                    setCurrentPage('pricing');
+                    setPricingNav('Pricing'); setCurrentPage('pricing');
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                   }} 
                   className="hover:text-white transition-colors text-left"
