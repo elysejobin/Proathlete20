@@ -175,8 +175,8 @@
           }
         ],
         "media": {
-          "image": "",
-          "video": ""
+          "image": "/media/app-demo-coach.jpg",
+          "video": "/media/app-demo-coach.mp4"
         },
         "cta": {
           "type": "pricing",
