@@ -50,6 +50,17 @@
         "name": "Aperçu de l'app PRO ATHLETE",
         "description": "Une visite de l'app d'entraînement PRO ATHLETE : échauffements, prévention des blessures, programmes de musculation et de récupération, et suivi des progrès."
       }
+    },
+    "6QqXXqkOPro": {
+      "uploadDate": "2026-10-19T12:00:00-04:00",
+      "en": {
+        "name": "Single-Leg Broad Jump: Landing Control Drill",
+        "description": "Jump forward on one leg and land quietly, bending at the hip and knee with the knee over the toes."
+      },
+      "fr": {
+        "name": "Saut en longueur à une jambe : contrôle de la réception",
+        "description": "Sautez vers l'avant sur une jambe et atterrissez en douceur, en fléchissant la hanche et le genou, le genou au-dessus des orteils."
+      }
     }
   },
   "images": {
