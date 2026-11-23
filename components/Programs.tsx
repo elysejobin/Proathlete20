@@ -9,6 +9,9 @@ interface ProgramsProps {
   storeUrl: string;
   onContactClick: () => void;
   onPricingClick: () => void;
+  // 'teaser' (homepage): cards + link to the Programs page; 'full' (/programs/): cards + typical week by plan
+  variant?: 'teaser' | 'full';
+  onSeeAll?: () => void;
 }
 
 const ICONS: Record<string, React.ElementType> = {
@@ -20,12 +23,14 @@ const ICONS: Record<string, React.ElementType> = {
 };
 
 // "What you get in the app": program cards, then a typical week for each plan (athlete, coach, organization) with an app screenshot.
-const Programs: React.FC<ProgramsProps> = ({ lang, storeUrl, onContactClick, onPricingClick }) => {
+const Programs: React.FC<ProgramsProps> = ({ lang, storeUrl, onContactClick, onPricingClick, variant = 'full', onSeeAll }) => {
   const [tab, setTab] = useState(0);
   const week = data.week.tabs[tab];
+  const isFull = variant === 'full';
+  const Heading = isFull ? 'h1' : 'h2';
 
   return (
-    <section id="programs" className="scroll-mt-16 py-12 md:py-20 lg:py-28 px-4">
+    <section id="programs" className={`scroll-mt-16 px-4 ${isFull ? 'pt-28 md:pt-32 pb-12 md:pb-20 lg:pb-28' : 'py-12 md:py-20 lg:py-28'}`}>
       <div className="max-w-7xl mx-auto">
         {/* Heading */}
         <div className="text-center mb-10 md:mb-14">
@@ -33,14 +38,14 @@ const Programs: React.FC<ProgramsProps> = ({ lang, storeUrl, onContactClick, onP
             <span className="w-1.5 h-1.5 rounded-full bg-[#5CE1E6]" />
             {data.tag[lang]}
           </div>
-          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-heading font-black italic mb-4 md:mb-6 uppercase tracking-tight text-balance">
+          <Heading className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-heading font-black italic mb-4 md:mb-6 uppercase tracking-tight text-balance">
             {data.title[lang]}
-          </h2>
+          </Heading>
           <p className="text-white/85 text-sm sm:text-base md:text-lg max-w-2xl mx-auto text-balance">{data.subtitle[lang]}</p>
         </div>
 
         {/* Program cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 mb-16 md:mb-24">
+        <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 ${isFull ? 'mb-16 md:mb-24' : 'mb-10'}`}>
           {data.programs.map(p => {
             const Icon = ICONS[p.icon];
             return (
@@ -63,7 +68,16 @@ const Programs: React.FC<ProgramsProps> = ({ lang, storeUrl, onContactClick, onP
           })}
         </div>
 
-        {/* Typical week by plan */}
+        {!isFull && onSeeAll && (
+          <div className="flex justify-center">
+            <button type="button" onClick={onSeeAll} className="inline-flex items-center gap-2 bg-[#005776] hover:bg-[#006b91] text-white px-6 py-3.5 rounded-full font-bold uppercase tracking-[0.15em] text-xs transition-colors">
+              {data.seeAll[lang]} <ChevronRight size={16} />
+            </button>
+          </div>
+        )}
+
+        {/* Typical week by plan (Programs page) */}
+        {isFull && (
         <div className="bg-[#001f30] border border-white/10 rounded-3xl p-5 sm:p-8 md:p-10">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-5 mb-8">
             <div>
@@ -149,6 +163,7 @@ const Programs: React.FC<ProgramsProps> = ({ lang, storeUrl, onContactClick, onP
             </div>
           </div>
         </div>
+        )}
       </div>
     </section>
   );
