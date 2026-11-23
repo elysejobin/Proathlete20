@@ -5,6 +5,42 @@
     <lastmod>2026-10-23</lastmod>
   </url>
   <url>
+    <loc>https://www.proathlete.ca/programs/</loc>
+    <lastmod>2026-11-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.proathlete.ca/programs/" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.proathlete.ca/fr/programmes/" />
+  </url>
+  <url>
+    <loc>https://www.proathlete.ca/fr/programmes/</loc>
+    <lastmod>2026-11-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.proathlete.ca/programs/" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.proathlete.ca/fr/programmes/" />
+  </url>
+  <url>
+    <loc>https://www.proathlete.ca/features/</loc>
+    <lastmod>2026-11-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.proathlete.ca/features/" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.proathlete.ca/fr/fonctionnalites/" />
+  </url>
+  <url>
+    <loc>https://www.proathlete.ca/fr/fonctionnalites/</loc>
+    <lastmod>2026-11-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.proathlete.ca/features/" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.proathlete.ca/fr/fonctionnalites/" />
+  </url>
+  <url>
+    <loc>https://www.proathlete.ca/pricing/</loc>
+    <lastmod>2026-11-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.proathlete.ca/pricing/" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.proathlete.ca/fr/tarifs/" />
+  </url>
+  <url>
+    <loc>https://www.proathlete.ca/fr/tarifs/</loc>
+    <lastmod>2026-11-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.proathlete.ca/pricing/" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.proathlete.ca/fr/tarifs/" />
+  </url>
+  <url>
     <loc>https://www.proathlete.ca/resources/</loc>
     <lastmod>2026-10-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.proathlete.ca/resources/" />
