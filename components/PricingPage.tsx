@@ -8,14 +8,40 @@ interface PricingPageProps {
   activeSport: Sport;
   onContactClick: () => void;
   onBackToHome: () => void;
+  // 'pricing' = plans + FAQ (/pricing/), 'features' = detailed feature comparison (/features/)
+  section?: 'pricing' | 'features';
+  onPricingClick?: () => void;
+  onFeaturesClick?: () => void;
 }
 
 export const PricingPage: React.FC<PricingPageProps> = ({ 
   lang, 
   activeSport, 
   onContactClick,
-  onBackToHome
+  onBackToHome,
+  section = 'pricing',
+  onPricingClick,
+  onFeaturesClick
 }) => {
+  const isFeatures = section === 'features';
+  // Text for the Features page and the links between the two pages
+  const pageText = lang === 'fr'
+    ? {
+        crumb: 'FONCTIONNALITÉS',
+        badge: 'FONCTIONNALITÉS',
+        title: 'Tout ce qui est inclus dans chaque forfait.',
+        subtitle: "Comparez ce qu'offre chaque forfait PRO ATHLETE, de la version gratuite aux organisations sportives : échauffements, programmes de force et de prévention, récupération, suivi et accompagnement.",
+        toFeatures: 'Comparer toutes les fonctionnalités',
+        toPricing: 'Voir les tarifs',
+      }
+    : {
+        crumb: 'FEATURES',
+        badge: 'FEATURES',
+        title: 'Everything included in each plan.',
+        subtitle: 'Compare what each PRO ATHLETE plan offers, from the free version to sports organizations: warm-ups, strength and prevention programs, recovery, tracking and support.',
+        toFeatures: 'Compare all features',
+        toPricing: 'See pricing',
+      };
   const [isYearly, setIsYearly] = useState(false);
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
 
@@ -40,7 +66,7 @@ export const PricingPage: React.FC<PricingPageProps> = ({
         pricing: "PRICING"
       },
       badge: "PRICING PLANS",
-      mostPopular: "MOST POPULAR",
+      mostPopular: "RECOMMENDED FOR TEAMS",
       title: "Find the plan that fits your game.",
       subtitle: "Whether you're an athlete, coach, or organization, PRO ATHLETE provides evidence-based training, injury prevention, and performance solutions designed to help athletes stay healthy and perform at their best.",
       toggle: {
@@ -87,7 +113,7 @@ export const PricingPage: React.FC<PricingPageProps> = ({
             "Ongoing program recommendations"
           ],
           button: "Start Training",
-          highlight: true
+          highlight: false
         },
         {
           id: "coach",
@@ -112,7 +138,7 @@ export const PricingPage: React.FC<PricingPageProps> = ({
         },
         {
           id: "organization",
-          category: isYearly ? "SPORTS ORGANIZATION ★ BEST VALUE FOR TEAMS" : "SPORTS ORGANIZATION",
+          category: "SPORTS ORGANIZATION",
           name: "SPORTS ORGANIZATION",
           tagline: "Build stronger, healthier programs at scale. Provide every athlete and coach in your organization with a complete performance and injury prevention ecosystem.",
           perfectFor: "Perfect for: Schools, clubs, academies, and sports organizations looking to create healthier, more resilient athletes.",
@@ -130,7 +156,7 @@ export const PricingPage: React.FC<PricingPageProps> = ({
             "Dedicated onboarding and support"
           ],
           button: "Contact Sales",
-          highlight: false
+          highlight: true
         }
       ],
       compare: {
@@ -171,7 +197,7 @@ export const PricingPage: React.FC<PricingPageProps> = ({
         pricing: "TARIFS"
       },
       badge: "PLANS TARIFAIRES",
-      mostPopular: "LE PLUS POPULAIRE",
+      mostPopular: "RECOMMANDÉ POUR LES ÉQUIPES",
       title: "Trouvez le forfait qui correspond à vos objectifs.",
       subtitle: "Que vous soyez athlète, entraîneur ou organisation sportive, PRO ATHLETE vous offre des solutions fondées sur les données probantes pour améliorer la performance, prévenir les blessures et favoriser le développement à long terme des athlètes.",
       toggle: {
@@ -218,7 +244,7 @@ export const PricingPage: React.FC<PricingPageProps> = ({
             "Recommandations de programmes en continu"
           ],
           button: "Commencer maintenant",
-          highlight: true
+          highlight: false
         },
         {
           id: "coach",
@@ -243,7 +269,7 @@ export const PricingPage: React.FC<PricingPageProps> = ({
         },
         {
           id: "organization",
-          category: "ORGANISATION SPORTIVE ★ MEILLEURE VALEUR POUR LES ÉQUIPES",
+          category: "ORGANISATION SPORTIVE",
           name: "ORGANISATION SPORTIVE",
           tagline: "Développez des programmes plus forts et plus durables. Offrez à vos athlètes et entraîneurs un écosystème complet de performance et de prévention des blessures.",
           perfectFor: "Idéal pour : Les écoles, clubs, académies et organisations sportives qui souhaitent favoriser le développement à long terme de leurs athlètes.",
@@ -261,7 +287,7 @@ export const PricingPage: React.FC<PricingPageProps> = ({
             "Accompagnement et soutien à l'implantation"
           ],
           button: "Nous contacter",
-          highlight: false
+          highlight: true
         }
       ],
       compare: {
@@ -314,7 +340,7 @@ export const PricingPage: React.FC<PricingPageProps> = ({
             {curr.breadcrumbs.home}
           </button>
           <span className="text-white/20">/</span>
-          <span className="text-white/80">{curr.breadcrumbs.pricing}</span>
+          <span className="text-white/80">{isFeatures ? pageText.crumb : curr.breadcrumbs.pricing}</span>
         </div>
       </div>
 
@@ -328,7 +354,7 @@ export const PricingPage: React.FC<PricingPageProps> = ({
             className="inline-flex items-center gap-1.5 bg-[#005776]/10 border border-[#005776]/30 px-4 py-1.5 rounded-full text-[10px] font-bold tracking-[0.2em] uppercase text-[#5CE1E6] mb-6"
           >
             <Shield size={10} className="text-[#5CE1E6]" />
-            {curr.badge}
+            {isFeatures ? pageText.badge : curr.badge}
           </motion.div>
           
           <motion.h1 
@@ -337,7 +363,7 @@ export const PricingPage: React.FC<PricingPageProps> = ({
             transition={{ delay: 0.1 }}
             className="text-4xl md:text-5xl lg:text-7xl font-heading font-black italic tracking-tight uppercase leading-[0.95] mb-6 text-white"
           >
-            {curr.title}
+            {isFeatures ? pageText.title : curr.title}
           </motion.h1>
 
           <motion.p 
@@ -346,10 +372,11 @@ export const PricingPage: React.FC<PricingPageProps> = ({
             transition={{ delay: 0.2 }}
             className="text-white/70 text-sm md:text-base leading-relaxed"
           >
-            {curr.subtitle}
+            {isFeatures ? pageText.subtitle : curr.subtitle}
           </motion.p>
 
           {/* Monthly / Yearly Toggle */}
+          {!isFeatures && (
           <motion.div 
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -383,12 +410,16 @@ export const PricingPage: React.FC<PricingPageProps> = ({
               <span>{curr.pricingNotes}</span>
             </div>
           </motion.div>
+          )}
         </div>
 
         {/* Pricing Tiers Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch mb-24 md:mb-32">
+        {!isFeatures && (
+        <>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch mb-10 md:mb-12">
           {curr.tiers.map((tier, idx) => {
-            const isHighlighted = tier.id === 'athlete';
+            // The Organization plan is the one we put forward (badge "Recommended for teams")
+            const isHighlighted = tier.id === 'organization';
             return (
               <motion.div
                 key={tier.id}
@@ -401,9 +432,9 @@ export const PricingPage: React.FC<PricingPageProps> = ({
                     : 'border-white/10 hover:border-white/20'
                 }`}
               >
-                {/* Visual glow on the popular premium tier */}
+                {/* Badge on the recommended tier */}
                 {isHighlighted && (
-                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-[#5CE1E6] text-[#002337] text-[9px] font-black tracking-widest px-3 py-1 rounded-full uppercase flex items-center gap-1 shadow-md shadow-[#5CE1E6]/25">
+                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-[#5CE1E6] text-[#002337] text-[9px] font-black tracking-widest px-3 py-1 rounded-full uppercase whitespace-nowrap flex items-center gap-1 shadow-md shadow-[#5CE1E6]/25">
                     <Star size={10} fill="currentColor" />
                     {curr.mostPopular}
                   </div>
@@ -441,7 +472,8 @@ export const PricingPage: React.FC<PricingPageProps> = ({
                     {/* Pricing block */}
                     <div className="mb-6 border-b border-white/5 pb-6">
                       <div className="flex items-baseline gap-1.5">
-                        <span className="text-3xl md:text-5xl font-heading font-black italic text-white tracking-tight">
+                        {/* Text prices (e.g. custom pricing) use a smaller size so they stay inside the card */}
+                        <span className={`font-heading font-black italic text-white tracking-tight ${tier.priceSub ? 'text-3xl md:text-5xl' : 'text-2xl md:text-3xl leading-tight'}`}>
                           {tier.price}
                         </span>
                         {tier.priceSub && (
@@ -490,8 +522,20 @@ export const PricingPage: React.FC<PricingPageProps> = ({
           })}
         </div>
 
-        {/* Compare Features in Detail section */}
-        <div id="compare-features" className="mb-24 md:mb-32 overflow-x-auto scroll-mt-28">
+        {onFeaturesClick && (
+          <div className="flex justify-center mb-24 md:mb-32">
+            <button type="button" onClick={onFeaturesClick} className="inline-flex items-center gap-2 border border-white/20 hover:border-[#5CE1E6] hover:text-[#5CE1E6] text-white px-6 py-3 rounded-full font-bold uppercase tracking-[0.15em] text-xs transition-colors">
+              {pageText.toFeatures} <ArrowRight size={14} />
+            </button>
+          </div>
+        )}
+        </>
+        )}
+
+        {/* Compare Features in Detail section (Features page) */}
+        {isFeatures && (
+        <>
+        <div id="compare-features" className="mb-12 md:mb-16 overflow-x-auto scroll-mt-28">
           <div className="text-center mb-10">
             <h3 className="text-2xl md:text-3xl font-heading font-black italic tracking-tight uppercase text-white mb-2">
               {curr.compare.title}
@@ -541,9 +585,18 @@ export const PricingPage: React.FC<PricingPageProps> = ({
             </tbody>
           </table>
         </div>
+        {onPricingClick && (
+          <div className="flex justify-center mb-8">
+            <button type="button" onClick={onPricingClick} className="inline-flex items-center gap-2 bg-[#005776] hover:bg-[#006b91] text-white px-6 py-3 rounded-full font-bold uppercase tracking-[0.15em] text-xs transition-colors">
+              {pageText.toPricing} <ArrowRight size={14} />
+            </button>
+          </div>
+        )}
+        </>
+        )}
 
-
-        {/* FAQ Accordion block */}
+        {/* FAQ Accordion block (Pricing page) */}
+        {!isFeatures && (
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-10">
             <div className="inline-flex items-center gap-1.5 bg-[#005776]/10 border border-[#005776]/30 px-3 py-1 rounded-full text-[9px] font-bold tracking-[0.2em] uppercase text-[#5CE1E6] mb-4">
@@ -595,6 +648,7 @@ export const PricingPage: React.FC<PricingPageProps> = ({
             })}
           </div>
         </div>
+        )}
 
       </div>
     </div>
