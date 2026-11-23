@@ -1,0 +1,37 @@
+{
+  "home": {
+    "path": { "en": "/", "fr": "/fr/" },
+    "title": {
+      "en": "PRO ATHLETE | Training App for Basketball, Soccer & More",
+      "fr": "PRO ATHLETE | Application d'entraînement pour le basketball, le soccer et plus"
+    },
+    "description": {
+      "en": "Sports training app designed by health professionals: warm-ups, strength and injury prevention for basketball, soccer and more. Free to download.",
+      "fr": "Application d'entraînement sportif conçue par des professionnels de la santé : échauffements, force et prévention des blessures pour le basketball, le soccer et plus. Téléchargement gratuit."
+    }
+  },
+  "programs": {
+    "path": { "en": "/programs/", "fr": "/fr/programmes/" },
+    "title": { "en": "Training Programs | PRO ATHLETE", "fr": "Programmes d'entraînement | PRO ATHLETE" },
+    "description": {
+      "en": "Strength, injury prevention, warm-up and recovery programs for athletes, coaches and organizations, designed by physiotherapists and kinesiologists.",
+      "fr": "Programmes de force, de prévention des blessures, d'échauffement et de récupération pour athlètes, coachs et organisations, conçus par des physiothérapeutes et kinésiologues."
+    }
+  },
+  "features": {
+    "path": { "en": "/features/", "fr": "/fr/fonctionnalites/" },
+    "title": { "en": "Features | PRO ATHLETE", "fr": "Fonctionnalités | PRO ATHLETE" },
+    "description": {
+      "en": "Compare what each PRO ATHLETE plan includes: warm-ups, strength and prevention programs, recovery, tracking and support.",
+      "fr": "Comparez ce qu'inclut chaque forfait PRO ATHLETE : échauffements, programmes de force et de prévention, récupération, suivi et accompagnement."
+    }
+  },
+  "pricing": {
+    "path": { "en": "/pricing/", "fr": "/fr/tarifs/" },
+    "title": { "en": "Pricing | PRO ATHLETE", "fr": "Tarifs | PRO ATHLETE" },
+    "description": {
+      "en": "PRO ATHLETE plans for athletes, coaches and sports organizations. Start free, then choose the plan that fits your team.",
+      "fr": "Les forfaits PRO ATHLETE pour athlètes, coachs et organisations sportives. Commencez gratuitement, puis choisissez le forfait adapté à votre équipe."
+    }
+  }
+}
