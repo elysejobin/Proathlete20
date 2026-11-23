@@ -31,6 +31,7 @@ export const translations = {
        favorites: "My favorites"
     },
     nav: {
+      home: "Home",
       mission: "Mission",
       founder: "Founders",
       programs: "Training programs",
@@ -266,6 +267,7 @@ export const translations = {
        favorites: "Mes favoris"
     },
     nav: {
+      home: "Accueil",
       mission: "Mission",
       founder: "Fondatrices",
       programs: "Programmes",
