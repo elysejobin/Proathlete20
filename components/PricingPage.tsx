@@ -8,14 +8,40 @@ interface PricingPageProps {
   activeSport: Sport;
   onContactClick: () => void;
   onBackToHome: () => void;
+  // 'pricing' = plans + FAQ (/pricing/), 'features' = detailed feature comparison (/features/)
+  section?: 'pricing' | 'features';
+  onPricingClick?: () => void;
+  onFeaturesClick?: () => void;
 }
 
 export const PricingPage: React.FC<PricingPageProps> = ({ 
   lang, 
   activeSport, 
   onContactClick,
-  onBackToHome
+  onBackToHome,
+  section = 'pricing',
+  onPricingClick,
+  onFeaturesClick
 }) => {
+  const isFeatures = section === 'features';
+  // Text for the Features page and the links between the two pages
+  const pageText = lang === 'fr'
+    ? {
+        crumb: 'FONCTIONNALITÉS',
+        badge: 'FONCTIONNALITÉS',
+        title: 'Tout ce qui est inclus dans chaque forfait.',
+        subtitle: "Comparez ce qu'offre chaque forfait PRO ATHLETE, de la version gratuite aux organisations sportives : échauffements, programmes de force et de prévention, récupération, suivi et accompagnement.",
+        toFeatures: 'Comparer toutes les fonctionnalités',
+        toPricing: 'Voir les tarifs',
+      }
+    : {
+        crumb: 'FEATURES',
+        badge: 'FEATURES',
+        title: 'Everything included in each plan.',
+        subtitle: 'Compare what each PRO ATHLETE plan offers, from the free version to sports organizations: warm-ups, strength and prevention programs, recovery, tracking and support.',
+        toFeatures: 'Compare all features',
+        toPricing: 'See pricing',
+      };
   const [isYearly, setIsYearly] = useState(false);
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
 
@@ -314,7 +340,7 @@ export const PricingPage: React.FC<PricingPageProps> = ({
             {curr.breadcrumbs.home}
           </button>
           <span className="text-white/20">/</span>
-          <span className="text-white/80">{curr.breadcrumbs.pricing}</span>
+          <span className="text-white/80">{isFeatures ? pageText.crumb : curr.breadcrumbs.pricing}</span>
         </div>
       </div>
 
@@ -328,7 +354,7 @@ export const PricingPage: React.FC<PricingPageProps> = ({
             className="inline-flex items-center gap-1.5 bg-[#005776]/10 border border-[#005776]/30 px-4 py-1.5 rounded-full text-[10px] font-bold tracking-[0.2em] uppercase text-[#5CE1E6] mb-6"
           >
             <Shield size={10} className="text-[#5CE1E6]" />
-            {curr.badge}
+            {isFeatures ? pageText.badge : curr.badge}
           </motion.div>
           
           <motion.h1 
@@ -337,7 +363,7 @@ export const PricingPage: React.FC<PricingPageProps> = ({
             transition={{ delay: 0.1 }}
             className="text-4xl md:text-5xl lg:text-7xl font-heading font-black italic tracking-tight uppercase leading-[0.95] mb-6 text-white"
           >
-            {curr.title}
+            {isFeatures ? pageText.title : curr.title}
           </motion.h1>
 
           <motion.p 
@@ -346,10 +372,11 @@ export const PricingPage: React.FC<PricingPageProps> = ({
             transition={{ delay: 0.2 }}
             className="text-white/70 text-sm md:text-base leading-relaxed"
           >
-            {curr.subtitle}
+            {isFeatures ? pageText.subtitle : curr.subtitle}
           </motion.p>
 
           {/* Monthly / Yearly Toggle */}
+          {!isFeatures && (
           <motion.div 
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -383,10 +410,13 @@ export const PricingPage: React.FC<PricingPageProps> = ({
               <span>{curr.pricingNotes}</span>
             </div>
           </motion.div>
+          )}
         </div>
 
         {/* Pricing Tiers Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch mb-24 md:mb-32">
+        {!isFeatures && (
+        <>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch mb-10 md:mb-12">
           {curr.tiers.map((tier, idx) => {
             const isHighlighted = tier.id === 'athlete';
             return (
@@ -490,8 +520,20 @@ export const PricingPage: React.FC<PricingPageProps> = ({
           })}
         </div>
 
-        {/* Compare Features in Detail section */}
-        <div id="compare-features" className="mb-24 md:mb-32 overflow-x-auto scroll-mt-28">
+        {onFeaturesClick && (
+          <div className="flex justify-center mb-24 md:mb-32">
+            <button type="button" onClick={onFeaturesClick} className="inline-flex items-center gap-2 border border-white/20 hover:border-[#5CE1E6] hover:text-[#5CE1E6] text-white px-6 py-3 rounded-full font-bold uppercase tracking-[0.15em] text-xs transition-colors">
+              {pageText.toFeatures} <ArrowRight size={14} />
+            </button>
+          </div>
+        )}
+        </>
+        )}
+
+        {/* Compare Features in Detail section (Features page) */}
+        {isFeatures && (
+        <>
+        <div id="compare-features" className="mb-12 md:mb-16 overflow-x-auto scroll-mt-28">
           <div className="text-center mb-10">
             <h3 className="text-2xl md:text-3xl font-heading font-black italic tracking-tight uppercase text-white mb-2">
               {curr.compare.title}
@@ -541,9 +583,18 @@ export const PricingPage: React.FC<PricingPageProps> = ({
             </tbody>
           </table>
         </div>
+        {onPricingClick && (
+          <div className="flex justify-center mb-8">
+            <button type="button" onClick={onPricingClick} className="inline-flex items-center gap-2 bg-[#005776] hover:bg-[#006b91] text-white px-6 py-3 rounded-full font-bold uppercase tracking-[0.15em] text-xs transition-colors">
+              {pageText.toPricing} <ArrowRight size={14} />
+            </button>
+          </div>
+        )}
+        </>
+        )}
 
-
-        {/* FAQ Accordion block */}
+        {/* FAQ Accordion block (Pricing page) */}
+        {!isFeatures && (
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-10">
             <div className="inline-flex items-center gap-1.5 bg-[#005776]/10 border border-[#005776]/30 px-3 py-1 rounded-full text-[9px] font-bold tracking-[0.2em] uppercase text-[#5CE1E6] mb-4">
@@ -595,6 +646,7 @@ export const PricingPage: React.FC<PricingPageProps> = ({
             })}
           </div>
         </div>
+        )}
 
       </div>
     </div>
