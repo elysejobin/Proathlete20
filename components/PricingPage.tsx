@@ -471,7 +471,8 @@ export const PricingPage: React.FC<PricingPageProps> = ({
                     {/* Pricing block */}
                     <div className="mb-6 border-b border-white/5 pb-6">
                       <div className="flex items-baseline gap-1.5">
-                        <span className="text-3xl md:text-5xl font-heading font-black italic text-white tracking-tight">
+                        {/* Text prices (e.g. custom pricing) use a smaller size so they stay inside the card */}
+                        <span className={`font-heading font-black italic text-white tracking-tight ${tier.priceSub ? 'text-3xl md:text-5xl' : 'text-2xl md:text-3xl leading-tight'}`}>
                           {tier.price}
                         </span>
                         {tier.priceSub && (
