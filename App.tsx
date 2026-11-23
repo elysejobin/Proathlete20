@@ -584,8 +584,8 @@ const App: React.FC = () => {
         <div className="max-w-6xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
           {t.hero.pillars.map((pillar: { title: string; desc: string }, i: number) => {
             const Icon = [Dumbbell, Flame, BatteryCharging, TrendingUp][i];
-            // Each card opens the matching page: the 3 program types go to Programs, Tracking goes to Features
-            const target: Page = i === 3 ? 'features' : 'programs';
+            // Each card opens the Programs page
+            const target: Page = 'programs';
             return (
               <a
                 key={pillar.title}
