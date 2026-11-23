@@ -9,7 +9,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Apple, PlayCircle, CheckCircle2, Scan, Activity, 
   ShieldCheck, BrainCircuit, HeartPulse, ChevronRight, ChevronDown, 
-  Menu, X, Star, Globe, Mail, Send,
+  Menu, X, Star, Globe,
   Accessibility, Footprints, Smile, Dumbbell, History,
   ArrowLeft, School, User, Heart, Zap, Timer, Star as StarIcon, Quote,
   Facebook, Instagram, MessageSquare, Trophy, Flame, BatteryCharging, TrendingUp
@@ -137,8 +137,6 @@ const App: React.FC = () => {
       : 'en'
   );
   const [activeRole, setActiveRole] = useState<UserRole>('ATHLETES');
-  const [newsletterEmail, setNewsletterEmail] = useState('');
-  const [isSubscribed, setIsSubscribed] = useState(false);
   const [isAppointmentOpen, setIsAppointmentOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isPrivacyOpen, setIsPrivacyOpen] = useState(false);
@@ -257,15 +255,6 @@ const App: React.FC = () => {
   // Phone mockup in the hero: visitors tap it (Clarity dead clicks), so it opens the store for their device.
   const isAndroid = typeof navigator !== 'undefined' && /android/i.test(navigator.userAgent);
   const MOCKUP_STORE_URL = isAndroid ? GOOGLE_PLAY_URL : APPLE_STORE_URL;
-
-  const handleNewsletterSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (newsletterEmail.trim()) {
-      setIsSubscribed(true);
-      setNewsletterEmail('');
-      setTimeout(() => setIsSubscribed(false), 5000);
-    }
-  };
 
   const currentRoleData = (t.roles as any)[activeRole];
   const roleDescription = currentRoleData.desc;
@@ -853,52 +842,6 @@ const App: React.FC = () => {
 
       <FAQ lang={lang} storeUrl={MOCKUP_STORE_URL} onContactClick={() => openContact('faq')} />
 
-      {/* CTA */}
-      <section className="py-16 md:py-24 px-4 bg-[#002337] border-t border-white/5">
-        <div className="max-w-4xl mx-auto text-center">
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            className="inline-block p-3 md:p-4 bg-[#005776]/20 rounded-full mb-6 md:mb-8"
-          >
-            <Mail className="text-[#005776]" size={28} />
-          </motion.div>
-          <h3 className="text-3xl sm:text-4xl md:text-5xl font-heading font-black italic mb-4 md:mb-6 uppercase">{t.footer.newsletterTitle}</h3>
-          <p className="text-white text-sm sm:text-base md:text-lg mb-8 md:mb-10 max-w-lg mx-auto leading-relaxed">
-            {t.footer.newsletterDesc}
-          </p>
-
-          <form onSubmit={handleNewsletterSubmit} className="relative max-w-md mx-auto group">
-            <input 
-              type="email"
-              value={newsletterEmail}
-              onChange={(e) => setNewsletterEmail(e.target.value)}
-              placeholder={t.footer.emailPlaceholder}
-              required
-              className="w-full bg-[#005776]/10 border border-white/20 rounded-xl md:rounded-2xl px-5 sm:px-6 md:px-8 py-3 sm:py-4 md:py-5 text-sm sm:text-base text-white focus:outline-none focus:border-[#005776] transition-all pr-12 sm:pr-14 md:pr-16 placeholder:text-white"
-            />
-            <button 
-              type="submit"
-              className="absolute right-2 top-2 bottom-2 aspect-square bg-[#005776] text-white rounded-lg md:rounded-xl flex items-center justify-center hover:scale-105 transition-transform"
-            >
-              <Send className="w-4 h-4 sm:w-5 sm:h-5" />
-            </button>
-          </form>
-          
-          <AnimatePresence>
-            {isSubscribed && (
-              <motion.p 
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0 }}
-                className="mt-4 md:mt-6 text-[#005776] font-bold text-xs sm:text-sm tracking-widest uppercase"
-              >
-                {t.footer.success}
-              </motion.p>
-            )}
-          </AnimatePresence>
-        </div>
-      </section>
         </>
       )}
 
