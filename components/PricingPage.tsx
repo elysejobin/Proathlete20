@@ -66,7 +66,7 @@ export const PricingPage: React.FC<PricingPageProps> = ({
         pricing: "PRICING"
       },
       badge: "PRICING PLANS",
-      mostPopular: "MOST POPULAR",
+      mostPopular: "RECOMMENDED FOR TEAMS",
       title: "Find the plan that fits your game.",
       subtitle: "Whether you're an athlete, coach, or organization, PRO ATHLETE provides evidence-based training, injury prevention, and performance solutions designed to help athletes stay healthy and perform at their best.",
       toggle: {
@@ -113,7 +113,7 @@ export const PricingPage: React.FC<PricingPageProps> = ({
             "Ongoing program recommendations"
           ],
           button: "Start Training",
-          highlight: true
+          highlight: false
         },
         {
           id: "coach",
@@ -138,7 +138,7 @@ export const PricingPage: React.FC<PricingPageProps> = ({
         },
         {
           id: "organization",
-          category: isYearly ? "SPORTS ORGANIZATION ★ BEST VALUE FOR TEAMS" : "SPORTS ORGANIZATION",
+          category: "SPORTS ORGANIZATION",
           name: "SPORTS ORGANIZATION",
           tagline: "Build stronger, healthier programs at scale. Provide every athlete and coach in your organization with a complete performance and injury prevention ecosystem.",
           perfectFor: "Perfect for: Schools, clubs, academies, and sports organizations looking to create healthier, more resilient athletes.",
@@ -156,7 +156,7 @@ export const PricingPage: React.FC<PricingPageProps> = ({
             "Dedicated onboarding and support"
           ],
           button: "Contact Sales",
-          highlight: false
+          highlight: true
         }
       ],
       compare: {
@@ -197,7 +197,7 @@ export const PricingPage: React.FC<PricingPageProps> = ({
         pricing: "TARIFS"
       },
       badge: "PLANS TARIFAIRES",
-      mostPopular: "LE PLUS POPULAIRE",
+      mostPopular: "RECOMMANDÉ POUR LES ÉQUIPES",
       title: "Trouvez le forfait qui correspond à vos objectifs.",
       subtitle: "Que vous soyez athlète, entraîneur ou organisation sportive, PRO ATHLETE vous offre des solutions fondées sur les données probantes pour améliorer la performance, prévenir les blessures et favoriser le développement à long terme des athlètes.",
       toggle: {
@@ -244,7 +244,7 @@ export const PricingPage: React.FC<PricingPageProps> = ({
             "Recommandations de programmes en continu"
           ],
           button: "Commencer maintenant",
-          highlight: true
+          highlight: false
         },
         {
           id: "coach",
@@ -269,7 +269,7 @@ export const PricingPage: React.FC<PricingPageProps> = ({
         },
         {
           id: "organization",
-          category: "ORGANISATION SPORTIVE ★ MEILLEURE VALEUR POUR LES ÉQUIPES",
+          category: "ORGANISATION SPORTIVE",
           name: "ORGANISATION SPORTIVE",
           tagline: "Développez des programmes plus forts et plus durables. Offrez à vos athlètes et entraîneurs un écosystème complet de performance et de prévention des blessures.",
           perfectFor: "Idéal pour : Les écoles, clubs, académies et organisations sportives qui souhaitent favoriser le développement à long terme de leurs athlètes.",
@@ -287,7 +287,7 @@ export const PricingPage: React.FC<PricingPageProps> = ({
             "Accompagnement et soutien à l'implantation"
           ],
           button: "Nous contacter",
-          highlight: false
+          highlight: true
         }
       ],
       compare: {
@@ -418,7 +418,8 @@ export const PricingPage: React.FC<PricingPageProps> = ({
         <>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch mb-10 md:mb-12">
           {curr.tiers.map((tier, idx) => {
-            const isHighlighted = tier.id === 'athlete';
+            // The Organization plan is the one we put forward (badge "Recommended for teams")
+            const isHighlighted = tier.id === 'organization';
             return (
               <motion.div
                 key={tier.id}
@@ -431,9 +432,9 @@ export const PricingPage: React.FC<PricingPageProps> = ({
                     : 'border-white/10 hover:border-white/20'
                 }`}
               >
-                {/* Visual glow on the popular premium tier */}
+                {/* Badge on the recommended tier */}
                 {isHighlighted && (
-                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-[#5CE1E6] text-[#002337] text-[9px] font-black tracking-widest px-3 py-1 rounded-full uppercase flex items-center gap-1 shadow-md shadow-[#5CE1E6]/25">
+                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-[#5CE1E6] text-[#002337] text-[9px] font-black tracking-widest px-3 py-1 rounded-full uppercase whitespace-nowrap flex items-center gap-1 shadow-md shadow-[#5CE1E6]/25">
                     <Star size={10} fill="currentColor" />
                     {curr.mostPopular}
                   </div>
