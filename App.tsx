@@ -584,14 +584,24 @@ const App: React.FC = () => {
         <div className="max-w-6xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
           {t.hero.pillars.map((pillar: { title: string; desc: string }, i: number) => {
             const Icon = [Dumbbell, Flame, BatteryCharging, TrendingUp][i];
+            // Each card opens the Programs page
+            const target: Page = 'programs';
             return (
-              <div key={pillar.title} className="flex flex-col items-start gap-3 p-5 md:p-6 rounded-2xl bg-[#002337] border border-white/10">
+              <a
+                key={pillar.title}
+                href={pageUrl(target)}
+                onClick={(e) => goToPage(target, e)}
+                className="group flex flex-col items-start gap-3 p-5 md:p-6 rounded-2xl bg-[#002337] border border-white/10 hover:border-[#5CE1E6]/60 hover:bg-[#002b42] transition-colors"
+              >
                 <div className="w-10 h-10 rounded-full bg-[#005776]/30 flex items-center justify-center">
                   <Icon size={20} className="text-[#5CE1E6]" />
                 </div>
                 <div className="font-heading font-black italic uppercase tracking-wide text-white text-lg md:text-xl">{pillar.title}</div>
                 <p className="text-white/80 text-xs sm:text-sm leading-relaxed">{pillar.desc}</p>
-              </div>
+                <span className="mt-auto inline-flex items-center gap-1 text-[#5CE1E6] text-[10px] sm:text-xs font-bold uppercase tracking-widest group-hover:gap-2 transition-all">
+                  {lang === 'fr' ? 'En savoir plus' : 'Learn more'} <ChevronRight size={14} />
+                </span>
+              </a>
             );
           })}
         </div>
