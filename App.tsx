@@ -247,7 +247,7 @@ const App: React.FC = () => {
   // Mobile menu: go to a section and close the menu
   const goToSection = (item: string) => {
     setIsMobileMenuOpen(false);
-    if (item === 'Pricing' || item === 'Features' || item === 'Programs') { goToPage(item.toLowerCase() as Page); return; }
+    if (item === 'Home' || item === 'Pricing' || item === 'Features' || item === 'Programs') { goToPage(item.toLowerCase() as Page); return; }
     goHome();
     setTimeout(() => document.getElementById(item.toLowerCase())?.scrollIntoView({ behavior: 'smooth' }), 50);
   };
@@ -299,11 +299,11 @@ const App: React.FC = () => {
         
         <div className="hidden xl:flex gap-6 items-center">
           <div className="flex gap-5 2xl:gap-8 text-[10px] font-bold uppercase tracking-[0.2em] items-center whitespace-nowrap">
-            {['Mission', 'Founder', 'Programs', 'Features', 'Pricing', 'Community'].map(item => {
-              const page = ({ Programs: 'programs', Features: 'features', Pricing: 'pricing' } as Record<string, Page>)[item];
+            {['Home', 'Founder', 'Programs', 'Features', 'Pricing', 'Community'].map(item => {
+              const page = ({ Home: 'home', Programs: 'programs', Features: 'features', Pricing: 'pricing' } as Record<string, Page>)[item];
               const label = (t.nav as any)[item.toLowerCase()] || item;
 
-              // Programs, Features and Pricing are separate pages (real links, so Google can find them)
+              // Home, Programs, Features and Pricing are separate pages (real links, so Google can find them)
               if (page) {
                 return (
                   <a
@@ -404,7 +404,7 @@ const App: React.FC = () => {
         {isMobileMenuOpen && (
           <div className="xl:hidden absolute top-full left-0 w-full bg-[#002337] border-b border-white/10 shadow-2xl">
             <div className="flex flex-col px-6 py-2">
-              {['Mission', 'Founder', 'Programs', 'Features', 'Pricing', 'Community'].map(item => (
+              {['Home', 'Founder', 'Programs', 'Features', 'Pricing', 'Community'].map(item => (
                 <button
                   key={item}
                   onClick={() => goToSection(item)}
@@ -454,6 +454,7 @@ const App: React.FC = () => {
           storeUrl={MOCKUP_STORE_URL}
           onContactClick={() => openContact('programs')}
           onPricingClick={() => goToPage('pricing')}
+          onBackToHome={() => goToPage('home')}
         />
       ) : (
         <>
