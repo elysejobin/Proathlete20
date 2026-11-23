@@ -22,8 +22,8 @@
     { "source": "/terms-conditions", "destination": "/terms/", "permanent": true },
     { "source": "/fr/vetements-pro-athlete", "destination": "/", "permanent": true },
     { "source": "/en/pro-athlete-apparel", "destination": "/", "permanent": true },
-    { "source": "/fr/programmes-d-entrainement", "destination": "/", "permanent": true },
-    { "source": "/en/prevention-performance-program", "destination": "/", "permanent": true },
+    { "source": "/fr/programmes-d-entrainement", "destination": "/fr/programmes/", "permanent": true },
+    { "source": "/en/prevention-performance-program", "destination": "/programs/", "permanent": true },
     { "source": "/en/about", "destination": "/", "permanent": true },
     { "source": "/en/index", "destination": "/", "permanent": true },
     { "source": "/fr/index", "destination": "/", "permanent": true },
@@ -66,10 +66,24 @@
     { "source": "/fr/er/", "destination": "/", "permanent": true },
     { "source": "/fr/vetements-pro-athlete/", "destination": "/", "permanent": true },
     { "source": "/en/pro-athlete-apparel/", "destination": "/", "permanent": true },
-    { "source": "/fr/programmes-d-entrainement/", "destination": "/", "permanent": true },
-    { "source": "/en/prevention-performance-program/", "destination": "/", "permanent": true },
+    { "source": "/fr/programmes-d-entrainement/", "destination": "/fr/programmes/", "permanent": true },
+    { "source": "/en/prevention-performance-program/", "destination": "/programs/", "permanent": true },
     { "source": "/en/about/", "destination": "/", "permanent": true },
     { "source": "/en/index/", "destination": "/", "permanent": true },
     { "source": "/fr/index/", "destination": "/", "permanent": true }
+  ],
+  "rewrites": [
+    { "source": "/programs", "destination": "/index.html" },
+    { "source": "/programs/", "destination": "/index.html" },
+    { "source": "/features", "destination": "/index.html" },
+    { "source": "/features/", "destination": "/index.html" },
+    { "source": "/pricing", "destination": "/index.html" },
+    { "source": "/pricing/", "destination": "/index.html" },
+    { "source": "/fr/programmes", "destination": "/index.html" },
+    { "source": "/fr/programmes/", "destination": "/index.html" },
+    { "source": "/fr/fonctionnalites", "destination": "/index.html" },
+    { "source": "/fr/fonctionnalites/", "destination": "/index.html" },
+    { "source": "/fr/tarifs", "destination": "/index.html" },
+    { "source": "/fr/tarifs/", "destination": "/index.html" }
   ]
 }
