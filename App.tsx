@@ -99,10 +99,42 @@ const LogoMarquee = ({ partners }: { partners: { name: string; logo: string; cla
   );
 };
 
+type Page = 'home' | 'programs' | 'features' | 'pricing';
+const PAGE_PATHS: Record<Exclude<Page, 'home'>, { en: string; fr: string }> = {
+  programs: { en: '/programs/', fr: '/fr/programmes/' },
+  features: { en: '/features/', fr: '/fr/fonctionnalites/' },
+  pricing: { en: '/pricing/', fr: '/fr/tarifs/' },
+};
+const pageFromPath = (path: string): Page => {
+  const clean = path.endsWith('/') ? path : path + '/';
+  for (const [page, paths] of Object.entries(PAGE_PATHS)) {
+    if (clean === paths.en || clean === paths.fr) return page as Page;
+  }
+  return 'home';
+};
+const PAGE_META: Record<Page, { en: [string, string]; fr: [string, string] }> = {
+  home: { en: ['', ''], fr: ['', ''] }, // homepage keeps the title and description from index.html
+  programs: {
+    en: ['Training Programs | PRO ATHLETE', 'Strength, injury prevention, warm-up and recovery programs for athletes, coaches and organizations, designed by physiotherapists and kinesiologists.'],
+    fr: ['Programmes d\'entraînement | PRO ATHLETE', 'Programmes de force, de prévention des blessures, d\'échauffement et de récupération pour athlètes, coachs et organisations, conçus par des physiothérapeutes et kinésiologues.'],
+  },
+  features: {
+    en: ['Features | PRO ATHLETE', 'Compare what each PRO ATHLETE plan includes: warm-ups, strength and prevention programs, recovery, tracking and support.'],
+    fr: ['Fonctionnalités | PRO ATHLETE', 'Comparez ce qu\'inclut chaque forfait PRO ATHLETE : échauffements, programmes de force et de prévention, récupération, suivi et accompagnement.'],
+  },
+  pricing: {
+    en: ['Pricing | PRO ATHLETE', 'PRO ATHLETE plans for athletes, coaches and sports organizations. Start free, then choose the plan that fits your team.'],
+    fr: ['Tarifs | PRO ATHLETE', 'Les forfaits PRO ATHLETE pour athlètes, coachs et organisations sportives. Commencez gratuitement, puis choisissez le forfait adapté à votre équipe.'],
+  },
+};
+
 const App: React.FC = () => {
   // Language can be set from the URL (?lang=fr), e.g. when coming from the French Resources page
   const [lang, setLang] = useState<'en' | 'fr'>(() =>
-    typeof window !== 'undefined' && new URLSearchParams(window.location.search).get('lang') === 'fr' ? 'fr' : 'en'
+    typeof window !== 'undefined' &&
+    (new URLSearchParams(window.location.search).get('lang') === 'fr' || window.location.pathname.startsWith('/fr/'))
+      ? 'fr'
+      : 'en'
   );
   const [activeRole, setActiveRole] = useState<UserRole>('ATHLETES');
   const [newsletterEmail, setNewsletterEmail] = useState('');
@@ -110,20 +142,67 @@ const App: React.FC = () => {
   const [isAppointmentOpen, setIsAppointmentOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isPrivacyOpen, setIsPrivacyOpen] = useState(false);
-  const [currentPage, setCurrentPage] = useState<'home' | 'pricing'>('home');
-  // Which menu item opened the pricing page (Features or Pricing), so only that one is highlighted
-  const [pricingNav, setPricingNav] = useState<'Features' | 'Pricing'>('Pricing');
+  // Separate pages, each with its own address: /programs/, /features/, /pricing/ (FR: /fr/programmes/, /fr/fonctionnalites/, /fr/tarifs/)
+  const [currentPage, setCurrentPage] = useState<Page>(() =>
+    typeof window !== 'undefined' ? pageFromPath(window.location.pathname) : 'home'
+  );
   
   const t = translations[lang];
+
+  const pageUrl = (page: Page, l: 'en' | 'fr' = lang) =>
+    page === 'home' ? (l === 'fr' ? '/?lang=fr' : '/') : PAGE_PATHS[page][l];
+  // Go to a page: update the address bar (so each page can be shared and found on Google) and scroll to the top
+  const goToPage = (page: Page, e?: React.MouseEvent) => {
+    e?.preventDefault();
+    setIsMobileMenuOpen(false);
+    if (page !== currentPage || window.location.pathname !== pageUrl(page).split('?')[0]) {
+      window.history.pushState({}, '', pageUrl(page));
+    }
+    setCurrentPage(page);
+    window.scrollTo(0, 0);
+  };
+  // Show the homepage (keeps any #section in the address), used before scrolling to a homepage section
+  const goHome = () => {
+    if (currentPage !== 'home') window.history.pushState({}, '', pageUrl('home'));
+    setCurrentPage('home');
+  };
+  // Back/forward buttons
+  useEffect(() => {
+    const onPop = () => setCurrentPage(pageFromPath(window.location.pathname));
+    window.addEventListener('popstate', onPop);
+    return () => window.removeEventListener('popstate', onPop);
+  }, []);
+  // Language switch on a page: move to that page's address in the other language
+  useEffect(() => {
+    if (currentPage !== 'home' && window.location.pathname !== PAGE_PATHS[currentPage][lang]) {
+      window.history.replaceState({}, '', PAGE_PATHS[currentPage][lang]);
+    }
+  }, [lang, currentPage]);
+  // Title, description and canonical address of each page
+  const homeMeta = useRef({
+    title: typeof document !== 'undefined' ? document.title : '',
+    desc: typeof document !== 'undefined' ? document.querySelector('meta[name="description"]')?.getAttribute('content') || '' : '',
+  });
+  useEffect(() => {
+    const home = currentPage === 'home';
+    const [title, desc] = home ? [homeMeta.current.title, homeMeta.current.desc] : PAGE_META[currentPage][lang];
+    document.title = title;
+    document.querySelector('meta[name="description"]')?.setAttribute('content', desc);
+    document.querySelector('link[rel="canonical"]')?.setAttribute(
+      'href',
+      'https://www.proathlete.ca' + (home ? '/' : PAGE_PATHS[currentPage][lang])
+    );
+  }, [currentPage, lang]);
 
   // Open the right section when arriving from another page (e.g. /#pricing from Resources)
   useEffect(() => {
     const hash = window.location.hash.replace('#', '');
     if (!hash) return;
-    if (hash === 'pricing') { setPricingNav('Pricing'); setCurrentPage('pricing'); window.scrollTo(0, 0); return; }
-    if (hash === 'features') {
-      setPricingNav('Features'); setCurrentPage('pricing');
-      setTimeout(() => document.getElementById('compare-features')?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 300);
+    if (hash === 'pricing' || hash === 'features' || hash === 'programs') {
+      const l = new URLSearchParams(window.location.search).get('lang') === 'fr' ? 'fr' : 'en';
+      window.history.replaceState({}, '', PAGE_PATHS[hash as Exclude<Page, 'home'>][l]);
+      setCurrentPage(hash as Page);
+      window.scrollTo(0, 0);
       return;
     }
     if (hash === 'contact') { setIsAppointmentOpen(true); return; }
@@ -136,6 +215,7 @@ const App: React.FC = () => {
       if (!window.location.hash.startsWith('#faq')) return;
       setIsMobileMenuOpen(false);
       setCurrentPage('home');
+      if (window.location.pathname !== '/') window.history.replaceState({}, '', pageUrl('home') + window.location.hash);
     };
     window.addEventListener('hashchange', onHash);
     return () => window.removeEventListener('hashchange', onHash);
@@ -143,7 +223,7 @@ const App: React.FC = () => {
   const FAQ_URL = (lang === 'fr' ? '/?lang=fr' : '/') + '#faq';
   const goToFaq = (e: React.MouseEvent) => {
     e.preventDefault();
-    setCurrentPage('home');
+    goHome();
     setTimeout(() => document.getElementById('faq')?.scrollIntoView({ behavior: 'smooth' }), 50);
   };
 
@@ -167,13 +247,8 @@ const App: React.FC = () => {
   // Mobile menu: go to a section and close the menu
   const goToSection = (item: string) => {
     setIsMobileMenuOpen(false);
-    if (item === 'Pricing') { setPricingNav('Pricing'); setCurrentPage('pricing'); window.scrollTo(0, 0); return; }
-    if (item === 'Features') {
-      setPricingNav('Features'); setCurrentPage('pricing');
-      setTimeout(() => document.getElementById('compare-features')?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
-      return;
-    }
-    setCurrentPage('home');
+    if (item === 'Pricing' || item === 'Features' || item === 'Programs') { goToPage(item.toLowerCase() as Page); return; }
+    goHome();
     setTimeout(() => document.getElementById(item.toLowerCase())?.scrollIntoView({ behavior: 'smooth' }), 50);
   };
 
@@ -211,7 +286,7 @@ const App: React.FC = () => {
         <div className="flex items-center gap-4">
           <button 
             onClick={() => {
-              setCurrentPage('home');
+              goHome();
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }} 
             className="flex items-center gap-3 hover:opacity-80 transition-opacity"
@@ -225,52 +300,24 @@ const App: React.FC = () => {
         <div className="hidden xl:flex gap-6 items-center">
           <div className="flex gap-5 2xl:gap-8 text-[10px] font-bold uppercase tracking-[0.2em] items-center whitespace-nowrap">
             {['Mission', 'Founder', 'Programs', 'Features', 'Pricing', 'Community'].map(item => {
-              const isPricing = item === 'Pricing';
-              const isFeatures = item === 'Features';
-              const isPricingActive = isPricing && currentPage === 'pricing' && pricingNav === 'Pricing';
-              const isFeaturesActive = isFeatures && currentPage === 'pricing' && pricingNav === 'Features';
+              const page = ({ Programs: 'programs', Features: 'features', Pricing: 'pricing' } as Record<string, Page>)[item];
               const label = (t.nav as any)[item.toLowerCase()] || item;
 
-              if (isFeatures) {
+              // Programs, Features and Pricing are separate pages (real links, so Google can find them)
+              if (page) {
                 return (
-                  <button
+                  <a
                     key={item}
-                    onClick={() => {
-                      setPricingNav('Features'); setCurrentPage('pricing');
-                      setTimeout(() => {
-                        const element = document.getElementById('compare-features');
-                        if (element) {
-                          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                        }
-                      }, 100);
-                    }}
+                    href={pageUrl(page)}
+                    onClick={(e) => goToPage(page, e)}
                     className={`transition-all duration-300 px-3 py-1.5 rounded-full ${
-                      isFeaturesActive
+                      currentPage === page
                         ? 'bg-[#5CE1E6] text-[#002337] font-black shadow-lg shadow-[#5CE1E6]/20'
                         : 'hover:text-[#5CE1E6] text-white/80'
                     }`}
                   >
                     {label}
-                  </button>
-                );
-              }
-
-              if (isPricing) {
-                return (
-                  <button
-                    key={item}
-                    onClick={() => {
-                      setPricingNav('Pricing'); setCurrentPage('pricing');
-                      window.scrollTo(0, 0);
-                    }}
-                    className={`transition-all duration-300 px-3 py-1.5 rounded-full ${
-                      isPricingActive 
-                        ? 'bg-[#5CE1E6] text-[#002337] font-black shadow-lg shadow-[#5CE1E6]/20' 
-                        : 'hover:text-[#5CE1E6] text-white/80'
-                    }`}
-                  >
-                    {label}
-                  </button>
+                  </a>
                 );
               }
 
@@ -278,7 +325,7 @@ const App: React.FC = () => {
                 <button
                   key={item}
                   onClick={() => {
-                    setCurrentPage('home');
+                    goHome();
                     setTimeout(() => {
                       const element = document.getElementById(item.toLowerCase());
                       if (element) {
@@ -390,15 +437,23 @@ const App: React.FC = () => {
         )}
       </nav>
 
-      {currentPage === 'pricing' ? (
+      {currentPage === 'pricing' || currentPage === 'features' ? (
         <PricingPage 
           lang={lang} 
           activeSport="ALL" 
-          onContactClick={() => openContact('pricing')} 
-          onBackToHome={() => {
-            setCurrentPage('home');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-          }}
+          section={currentPage}
+          onContactClick={() => openContact(currentPage)} 
+          onBackToHome={() => goToPage('home')}
+          onPricingClick={() => goToPage('pricing')}
+          onFeaturesClick={() => goToPage('features')}
+        />
+      ) : currentPage === 'programs' ? (
+        <Programs
+          lang={lang}
+          variant="full"
+          storeUrl={MOCKUP_STORE_URL}
+          onContactClick={() => openContact('programs')}
+          onPricingClick={() => goToPage('pricing')}
         />
       ) : (
         <>
@@ -739,12 +794,14 @@ const App: React.FC = () => {
         </div>
       </section>
 
-      {/* Science Grid */}
+      {/* Programs preview (full version on the Programs page) */}
       <Programs
         lang={lang}
+        variant="teaser"
         storeUrl={MOCKUP_STORE_URL}
         onContactClick={() => openContact('programs')}
-        onPricingClick={() => { setPricingNav('Pricing'); setCurrentPage('pricing'); window.scrollTo(0, 0); }}
+        onPricingClick={() => goToPage('pricing')}
+        onSeeAll={() => goToPage('programs')}
       />
 
       {/* Testimonials Section */}
@@ -858,33 +915,9 @@ const App: React.FC = () => {
           <div>
             <h4 className="font-heading text-base md:text-lg font-black italic mb-6 md:mb-8 uppercase tracking-widest text-white">{t.footer.product}</h4>
             <ul className="space-y-3 md:space-y-4 text-white text-xs sm:text-sm">
-              <li>
-                <button 
-                  onClick={() => {
-                    setPricingNav('Features'); setCurrentPage('pricing');
-                    setTimeout(() => {
-                      const element = document.getElementById('compare-features');
-                      if (element) {
-                        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                      }
-                    }, 100);
-                  }} 
-                  className="hover:text-white transition-colors text-left"
-                >
-                  {t.footer.features}
-                </button>
-              </li>
-              <li>
-                <button 
-                  onClick={() => {
-                    setPricingNav('Pricing'); setCurrentPage('pricing');
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                  }} 
-                  className="hover:text-white transition-colors text-left"
-                >
-                  {t.footer.pricing}
-                </button>
-              </li>
+              <li><a href={pageUrl('programs')} onClick={(e) => goToPage('programs', e)} className="hover:text-white transition-colors">{t.nav.programs}</a></li>
+              <li><a href={pageUrl('features')} onClick={(e) => goToPage('features', e)} className="hover:text-white transition-colors">{t.footer.features}</a></li>
+              <li><a href={pageUrl('pricing')} onClick={(e) => goToPage('pricing', e)} className="hover:text-white transition-colors">{t.footer.pricing}</a></li>
               <li><a href="#" className="hover:text-white transition-colors">{t.footer.forTeams}</a></li>
               <li><a href="#" className="hover:text-white transition-colors">{t.footer.apiAccess}</a></li>
             </ul>
