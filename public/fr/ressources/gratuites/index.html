@@ -46,6 +46,32 @@
       if (name) gtag('event', name, { link_url: a.href, link_page: location.pathname });
     }, true);
   </script>
+  <script type="application/ld+json" data-breadcrumb-schema>
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Accueil",
+      "item": "https://www.proathlete.ca/?lang=fr"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Ressources",
+      "item": "https://www.proathlete.ca/fr/ressources/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Ressources gratuites",
+      "item": "https://www.proathlete.ca/fr/ressources/gratuites/"
+    }
+  ]
+}
+  </script>
 </head>
 <body>
   <header class="site-header">
@@ -61,7 +87,7 @@
           <a href="/?lang=fr#features">Fonctionnalités</a>
           <a href="/?lang=fr#pricing">Tarifs</a>
           <a href="/?lang=fr#community">Communauté</a>
-          <div class="dd"><a href="/fr/ressources/" class="active">Ressources</a><div class="dd-panel"><div class="inner"><a href="/fr/ressources/gratuites/">Ressources gratuites<small>Formations vidéo, guides PDF et encore plus</small></a><a href="/fr/ressources/articles/">Articles<small>Conseils de prévention et performance</small></a><a href="/?lang=fr#faq">Questions fréquentes<small>Réponses pour athlètes, parents, coachs et directeurs</small></a></div></div></div>
+          <div class="dd"><a href="/fr/ressources/" class="active">Ressources</a><div class="dd-panel"><div class="inner"><a href="/fr/ressources/prevention-blessures-sportives/">Guide : prévention des blessures<small>Le guide complet pour athlètes, parents et coachs</small></a><a href="/fr/ressources/gratuites/">Ressources gratuites<small>Formations vidéo, guides PDF et encore plus</small></a><a href="/fr/ressources/articles/">Articles<small>Conseils de prévention et performance</small></a><a href="/?lang=fr#faq">Questions fréquentes<small>Réponses pour athlètes, parents, coachs et directeurs</small></a></div></div></div>
         </div>
         <a class="lang" href="/resources/free/" hreflang="en" title="English">EN</a>
         <a class="btn nav-btn" href="/?lang=fr#contact">Contactez-nous</a>

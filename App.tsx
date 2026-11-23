@@ -150,11 +150,13 @@ const App: React.FC = () => {
   const RESOURCES_URL = lang === 'fr' ? '/fr/ressources/' : '/resources/';
   const RESOURCES_MENU = lang === 'fr'
     ? [
+        { href: '/fr/ressources/prevention-blessures-sportives/', label: 'Guide : prévention des blessures', desc: 'Le guide complet pour athlètes, parents et coachs' },
         { href: '/fr/ressources/gratuites/', label: 'Ressources gratuites', desc: 'Formations vidéo, guides PDF et encore plus' },
         { href: '/fr/ressources/articles/', label: 'Articles', desc: 'Conseils de prévention et performance' },
         { href: '/?lang=fr#faq', label: 'Questions fréquentes', desc: 'Réponses pour athlètes, parents, coachs et directeurs' },
       ]
     : [
+        { href: '/resources/injury-prevention/', label: 'Injury prevention guide', desc: 'The complete guide for athletes, parents and coaches' },
         { href: '/resources/free/', label: 'Free resources', desc: 'Video courses, PDF guides, and more' },
         { href: '/resources/articles/', label: 'Articles', desc: 'Injury prevention and performance tips' },
         { href: '/#faq', label: 'FAQ', desc: 'Answers for athletes, parents, coaches and directors' },
@@ -298,7 +300,7 @@ const App: React.FC = () => {
                 <ChevronDown size={12} className="transition-transform group-hover:rotate-180 group-focus-within:rotate-180" />
               </a>
               <div className="absolute left-[-16px] top-full pt-4 z-50 hidden group-hover:block group-focus-within:block">
-                <div className="w-[290px] bg-[#001726] border border-white/10 rounded-2xl p-2 shadow-2xl shadow-black/50 flex flex-col gap-0.5 normal-case tracking-normal">
+                <div className="w-[290px] bg-[#001726] border border-white/10 rounded-2xl p-2 shadow-2xl shadow-black/50 flex flex-col gap-0.5 normal-case tracking-normal whitespace-normal">
                   {RESOURCES_MENU.map(link => (
                     <a key={link.href} href={link.href} className="flex flex-col gap-1 px-3.5 py-3 rounded-xl hover:bg-white/5 transition-colors">
                       <span className="text-sm font-bold text-white">{link.label}</span>

@@ -46,6 +46,26 @@
       if (name) gtag('event', name, { link_url: a.href, link_page: location.pathname });
     }, true);
   </script>
+  <script type="application/ld+json" data-breadcrumb-schema>
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.proathlete.ca/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Resources",
+      "item": "https://www.proathlete.ca/resources/"
+    }
+  ]
+}
+  </script>
 </head>
 <body>
   <header class="site-header">
@@ -61,7 +81,7 @@
           <a href="/#features">Features</a>
           <a href="/#pricing">Pricing</a>
           <a href="/#community">Community</a>
-          <div class="dd"><a href="/resources/" class="active">Resources</a><div class="dd-panel"><div class="inner"><a href="/resources/free/">Free resources<small>Video courses, PDF guides, and more</small></a><a href="/resources/articles/">Articles<small>Injury prevention and performance tips</small></a><a href="/#faq">FAQ<small>Answers for athletes, parents, coaches and directors</small></a></div></div></div>
+          <div class="dd"><a href="/resources/" class="active">Resources</a><div class="dd-panel"><div class="inner"><a href="/resources/injury-prevention/">Injury prevention guide<small>The complete guide for athletes, parents and coaches</small></a><a href="/resources/free/">Free resources<small>Video courses, PDF guides, and more</small></a><a href="/resources/articles/">Articles<small>Injury prevention and performance tips</small></a><a href="/#faq">FAQ<small>Answers for athletes, parents, coaches and directors</small></a></div></div></div>
         </div>
         <a class="lang" href="/fr/ressources/" hreflang="fr" title="Français">FR</a>
         <a class="btn nav-btn" href="/#contact">Talk To Us</a>
@@ -75,7 +95,28 @@
       <p class="breadcrumb"><a href="/">Home</a> › <span aria-current="page">Resources</span></p>
       <h1>PRO ATHLETE Resources</h1>
       <p>Warm-ups, strength training and injury prevention for basketball, soccer and more. Written by health professionals, with videos you can follow on the court or the field.</p>
-      <div class="jump"><a class="pill solid" href="#gratuit">Free resources</a><a class="pill" href="#articles">Articles</a></div>
+      <div class="jump"><a class="pill solid" href="#guides">Guides</a><a class="pill" href="#gratuit">Free resources</a><a class="pill" href="#articles">Articles</a></div>
+    </section>
+
+    <section class="res-section" id="guides" aria-labelledby="titre-guides">
+      <div class="section-head">
+        <div><h2 id="titre-guides">Guides</h2><div class="bar"></div><p>Complete guides on the topics that matter most, for athletes, parents, coaches and athletic directors.</p></div>
+      </div>
+      <a class="guide-feature" href="/resources/injury-prevention/">
+        <div class="gf-body">
+          <span class="gf-kicker">Complete guide · 7 min read</span>
+          <h3>Sports injury prevention</h3>
+          <p>The most common injuries in basketball and soccer, what the research says actually works, and how to put it into practice this season.</p>
+          <ul><li>The 5 components of an effective warm-up</li><li>Why most prevention programs fail</li><li>Where to start, based on your role</li></ul>
+          <span class="btn">Read the guide</span>
+        </div>
+        <div class="gf-side">
+          <div class="gf-who">Athletes<span>Play longer, without injury</span></div>
+          <div class="gf-who">Parents<span>Keep your child healthy in sport</span></div>
+          <div class="gf-who">Coaches<span>A warm-up for your next practice</span></div>
+          <div class="gf-who">Athletic directors<span>Prevention across all your teams</span></div>
+        </div>
+      </a>
     </section>
 
     <section class="res-section" id="gratuit" aria-labelledby="titre-gratuit">

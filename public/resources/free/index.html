@@ -46,6 +46,32 @@
       if (name) gtag('event', name, { link_url: a.href, link_page: location.pathname });
     }, true);
   </script>
+  <script type="application/ld+json" data-breadcrumb-schema>
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.proathlete.ca/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Resources",
+      "item": "https://www.proathlete.ca/resources/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Free resources",
+      "item": "https://www.proathlete.ca/resources/free/"
+    }
+  ]
+}
+  </script>
 </head>
 <body>
   <header class="site-header">
@@ -61,7 +87,7 @@
           <a href="/#features">Features</a>
           <a href="/#pricing">Pricing</a>
           <a href="/#community">Community</a>
-          <div class="dd"><a href="/resources/" class="active">Resources</a><div class="dd-panel"><div class="inner"><a href="/resources/free/">Free resources<small>Video courses, PDF guides, and more</small></a><a href="/resources/articles/">Articles<small>Injury prevention and performance tips</small></a><a href="/#faq">FAQ<small>Answers for athletes, parents, coaches and directors</small></a></div></div></div>
+          <div class="dd"><a href="/resources/" class="active">Resources</a><div class="dd-panel"><div class="inner"><a href="/resources/injury-prevention/">Injury prevention guide<small>The complete guide for athletes, parents and coaches</small></a><a href="/resources/free/">Free resources<small>Video courses, PDF guides, and more</small></a><a href="/resources/articles/">Articles<small>Injury prevention and performance tips</small></a><a href="/#faq">FAQ<small>Answers for athletes, parents, coaches and directors</small></a></div></div></div>
         </div>
         <a class="lang" href="/fr/ressources/gratuites/" hreflang="fr" title="Français">FR</a>
         <a class="btn nav-btn" href="/#contact">Talk To Us</a>

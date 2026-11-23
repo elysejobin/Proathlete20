@@ -267,7 +267,8 @@ td:first-child { font-weight: 700; white-space: nowrap; }
 .nav .menu .dd:hover .dd-panel, .nav .menu .dd:focus-within .dd-panel { display: block; }
 .nav .menu .dd-panel a { display: flex; flex-direction: column; gap: 3px; padding: 12px 14px; border-radius: 10px; letter-spacing: 0; font-size: 14px; color: #fff; }
 .nav .menu .dd-panel a:hover { background: rgba(255,255,255,0.06); color: #fff; }
-.nav .menu .dd-panel a small { font-size: 12px; font-weight: 500; color: var(--muted); }
+.nav .menu .dd-panel a small { font-size: 12px; font-weight: 500; color: var(--muted); line-height: 1.4; }
+.nav .menu .dd-panel a, .nav .menu .dd-panel a small { white-space: normal; }
 @media (max-width: 1023px) {
   .site-header.open .nav .menu .dd { flex-direction: column; align-items: stretch; }
   .site-header.open .nav .menu .dd > a::after { display: none; }
@@ -342,3 +343,19 @@ td:first-child { font-weight: 700; white-space: nowrap; }
 .breadcrumb a:hover { color: var(--text, #fff); text-decoration: underline; }
 .article-tags { font-size: 13px; color: var(--muted); margin-top: 6px; letter-spacing: 0.02em; }
 .breadcrumb [aria-current="page"] { font-weight: 700; color: var(--text, #fff); }
+
+/* Featured pillar guide on the Resources page */
+.guide-feature { display: grid; grid-template-columns: 1.1fr 1fr; gap: 0; border: 1px solid var(--line); border-radius: 18px; overflow: hidden; background: linear-gradient(135deg, rgba(0,87,118,0.55), rgba(0,23,38,0.9)); text-decoration: none; color: #fff; }
+.guide-feature:hover { border-color: var(--cyan); color: #fff; }
+.guide-feature .gf-body { padding: 28px; }
+.guide-feature .gf-kicker { font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--cyan); }
+.guide-feature h3 { font-family: 'Oswald', sans-serif; text-transform: uppercase; font-style: italic; font-size: 30px; margin: 8px 0 10px; line-height: 1.1; }
+.guide-feature p { font-size: 16px; color: var(--muted); margin: 0 0 14px; }
+.guide-feature ul { list-style: none; padding: 0; margin: 0 0 18px; font-size: 15px; }
+.guide-feature li { padding: 3px 0; }
+.guide-feature li::before { content: "→ "; color: var(--cyan); }
+.guide-feature .gf-side { display: flex; flex-direction: column; justify-content: center; gap: 10px; padding: 28px; background: rgba(255,255,255,0.04); border-left: 1px solid var(--line); }
+.guide-feature .gf-who { font-size: 14px; font-weight: 700; padding: 10px 14px; border-radius: 10px; background: rgba(255,255,255,0.06); }
+.guide-feature .gf-who span { display: block; font-weight: 500; color: var(--muted); font-size: 13px; }
+@media (max-width: 760px) { .guide-feature { grid-template-columns: 1fr; } .guide-feature .gf-side { border-left: 0; border-top: 1px solid var(--line); } }
+.res-section .guide-feature { margin-top: 18px; }

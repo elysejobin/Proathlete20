@@ -46,6 +46,26 @@
       if (name) gtag('event', name, { link_url: a.href, link_page: location.pathname });
     }, true);
   </script>
+  <script type="application/ld+json" data-breadcrumb-schema>
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Accueil",
+      "item": "https://www.proathlete.ca/?lang=fr"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Ressources",
+      "item": "https://www.proathlete.ca/fr/ressources/"
+    }
+  ]
+}
+  </script>
 </head>
 <body>
   <header class="site-header">
@@ -61,7 +81,7 @@
           <a href="/?lang=fr#features">Fonctionnalités</a>
           <a href="/?lang=fr#pricing">Tarifs</a>
           <a href="/?lang=fr#community">Communauté</a>
-          <div class="dd"><a href="/fr/ressources/" class="active">Ressources</a><div class="dd-panel"><div class="inner"><a href="/fr/ressources/gratuites/">Ressources gratuites<small>Formations vidéo, guides PDF et encore plus</small></a><a href="/fr/ressources/articles/">Articles<small>Conseils de prévention et performance</small></a><a href="/?lang=fr#faq">Questions fréquentes<small>Réponses pour athlètes, parents, coachs et directeurs</small></a></div></div></div>
+          <div class="dd"><a href="/fr/ressources/" class="active">Ressources</a><div class="dd-panel"><div class="inner"><a href="/fr/ressources/prevention-blessures-sportives/">Guide : prévention des blessures<small>Le guide complet pour athlètes, parents et coachs</small></a><a href="/fr/ressources/gratuites/">Ressources gratuites<small>Formations vidéo, guides PDF et encore plus</small></a><a href="/fr/ressources/articles/">Articles<small>Conseils de prévention et performance</small></a><a href="/?lang=fr#faq">Questions fréquentes<small>Réponses pour athlètes, parents, coachs et directeurs</small></a></div></div></div>
         </div>
         <a class="lang" href="/resources/" hreflang="en" title="English">EN</a>
         <a class="btn nav-btn" href="/?lang=fr#contact">Contactez-nous</a>
@@ -75,7 +95,28 @@
       <p class="breadcrumb"><a href="/?lang=fr">Accueil</a> › <span aria-current="page">Ressources</span></p>
       <h1>Ressources PRO ATHLETE</h1>
       <p>Échauffements, musculation et prévention des blessures en basketball, soccer et plus. Rédigés par des professionnels de la santé, avec des vidéos à suivre sur le terrain.</p>
-      <div class="jump"><a class="pill solid" href="#gratuit">Ressources gratuites</a><a class="pill" href="#articles">Articles</a></div>
+      <div class="jump"><a class="pill solid" href="#guides">Guides</a><a class="pill" href="#gratuit">Ressources gratuites</a><a class="pill" href="#articles">Articles</a></div>
+    </section>
+
+    <section class="res-section" id="guides" aria-labelledby="titre-guides">
+      <div class="section-head">
+        <div><h2 id="titre-guides">Guides</h2><div class="bar"></div><p>Des guides complets sur les sujets les plus importants, pour athlètes, parents, coachs et directeurs des sports.</p></div>
+      </div>
+      <a class="guide-feature" href="/fr/ressources/prevention-blessures-sportives/">
+        <div class="gf-body">
+          <span class="gf-kicker">Guide complet · 7 min de lecture</span>
+          <h3>Prévention des blessures sportives</h3>
+          <p>Les blessures les plus fréquentes au basketball et au soccer, ce que la recherche démontre vraiment, et comment le mettre en pratique dès cette saison.</p>
+          <ul><li>Les 5 composantes d'un échauffement efficace</li><li>Pourquoi la plupart des programmes de prévention échouent</li><li>Par où commencer, selon votre rôle</li></ul>
+          <span class="btn">Lire le guide</span>
+        </div>
+        <div class="gf-side">
+          <div class="gf-who">Athlètes<span>Jouer plus longtemps, sans blessure</span></div>
+          <div class="gf-who">Parents<span>Garder votre enfant en santé</span></div>
+          <div class="gf-who">Coachs<span>Un échauffement pour votre prochain entraînement</span></div>
+          <div class="gf-who">Directeurs des sports<span>La prévention dans toutes vos équipes</span></div>
+        </div>
+      </a>
     </section>
 
     <section class="res-section" id="gratuit" aria-labelledby="titre-gratuit">
