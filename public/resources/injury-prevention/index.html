@@ -109,11 +109,91 @@
     .pillar .proof div { font-size: 16px; color: var(--muted); }
     .pillar .proof b { display: block; font-family: 'Oswald', sans-serif; font-size: 36px; color: #fff; }
     .pillar .related { margin-top: 36px; }
+    .pillar .shorts { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin: 24px auto 8px; max-width: 560px; }
+    .pillar .short .frame { position: relative; aspect-ratio: 9/16; max-height: 560px; margin: 0 auto; border-radius: 16px; overflow: hidden; background: #000; }
+    .pillar .short iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+    .pillar .short p { font-size: 15px; color: var(--muted); margin: 10px 0 0; line-height: 1.5; }
+    .pillar .short p strong { color: #fff; display: block; }
+    .pillar .app-split { display: grid; grid-template-columns: 1fr 240px; gap: 32px; align-items: center; }
+    .pillar .app-phone { display: block; width: 240px; aspect-ratio: 352/762; border-radius: 34px; overflow: hidden; }
+    .pillar .app-phone video { width: 100%; height: 100%; object-fit: contain; display: block; }
+    .pillar .app-phone + small { display: block; text-align: center; font-size: 13px; color: var(--muted); margin-top: 8px; }
+    @media (max-width: 760px) {
+      .pillar .shorts { grid-template-columns: 1fr 1fr; gap: 10px; }
+      .pillar .app-split { grid-template-columns: 1fr; }
+      .pillar .app-split .app-media { order: -1; justify-self: center; }
+    }
     @media (max-width: 760px) {
       .pillar .stats, .pillar .grid-2 { grid-template-columns: 1fr; }
       .pillar .toc ol { columns: 1; }
     }
   </style>
+  <script type="application/ld+json" data-media-schema>
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "VideoObject",
+      "@id": "https://www.proathlete.ca/resources/injury-prevention/#video-rG2vXnHwEOQ",
+      "name": "Single-Leg Calf Raise With Hold: Ankle Injury Prevention",
+      "description": "Ankle sprain prevention exercise: stand on one leg, rise onto your toes, hold, then lower without putting the other foot down.",
+      "thumbnailUrl": [
+        "https://i.ytimg.com/vi/rG2vXnHwEOQ/hqdefault.jpg"
+      ],
+      "uploadDate": "2026-10-19T12:34:39-07:00",
+      "duration": "PT15S",
+      "embedUrl": "https://www.youtube.com/embed/rG2vXnHwEOQ",
+      "url": "https://www.youtube.com/watch?v=rG2vXnHwEOQ",
+      "inLanguage": "en-CA",
+      "publisher": {
+        "@id": "https://www.proathlete.ca/#organization"
+      },
+      "isPartOf": {
+        "@id": "https://www.proathlete.ca/resources/injury-prevention/"
+      }
+    },
+    {
+      "@type": "VideoObject",
+      "@id": "https://www.proathlete.ca/resources/injury-prevention/#video-3VDXYCbkVc4",
+      "name": "Single-Leg Cross Hops: Ankle Stability Drill",
+      "description": "Ankle stability drill to prevent sprains: hop forward, sideways and backward on one leg around an imaginary cross, stabilizing after each landing.",
+      "thumbnailUrl": [
+        "https://i.ytimg.com/vi/3VDXYCbkVc4/hqdefault.jpg"
+      ],
+      "uploadDate": "2026-10-19T12:34:29-07:00",
+      "duration": "PT16S",
+      "embedUrl": "https://www.youtube.com/embed/3VDXYCbkVc4",
+      "url": "https://www.youtube.com/watch?v=3VDXYCbkVc4",
+      "inLanguage": "en-CA",
+      "publisher": {
+        "@id": "https://www.proathlete.ca/#organization"
+      },
+      "isPartOf": {
+        "@id": "https://www.proathlete.ca/resources/injury-prevention/"
+      }
+    },
+    {
+      "@type": "VideoObject",
+      "@id": "https://www.proathlete.ca/resources/injury-prevention/#video-app-preview",
+      "name": "PRO ATHLETE app preview",
+      "description": "A tour of the PRO ATHLETE training app: warm-ups, injury prevention, strength and recovery programs, and progress tracking.",
+      "thumbnailUrl": [
+        "https://www.proathlete.ca/phone-preview-poster.jpg"
+      ],
+      "contentUrl": "https://www.proathlete.ca/phone-preview.mp4",
+      "uploadDate": "2026-08-31T11:48:43-04:00",
+      "duration": "PT1M19S",
+      "inLanguage": "en-CA",
+      "publisher": {
+        "@id": "https://www.proathlete.ca/#organization"
+      },
+      "isPartOf": {
+        "@id": "https://www.proathlete.ca/resources/injury-prevention/"
+      }
+    }
+  ]
+}
+  </script>
 </head>
 <body>
   <header class="site-header">
@@ -222,6 +302,17 @@
       <li><strong>Jumping and landing:</strong> learning to land softly, knees aligned over the feet, on one and two legs.</li>
       <li><strong>Agility and sport-specific speed:</strong> cutting, deceleration and sprints that mimic game situations.</li>
     </ol>
+    <p>Two examples from our programs, to try at your next practice:</p>
+    <div class="shorts">
+      <div class="short">
+        <div class="frame"><iframe src="https://www.youtube-nocookie.com/embed/rG2vXnHwEOQ" title="Single-leg calf raise – PRO ATHLETE" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+        <p><strong>Balance: single-leg calf raise with hold</strong>Rise onto your toes on one leg, hold 1 to 3 seconds, lower slowly.</p>
+      </div>
+      <div class="short">
+        <div class="frame"><iframe src="https://www.youtube-nocookie.com/embed/3VDXYCbkVc4" title="Single-leg cross hops – PRO ATHLETE" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+        <p><strong>Jumping and landing: single-leg cross hops</strong>Hop around an imaginary cross and stabilize 5 seconds after each landing.</p>
+      </div>
+    </div>
 
     <h2 id="start">5. Where to start: choose your profile</h2>
     <p>Prevention looks different depending on your role. Here's where to start.</p>
@@ -256,13 +347,21 @@
     </div>
 
     <h2 id="pro-athlete">6. How PRO ATHLETE helps</h2>
-    <p>PRO ATHLETE puts all of this into a simple app, designed by health professionals, for athletes, coaches and organizations:</p>
-    <ul>
-      <li><strong>Evidence-based prevention warm-ups</strong>, with or without a ball, specific to your sport.</li>
-      <li><strong>Strength programs</strong> with weights or bodyweight, progressing every few weeks.</li>
-      <li><strong>Recovery sessions</strong> of 5 to 15 minutes (mobility and stretching).</li>
-      <li><strong>Progress tracking</strong> for athletes, and team follow-up for coaches.</li>
-    </ul>
+    <div class="app-split">
+      <div>
+      <p>PRO ATHLETE puts all of this into a simple app, designed by health professionals, for athletes, coaches and organizations:</p>
+      <ul>
+        <li><strong>Evidence-based prevention warm-ups</strong>, with or without a ball, specific to your sport.</li>
+        <li><strong>Strength programs</strong> with weights or bodyweight, progressing every few weeks.</li>
+        <li><strong>Recovery sessions</strong> of 5 to 15 minutes (mobility and stretching).</li>
+        <li><strong>Progress tracking</strong> for athletes, and team follow-up for coaches.</li>
+      </ul>
+      </div>
+      <div class="app-media">
+        <a class="app-phone" href="https://apps.apple.com/ca/app/pro-athlete-training-app/id6768344217" aria-label="Download the PRO ATHLETE app"><video data-media="app-preview" autoplay muted loop playsinline preload="metadata" poster="/phone-preview-poster.jpg" aria-hidden="true"><source src="/phone-preview.mp4" type="video/mp4" /></video></a>
+        <small>Try the app for free</small>
+      </div>
+    </div>
     <div class="proof">
       <div><b>30+</b>schools and clubs</div>
       <div><b>3,000+</b>coaches and athletes helped</div>

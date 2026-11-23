@@ -36,12 +36,30 @@
         "name": "Sauts en croix sur une jambe : exercice de stabilité de la cheville",
         "description": "Exercice de stabilité pour prévenir les entorses : sautez vers l'avant, sur le côté et vers l'arrière sur une jambe autour d'une croix imaginaire, en vous stabilisant à chaque réception."
       }
+    },
+    "app-preview": {
+      "uploadDate": "2026-08-31T11:48:43-04:00",
+      "duration": 79,
+      "contentUrl": "/phone-preview.mp4",
+      "thumbnailUrl": "/phone-preview-poster.jpg",
+      "en": {
+        "name": "PRO ATHLETE app preview",
+        "description": "A tour of the PRO ATHLETE training app: warm-ups, injury prevention, strength and recovery programs, and progress tracking."
+      },
+      "fr": {
+        "name": "Aperçu de l'app PRO ATHLETE",
+        "description": "Une visite de l'app d'entraînement PRO ATHLETE : échauffements, prévention des blessures, programmes de musculation et de récupération, et suivi des progrès."
+      }
     }
   },
   "images": {
     "/resources/how-to-tape-an-ankle/image.png": {
-      "en": { "name": "Physiotherapist taping an athlete's ankle" },
-      "fr": { "name": "Physiothérapeute appliquant un taping à la cheville d'un athlète" }
+      "en": {
+        "name": "Physiotherapist taping an athlete's ankle"
+      },
+      "fr": {
+        "name": "Physiothérapeute appliquant un taping à la cheville d'un athlète"
+      }
     }
   },
   "audio": {}

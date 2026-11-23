@@ -167,11 +167,91 @@
     .pillar .proof div { font-size: 16px; color: var(--muted); }
     .pillar .proof b { display: block; font-family: 'Oswald', sans-serif; font-size: 36px; color: #fff; }
     .pillar .related { margin-top: 36px; }
+    .pillar .shorts { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin: 24px auto 8px; max-width: 560px; }
+    .pillar .short .frame { position: relative; aspect-ratio: 9/16; max-height: 560px; margin: 0 auto; border-radius: 16px; overflow: hidden; background: #000; }
+    .pillar .short iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+    .pillar .short p { font-size: 15px; color: var(--muted); margin: 10px 0 0; line-height: 1.5; }
+    .pillar .short p strong { color: #fff; display: block; }
+    .pillar .app-split { display: grid; grid-template-columns: 1fr 240px; gap: 32px; align-items: center; }
+    .pillar .app-phone { display: block; width: 240px; aspect-ratio: 352/762; border-radius: 34px; overflow: hidden; }
+    .pillar .app-phone video { width: 100%; height: 100%; object-fit: contain; display: block; }
+    .pillar .app-phone + small { display: block; text-align: center; font-size: 13px; color: var(--muted); margin-top: 8px; }
+    @media (max-width: 760px) {
+      .pillar .shorts { grid-template-columns: 1fr 1fr; gap: 10px; }
+      .pillar .app-split { grid-template-columns: 1fr; }
+      .pillar .app-split .app-media { order: -1; justify-self: center; }
+    }
     @media (max-width: 760px) {
       .pillar .stats, .pillar .grid-2 { grid-template-columns: 1fr; }
       .pillar .toc ol { columns: 1; }
     }
   </style>
+  <script type="application/ld+json" data-media-schema>
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "VideoObject",
+      "@id": "https://www.proathlete.ca/fr/ressources/prevention-blessures-sportives/#video-rG2vXnHwEOQ",
+      "name": "Élévation du talon sur une jambe avec maintien : prévention des blessures à la cheville",
+      "description": "Exercice de prévention des entorses : sur une jambe, montez sur la pointe du pied, maintenez, puis redescendez sans poser l'autre pied.",
+      "thumbnailUrl": [
+        "https://i.ytimg.com/vi/rG2vXnHwEOQ/hqdefault.jpg"
+      ],
+      "uploadDate": "2026-10-19T12:34:39-07:00",
+      "duration": "PT15S",
+      "embedUrl": "https://www.youtube.com/embed/rG2vXnHwEOQ",
+      "url": "https://www.youtube.com/watch?v=rG2vXnHwEOQ",
+      "inLanguage": "fr-CA",
+      "publisher": {
+        "@id": "https://www.proathlete.ca/#organization"
+      },
+      "isPartOf": {
+        "@id": "https://www.proathlete.ca/fr/ressources/prevention-blessures-sportives/"
+      }
+    },
+    {
+      "@type": "VideoObject",
+      "@id": "https://www.proathlete.ca/fr/ressources/prevention-blessures-sportives/#video-3VDXYCbkVc4",
+      "name": "Sauts en croix sur une jambe : exercice de stabilité de la cheville",
+      "description": "Exercice de stabilité pour prévenir les entorses : sautez vers l'avant, sur le côté et vers l'arrière sur une jambe autour d'une croix imaginaire, en vous stabilisant à chaque réception.",
+      "thumbnailUrl": [
+        "https://i.ytimg.com/vi/3VDXYCbkVc4/hqdefault.jpg"
+      ],
+      "uploadDate": "2026-10-19T12:34:29-07:00",
+      "duration": "PT16S",
+      "embedUrl": "https://www.youtube.com/embed/3VDXYCbkVc4",
+      "url": "https://www.youtube.com/watch?v=3VDXYCbkVc4",
+      "inLanguage": "fr-CA",
+      "publisher": {
+        "@id": "https://www.proathlete.ca/#organization"
+      },
+      "isPartOf": {
+        "@id": "https://www.proathlete.ca/fr/ressources/prevention-blessures-sportives/"
+      }
+    },
+    {
+      "@type": "VideoObject",
+      "@id": "https://www.proathlete.ca/fr/ressources/prevention-blessures-sportives/#video-app-preview",
+      "name": "Aperçu de l'app PRO ATHLETE",
+      "description": "Une visite de l'app d'entraînement PRO ATHLETE : échauffements, prévention des blessures, programmes de musculation et de récupération, et suivi des progrès.",
+      "thumbnailUrl": [
+        "https://www.proathlete.ca/phone-preview-poster.jpg"
+      ],
+      "contentUrl": "https://www.proathlete.ca/phone-preview.mp4",
+      "uploadDate": "2026-08-31T11:48:43-04:00",
+      "duration": "PT1M19S",
+      "inLanguage": "fr-CA",
+      "publisher": {
+        "@id": "https://www.proathlete.ca/#organization"
+      },
+      "isPartOf": {
+        "@id": "https://www.proathlete.ca/fr/ressources/prevention-blessures-sportives/"
+      }
+    }
+  ]
+}
+  </script>
 </head>
 <body>
   <header class="site-header">
@@ -280,6 +360,17 @@
       <li><strong>Sauts et réceptions :</strong> apprendre à atterrir en douceur, genoux alignés au-dessus des pieds, sur une et deux jambes.</li>
       <li><strong>Agilité et vitesse propres au sport :</strong> changements de direction, décélérations et sprints qui reproduisent les situations de match.</li>
     </ol>
+    <p>Deux exemples tirés de nos programmes, à essayer dès votre prochain entraînement :</p>
+    <div class="shorts">
+      <div class="short">
+        <div class="frame"><iframe src="https://www.youtube-nocookie.com/embed/rG2vXnHwEOQ" title="Élévation du talon sur une jambe – PRO ATHLETE" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+        <p><strong>Équilibre : élévation du talon sur une jambe</strong>Sur une jambe, montez sur la pointe du pied, maintenez 1 à 3 secondes, redescendez lentement.</p>
+      </div>
+      <div class="short">
+        <div class="frame"><iframe src="https://www.youtube-nocookie.com/embed/3VDXYCbkVc4" title="Sauts en croix sur une jambe – PRO ATHLETE" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+        <p><strong>Sauts et réceptions : sauts en croix sur une jambe</strong>Sautez autour d'une croix imaginaire et stabilisez-vous 5 secondes après chaque réception.</p>
+      </div>
+    </div>
 
     <h2 id="par-ou-commencer">5. Par où commencer : choisissez votre profil</h2>
     <p>La prévention ne se fait pas de la même façon selon votre rôle. Voici par où commencer.</p>
@@ -314,13 +405,21 @@
     </div>
 
     <h2 id="pro-athlete">6. Comment PRO ATHLETE vous aide</h2>
-    <p>PRO ATHLETE réunit tout ça dans une app simple, conçue par des professionnels de la santé, pour les athlètes, les coachs et les organisations :</p>
-    <ul>
-      <li><strong>Des échauffements de prévention fondés sur la recherche</strong>, avec ou sans ballon, adaptés à votre sport.</li>
-      <li><strong>Des programmes de musculation</strong> avec poids ou au poids du corps, qui progressent aux quelques semaines.</li>
-      <li><strong>Des séances de récupération</strong> de 5 à 15 minutes (mobilité et étirements).</li>
-      <li><strong>Un suivi des progrès</strong> pour les athlètes, et un suivi d'équipe pour les coachs.</li>
-    </ul>
+    <div class="app-split">
+      <div>
+      <p>PRO ATHLETE réunit tout ça dans une app simple, conçue par des professionnels de la santé, pour les athlètes, les coachs et les organisations :</p>
+      <ul>
+        <li><strong>Des échauffements de prévention fondés sur la recherche</strong>, avec ou sans ballon, adaptés à votre sport.</li>
+        <li><strong>Des programmes de musculation</strong> avec poids ou au poids du corps, qui progressent aux quelques semaines.</li>
+        <li><strong>Des séances de récupération</strong> de 5 à 15 minutes (mobilité et étirements).</li>
+        <li><strong>Un suivi des progrès</strong> pour les athlètes, et un suivi d'équipe pour les coachs.</li>
+      </ul>
+      </div>
+      <div class="app-media">
+        <a class="app-phone" href="https://apps.apple.com/ca/app/pro-athlete-training-app/id6768344217" aria-label="Télécharger l'application PRO ATHLETE"><video data-media="app-preview" autoplay muted loop playsinline preload="metadata" poster="/phone-preview-poster.jpg" aria-hidden="true"><source src="/phone-preview.mp4" type="video/mp4" /></video></a>
+        <small>Essayer l'app gratuitement</small>
+      </div>
+    </div>
     <div class="proof">
       <div><b>30+</b>écoles et clubs</div>
       <div><b>3 000+</b>coachs et athlètes accompagnés</div>
