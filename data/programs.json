@@ -2,6 +2,7 @@
   "_help": "Programs section on the homepage (components/Programs.tsx). Edit text here; FR and EN side by side.",
   "tag": { "en": "Training programs", "fr": "Programmes d'entraînement" },
   "title": { "en": "What you get in the app", "fr": "Ce qui vous attend dans l'app" },
+  "seeAll": { "en": "See the programs and a typical week", "fr": "Voir les programmes et une semaine type" },
   "subtitle": {
     "en": "Programs designed by health professionals for your sport. Here is exactly what's inside, and what a training week looks like.",
     "fr": "Des programmes conçus par des professionnels de la santé pour votre sport. Voici exactement ce qu'il y a dedans, et à quoi ressemble une semaine d'entraînement."
