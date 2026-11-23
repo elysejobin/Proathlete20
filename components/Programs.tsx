@@ -12,6 +12,7 @@ interface ProgramsProps {
   // 'teaser' (homepage): cards + link to the Programs page; 'full' (/programs/): cards + typical week by plan
   variant?: 'teaser' | 'full';
   onSeeAll?: () => void;
+  onBackToHome?: () => void;
 }
 
 const ICONS: Record<string, React.ElementType> = {
@@ -23,15 +24,25 @@ const ICONS: Record<string, React.ElementType> = {
 };
 
 // "What you get in the app": program cards, then a typical week for each plan (athlete, coach, organization) with an app screenshot.
-const Programs: React.FC<ProgramsProps> = ({ lang, storeUrl, onContactClick, onPricingClick, variant = 'full', onSeeAll }) => {
+const Programs: React.FC<ProgramsProps> = ({ lang, storeUrl, onContactClick, onPricingClick, variant = 'full', onSeeAll, onBackToHome }) => {
   const [tab, setTab] = useState(0);
   const week = data.week.tabs[tab];
   const isFull = variant === 'full';
   const Heading = isFull ? 'h1' : 'h2';
 
   return (
-    <section id="programs" className={`scroll-mt-16 px-4 ${isFull ? 'pt-28 md:pt-32 pb-12 md:pb-20 lg:pb-28' : 'py-12 md:py-20 lg:py-28'}`}>
+    <section id="programs" className={`scroll-mt-16 px-4 ${isFull ? 'pt-24 pb-12 md:pb-20 lg:pb-28' : 'py-12 md:py-20 lg:py-28'}`}>
       <div className="max-w-7xl mx-auto">
+        {/* Breadcrumb (Programs page) */}
+        {isFull && (
+          <div className="md:px-4 mb-8 flex items-center gap-2 text-[10px] font-black tracking-[0.2em] text-[#5CE1E6] uppercase">
+            <a href={lang === 'fr' ? '/?lang=fr' : '/'} onClick={(e) => { if (onBackToHome) { e.preventDefault(); onBackToHome(); } }} className="hover:text-white transition-colors">
+              {lang === 'fr' ? 'Accueil' : 'Home'}
+            </a>
+            <span className="text-white/20">/</span>
+            <span className="text-white/80">{lang === 'fr' ? 'Programmes' : 'Programs'}</span>
+          </div>
+        )}
         {/* Heading */}
         <div className="text-center mb-10 md:mb-14">
           <div className="inline-flex items-center gap-2 bg-[#005776]/20 border border-[#5CE1E6]/30 px-3.5 py-1.5 rounded-full text-[10px] sm:text-xs font-bold tracking-[0.2em] uppercase text-[#5CE1E6] mb-5">
@@ -139,7 +150,8 @@ const Programs: React.FC<ProgramsProps> = ({ lang, storeUrl, onContactClick, onP
 
             {/* iPhone mockup with an app screenshot or short screen recording for this plan (media.image / media.video in data/programs.json) */}
             <div className="lg:col-span-5 flex justify-center">
-              <div className="relative w-[230px] sm:w-[260px]">
+              {/* Clicking the phone opens the app's store page */}
+              <a href={storeUrl} target="_blank" rel="noopener noreferrer" aria-label={lang === 'fr' ? "Télécharger l'app PRO ATHLETE" : 'Download the PRO ATHLETE app'} className="block relative w-[230px] sm:w-[260px] transition-transform duration-300 hover:-translate-y-1 hover:scale-[1.02]">
                 <span aria-hidden className="absolute -left-[3px] top-[17%] w-[3px] h-[5%] rounded-l bg-[#2a2d31]" />
                 <span aria-hidden className="absolute -left-[3px] top-[25%] w-[3px] h-[9%] rounded-l bg-[#2a2d31]" />
                 <span aria-hidden className="absolute -left-[3px] top-[36%] w-[3px] h-[9%] rounded-l bg-[#2a2d31]" />
@@ -159,7 +171,7 @@ const Programs: React.FC<ProgramsProps> = ({ lang, storeUrl, onContactClick, onP
                     )}
                   </div>
                 </div>
-              </div>
+              </a>
             </div>
           </div>
         </div>
