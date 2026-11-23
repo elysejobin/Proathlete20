@@ -19,6 +19,7 @@ import { translations } from './translations';
 import AppointmentModal from './components/AppointmentModal';
 import FAQ from './components/FAQ';
 import Programs from './components/Programs';
+import pagesData from './data/pages.json';
 import { PricingPage } from './components/PricingPage';
 import PrivacyPolicy from './components/PrivacyPolicy';
 
@@ -100,39 +101,22 @@ const LogoMarquee = ({ partners }: { partners: { name: string; logo: string; cla
 };
 
 type Page = 'home' | 'programs' | 'features' | 'pricing';
-const PAGE_PATHS: Record<Exclude<Page, 'home'>, { en: string; fr: string }> = {
-  programs: { en: '/programs/', fr: '/fr/programmes/' },
-  features: { en: '/features/', fr: '/fr/fonctionnalites/' },
-  pricing: { en: '/pricing/', fr: '/fr/tarifs/' },
-};
+// Address, title and description of each page in English and French (also used at build time to make
+// one HTML file per page, so Google and link previews get the right language: see vite.config.ts)
+const PAGES = pagesData as Record<Page, { path: { en: string; fr: string }; title: { en: string; fr: string }; description: { en: string; fr: string } }>;
 const pageFromPath = (path: string): Page => {
   const clean = path.endsWith('/') ? path : path + '/';
-  for (const [page, paths] of Object.entries(PAGE_PATHS)) {
-    if (clean === paths.en || clean === paths.fr) return page as Page;
+  for (const [page, info] of Object.entries(PAGES)) {
+    if (page !== 'home' && (clean === info.path.en || clean === info.path.fr)) return page as Page;
   }
   return 'home';
 };
-const PAGE_META: Record<Page, { en: [string, string]; fr: [string, string] }> = {
-  home: { en: ['', ''], fr: ['', ''] }, // homepage keeps the title and description from index.html
-  programs: {
-    en: ['Training Programs | PRO ATHLETE', 'Strength, injury prevention, warm-up and recovery programs for athletes, coaches and organizations, designed by physiotherapists and kinesiologists.'],
-    fr: ['Programmes d\'entraînement | PRO ATHLETE', 'Programmes de force, de prévention des blessures, d\'échauffement et de récupération pour athlètes, coachs et organisations, conçus par des physiothérapeutes et kinésiologues.'],
-  },
-  features: {
-    en: ['Features | PRO ATHLETE', 'Compare what each PRO ATHLETE plan includes: warm-ups, strength and prevention programs, recovery, tracking and support.'],
-    fr: ['Fonctionnalités | PRO ATHLETE', 'Comparez ce qu\'inclut chaque forfait PRO ATHLETE : échauffements, programmes de force et de prévention, récupération, suivi et accompagnement.'],
-  },
-  pricing: {
-    en: ['Pricing | PRO ATHLETE', 'PRO ATHLETE plans for athletes, coaches and sports organizations. Start free, then choose the plan that fits your team.'],
-    fr: ['Tarifs | PRO ATHLETE', 'Les forfaits PRO ATHLETE pour athlètes, coachs et organisations sportives. Commencez gratuitement, puis choisissez le forfait adapté à votre équipe.'],
-  },
-};
 
 const App: React.FC = () => {
-  // Language can be set from the URL (?lang=fr), e.g. when coming from the French Resources page
+  // French when the address starts with /fr/ (or the older ?lang=fr)
   const [lang, setLang] = useState<'en' | 'fr'>(() =>
     typeof window !== 'undefined' &&
-    (new URLSearchParams(window.location.search).get('lang') === 'fr' || window.location.pathname.startsWith('/fr/'))
+    (new URLSearchParams(window.location.search).get('lang') === 'fr' || /^\/fr(\/|$)/.test(window.location.pathname))
       ? 'fr'
       : 'en'
   );
@@ -147,13 +131,12 @@ const App: React.FC = () => {
   
   const t = translations[lang];
 
-  const pageUrl = (page: Page, l: 'en' | 'fr' = lang) =>
-    page === 'home' ? (l === 'fr' ? '/?lang=fr' : '/') : PAGE_PATHS[page][l];
+  const pageUrl = (page: Page, l: 'en' | 'fr' = lang) => PAGES[page].path[l];
   // Go to a page: update the address bar (so each page can be shared and found on Google) and scroll to the top
   const goToPage = (page: Page, e?: React.MouseEvent) => {
     e?.preventDefault();
     setIsMobileMenuOpen(false);
-    if (page !== currentPage || window.location.pathname !== pageUrl(page).split('?')[0]) {
+    if (page !== currentPage || window.location.pathname !== pageUrl(page)) {
       window.history.pushState({}, '', pageUrl(page));
     }
     setCurrentPage(page);
@@ -170,26 +153,20 @@ const App: React.FC = () => {
     window.addEventListener('popstate', onPop);
     return () => window.removeEventListener('popstate', onPop);
   }, []);
-  // Language switch on a page: move to that page's address in the other language
+  // Keep the address in the current language (e.g. the FR/EN button on the homepage switches / and /fr/), keeping any #section
   useEffect(() => {
-    if (currentPage !== 'home' && window.location.pathname !== PAGE_PATHS[currentPage][lang]) {
-      window.history.replaceState({}, '', PAGE_PATHS[currentPage][lang]);
+    const target = PAGES[currentPage].path[lang];
+    if (window.location.pathname !== target || window.location.search.includes('lang=')) {
+      window.history.replaceState({}, '', target + window.location.hash);
     }
   }, [lang, currentPage]);
   // Title, description and canonical address of each page
-  const homeMeta = useRef({
-    title: typeof document !== 'undefined' ? document.title : '',
-    desc: typeof document !== 'undefined' ? document.querySelector('meta[name="description"]')?.getAttribute('content') || '' : '',
-  });
   useEffect(() => {
-    const home = currentPage === 'home';
-    const [title, desc] = home ? [homeMeta.current.title, homeMeta.current.desc] : PAGE_META[currentPage][lang];
-    document.title = title;
-    document.querySelector('meta[name="description"]')?.setAttribute('content', desc);
-    document.querySelector('link[rel="canonical"]')?.setAttribute(
-      'href',
-      'https://www.proathlete.ca' + (home ? '/' : PAGE_PATHS[currentPage][lang])
-    );
+    const info = PAGES[currentPage];
+    document.title = info.title[lang];
+    document.documentElement.lang = lang;
+    document.querySelector('meta[name="description"]')?.setAttribute('content', info.description[lang]);
+    document.querySelector('link[rel="canonical"]')?.setAttribute('href', 'https://www.proathlete.ca' + info.path[lang]);
   }, [currentPage, lang]);
 
   // Open the right section when arriving from another page (e.g. /#pricing from Resources)
@@ -197,8 +174,8 @@ const App: React.FC = () => {
     const hash = window.location.hash.replace('#', '');
     if (!hash) return;
     if (hash === 'pricing' || hash === 'features' || hash === 'programs') {
-      const l = new URLSearchParams(window.location.search).get('lang') === 'fr' ? 'fr' : 'en';
-      window.history.replaceState({}, '', PAGE_PATHS[hash as Exclude<Page, 'home'>][l]);
+      const l = new URLSearchParams(window.location.search).get('lang') === 'fr' || /^\/fr(\/|$)/.test(window.location.pathname) ? 'fr' : 'en';
+      window.history.replaceState({}, '', PAGES[hash as Page].path[l]);
       setCurrentPage(hash as Page);
       window.scrollTo(0, 0);
       return;
@@ -213,12 +190,13 @@ const App: React.FC = () => {
       if (!window.location.hash.startsWith('#faq')) return;
       setIsMobileMenuOpen(false);
       setCurrentPage('home');
-      if (window.location.pathname !== '/') window.history.replaceState({}, '', pageUrl('home') + window.location.hash);
+      const home = /^\/fr(\/|$)/.test(window.location.pathname) ? '/fr/' : '/';
+      if (window.location.pathname !== home) window.history.replaceState({}, '', home + window.location.hash);
     };
     window.addEventListener('hashchange', onHash);
     return () => window.removeEventListener('hashchange', onHash);
   }, []);
-  const FAQ_URL = (lang === 'fr' ? '/?lang=fr' : '/') + '#faq';
+  const FAQ_URL = PAGES.home.path[lang] + '#faq';
   const goToFaq = (e: React.MouseEvent) => {
     e.preventDefault();
     goHome();
@@ -230,7 +208,7 @@ const App: React.FC = () => {
     ? [
         { href: '/fr/ressources/gratuites/', label: 'Ressources gratuites', desc: 'Formations vidéo, guides PDF et encore plus' },
         { href: '/fr/ressources/articles/', label: 'Articles', desc: 'Conseils de prévention et performance' },
-        { href: '/?lang=fr#faq', label: 'Questions fréquentes', desc: 'Réponses pour athlètes, parents, coachs et directeurs' },
+        { href: '/fr/#faq', label: 'Questions fréquentes', desc: 'Réponses pour athlètes, parents, coachs et directeurs' },
       ]
     : [
         { href: '/resources/free/', label: 'Free resources', desc: 'Video courses, PDF guides, and more' },
