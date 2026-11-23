@@ -36,7 +36,7 @@ const Programs: React.FC<ProgramsProps> = ({ lang, storeUrl, onContactClick, onP
         {/* Breadcrumb (Programs page) */}
         {isFull && (
           <div className="md:px-4 mb-8 flex items-center gap-2 text-[10px] font-black tracking-[0.2em] text-[#5CE1E6] uppercase">
-            <a href={lang === 'fr' ? '/?lang=fr' : '/'} onClick={(e) => { if (onBackToHome) { e.preventDefault(); onBackToHome(); } }} className="hover:text-white transition-colors">
+            <a href={lang === 'fr' ? '/fr/' : '/'} onClick={(e) => { if (onBackToHome) { e.preventDefault(); onBackToHome(); } }} className="hover:text-white transition-colors">
               {lang === 'fr' ? 'Accueil' : 'Home'}
             </a>
             <span className="text-white/20">/</span>
