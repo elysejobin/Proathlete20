@@ -167,8 +167,8 @@
     .pillar .proof div { font-size: 16px; color: var(--muted); }
     .pillar .proof b { display: block; font-family: 'Oswald', sans-serif; font-size: 36px; color: #fff; }
     .pillar .related { margin-top: 36px; }
-    .pillar .shorts { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin: 24px auto 8px; max-width: 560px; }
-    .pillar .short .frame { position: relative; aspect-ratio: 9/16; max-height: 560px; margin: 0 auto; border-radius: 16px; overflow: hidden; background: #000; }
+    .pillar .shorts { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin: 24px 0 8px; }
+    .pillar .short .frame { position: relative; aspect-ratio: 16/9; border-radius: 16px; overflow: hidden; background: #000; }
     .pillar .short iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
     .pillar .short p { font-size: 15px; color: var(--muted); margin: 10px 0 0; line-height: 1.5; }
     .pillar .short p strong { color: #fff; display: block; }
@@ -177,7 +177,7 @@
     .pillar .app-phone video { width: 100%; height: 100%; object-fit: contain; display: block; }
     .pillar .app-phone + small { display: block; text-align: center; font-size: 13px; color: var(--muted); margin-top: 8px; }
     @media (max-width: 760px) {
-      .pillar .shorts { grid-template-columns: 1fr 1fr; gap: 10px; }
+      .pillar .shorts { grid-template-columns: 1fr; gap: 22px; }
       .pillar .app-split { grid-template-columns: 1fr; }
       .pillar .app-split .app-media { order: -1; justify-self: center; }
     }
@@ -190,26 +190,6 @@
 {
   "@context": "https://schema.org",
   "@graph": [
-    {
-      "@type": "VideoObject",
-      "@id": "https://www.proathlete.ca/fr/ressources/prevention-blessures-sportives/#video-rG2vXnHwEOQ",
-      "name": "Élévation du talon sur une jambe avec maintien : prévention des blessures à la cheville",
-      "description": "Exercice de prévention des entorses : sur une jambe, montez sur la pointe du pied, maintenez, puis redescendez sans poser l'autre pied.",
-      "thumbnailUrl": [
-        "https://i.ytimg.com/vi/rG2vXnHwEOQ/hqdefault.jpg"
-      ],
-      "uploadDate": "2026-10-19T12:34:39-07:00",
-      "duration": "PT15S",
-      "embedUrl": "https://www.youtube.com/embed/rG2vXnHwEOQ",
-      "url": "https://www.youtube.com/watch?v=rG2vXnHwEOQ",
-      "inLanguage": "fr-CA",
-      "publisher": {
-        "@id": "https://www.proathlete.ca/#organization"
-      },
-      "isPartOf": {
-        "@id": "https://www.proathlete.ca/fr/ressources/prevention-blessures-sportives/"
-      }
-    },
     {
       "@type": "VideoObject",
       "@id": "https://www.proathlete.ca/fr/ressources/prevention-blessures-sportives/#video-3VDXYCbkVc4",
@@ -363,8 +343,8 @@
     <p>Deux exemples tirés de nos programmes, à essayer dès votre prochain entraînement :</p>
     <div class="shorts">
       <div class="short">
-        <div class="frame"><iframe src="https://www.youtube-nocookie.com/embed/rG2vXnHwEOQ" title="Élévation du talon sur une jambe – PRO ATHLETE" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
-        <p><strong>Équilibre : élévation du talon sur une jambe</strong>Sur une jambe, montez sur la pointe du pied, maintenez 1 à 3 secondes, redescendez lentement.</p>
+        <div class="frame"><iframe src="https://www.youtube-nocookie.com/embed/6QqXXqkOPro" title="Exercice de prévention PRO ATHLETE" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+        <p><strong>[Nom de l'exercice à confirmer]</strong>[Consigne à confirmer]</p>
       </div>
       <div class="short">
         <div class="frame"><iframe src="https://www.youtube-nocookie.com/embed/3VDXYCbkVc4" title="Sauts en croix sur une jambe – PRO ATHLETE" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>

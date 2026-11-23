@@ -109,8 +109,8 @@
     .pillar .proof div { font-size: 16px; color: var(--muted); }
     .pillar .proof b { display: block; font-family: 'Oswald', sans-serif; font-size: 36px; color: #fff; }
     .pillar .related { margin-top: 36px; }
-    .pillar .shorts { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin: 24px auto 8px; max-width: 560px; }
-    .pillar .short .frame { position: relative; aspect-ratio: 9/16; max-height: 560px; margin: 0 auto; border-radius: 16px; overflow: hidden; background: #000; }
+    .pillar .shorts { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin: 24px 0 8px; }
+    .pillar .short .frame { position: relative; aspect-ratio: 16/9; border-radius: 16px; overflow: hidden; background: #000; }
     .pillar .short iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
     .pillar .short p { font-size: 15px; color: var(--muted); margin: 10px 0 0; line-height: 1.5; }
     .pillar .short p strong { color: #fff; display: block; }
@@ -119,7 +119,7 @@
     .pillar .app-phone video { width: 100%; height: 100%; object-fit: contain; display: block; }
     .pillar .app-phone + small { display: block; text-align: center; font-size: 13px; color: var(--muted); margin-top: 8px; }
     @media (max-width: 760px) {
-      .pillar .shorts { grid-template-columns: 1fr 1fr; gap: 10px; }
+      .pillar .shorts { grid-template-columns: 1fr; gap: 22px; }
       .pillar .app-split { grid-template-columns: 1fr; }
       .pillar .app-split .app-media { order: -1; justify-self: center; }
     }
@@ -132,26 +132,6 @@
 {
   "@context": "https://schema.org",
   "@graph": [
-    {
-      "@type": "VideoObject",
-      "@id": "https://www.proathlete.ca/resources/injury-prevention/#video-rG2vXnHwEOQ",
-      "name": "Single-Leg Calf Raise With Hold: Ankle Injury Prevention",
-      "description": "Ankle sprain prevention exercise: stand on one leg, rise onto your toes, hold, then lower without putting the other foot down.",
-      "thumbnailUrl": [
-        "https://i.ytimg.com/vi/rG2vXnHwEOQ/hqdefault.jpg"
-      ],
-      "uploadDate": "2026-10-19T12:34:39-07:00",
-      "duration": "PT15S",
-      "embedUrl": "https://www.youtube.com/embed/rG2vXnHwEOQ",
-      "url": "https://www.youtube.com/watch?v=rG2vXnHwEOQ",
-      "inLanguage": "en-CA",
-      "publisher": {
-        "@id": "https://www.proathlete.ca/#organization"
-      },
-      "isPartOf": {
-        "@id": "https://www.proathlete.ca/resources/injury-prevention/"
-      }
-    },
     {
       "@type": "VideoObject",
       "@id": "https://www.proathlete.ca/resources/injury-prevention/#video-3VDXYCbkVc4",
@@ -305,8 +285,8 @@
     <p>Two examples from our programs, to try at your next practice:</p>
     <div class="shorts">
       <div class="short">
-        <div class="frame"><iframe src="https://www.youtube-nocookie.com/embed/rG2vXnHwEOQ" title="Single-leg calf raise – PRO ATHLETE" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
-        <p><strong>Balance: single-leg calf raise with hold</strong>Rise onto your toes on one leg, hold 1 to 3 seconds, lower slowly.</p>
+        <div class="frame"><iframe src="https://www.youtube-nocookie.com/embed/6QqXXqkOPro" title="PRO ATHLETE prevention exercise" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+        <p><strong>[Exercise name to confirm]</strong>[One-line cue to confirm]</p>
       </div>
       <div class="short">
         <div class="frame"><iframe src="https://www.youtube-nocookie.com/embed/3VDXYCbkVc4" title="Single-leg cross hops – PRO ATHLETE" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
