@@ -30,7 +30,7 @@ const renderAnswer = (text: string, storeUrl: string, onContactClick: () => void
       parts.push(
         <button key={i++} type="button" onClick={onContactClick} className={cls}>{label}</button>
       );
-    } else if (path === '/' || path === '/?lang=fr') {
+    } else if (path === '/' || path === '/fr/' || path === '/?lang=fr') {
       parts.push(
         <a key={i++} href={storeUrl} target="_blank" rel="noopener noreferrer" className={cls}>{label}</a>
       );
@@ -39,7 +39,7 @@ const renderAnswer = (text: string, storeUrl: string, onContactClick: () => void
         <a key={i++} href={path} target="_blank" rel="noopener noreferrer" className={cls}>{label}</a>
       );
     } else {
-      parts.push(<a key={i++} href={path.replace(/^\/(\?lang=fr)?#/, '#')} className={cls}>{label}</a>);
+      parts.push(<a key={i++} href={path.replace(/^\/(\?lang=fr|fr\/)?#/, '#')} className={cls}>{label}</a>);
     }
     last = m.index + m[0].length;
   }
