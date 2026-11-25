@@ -92,6 +92,25 @@ const pageHtml = () => ({
         fs.writeFileSync(file, html);
       }
     }
+    // Google Tag Manager (GTM-5S3TSBD) on every HTML page of the site: the app pages above and the static
+    // pages from public/ (Resources, privacy...). Only on proathlete.ca, so Vercel previews are not counted.
+    // GA4 and Clarity stay in the page code; new tags (ads, pixels...) are added in Tag Manager.
+    const GTM_ID = 'GTM-5S3TSBD';
+    const gtmHead =
+      `<!-- Google Tag Manager -->\n    <script>if (/(^|\\.)proathlete\\.ca$/.test(location.hostname)) (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':\n    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],\n    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=\n    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);\n    })(window,document,'script','dataLayer','${GTM_ID}');</script>\n    <!-- End Google Tag Manager -->`;
+    const gtmBody =
+      `<!-- Google Tag Manager (noscript) -->\n    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=${GTM_ID}" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>\n    <!-- End Google Tag Manager (noscript) -->`;
+    const walk = (dir: string): string[] =>
+      fs.readdirSync(dir, { withFileTypes: true }).flatMap((e) =>
+        e.isDirectory() ? walk(path.join(dir, e.name)) : e.name.endsWith('.html') ? [path.join(dir, e.name)] : []
+      );
+    for (const file of walk(outDir)) {
+      let html = fs.readFileSync(file, 'utf8');
+      if (html.includes(GTM_ID) || !/<head[^>]*>/.test(html) || !/<body[^>]*>/.test(html)) continue;
+      html = html.replace(/<head[^>]*>/, (m) => `${m}\n    ${gtmHead}`);
+      html = html.replace(/<body[^>]*>/, (m) => `${m}\n    ${gtmBody}`);
+      fs.writeFileSync(file, html);
+    }
   },
 });
 
