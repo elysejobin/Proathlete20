@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-label="Tendon D'Achille">
+  <rect width="1600" height="900" fill="#002337"/>
+  <rect width="1600" height="900" fill="url(#g)"/>
+  <defs>
+    <radialGradient id="g" cx="78%" cy="30%" r="70%">
+      <stop offset="0" stop-color="#005776" stop-opacity="0.75"/>
+      <stop offset="1" stop-color="#002337" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <path d="M1190 170 C1165 330 1150 470 1160 560 C1168 640 1215 690 1290 700 L1420 712" fill="none" stroke="#5CE1E6" stroke-width="10" stroke-linecap="round" opacity="0.55"/>
+  <path d="M1150 150 C1125 320 1112 470 1122 565 C1132 670 1195 735 1295 745 L1420 752" fill="none" stroke="#5CE1E6" stroke-width="3" stroke-linecap="round" opacity="0.35"/>
+  <rect x="120" y="408" width="90" height="8" rx="4" fill="#5CE1E6"/>
+  <text x="120" y="510" font-family="Oswald, Impact, 'Arial Narrow', 'Helvetica Neue', Arial, sans-serif" font-size="104" font-weight="700" font-style="italic" fill="#ffffff" letter-spacing="1">TENDON D&#39;ACHILLE</text>
+  <text x="122" y="572" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-size="36" fill="#ffffff" fill-opacity="0.8">Prévention pour les athlètes qui courent et sautent</text>
+  <text x="122" y="640" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-size="26" font-weight="700" fill="#5CE1E6" letter-spacing="6">PRO ATHLETE</text>
+</svg>
