@@ -61,6 +61,18 @@
     <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.proathlete.ca/fr/ressources/" />
   </url>
   <url>
+    <loc>https://www.proathlete.ca/resources/achilles-tendon-health/</loc>
+    <lastmod>2026-11-26</lastmod>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.proathlete.ca/resources/achilles-tendon-health/" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.proathlete.ca/fr/ressources/tendon-achille/" />
+  </url>
+  <url>
+    <loc>https://www.proathlete.ca/fr/ressources/tendon-achille/</loc>
+    <lastmod>2026-11-26</lastmod>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.proathlete.ca/resources/achilles-tendon-health/" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.proathlete.ca/fr/ressources/tendon-achille/" />
+  </url>
+  <url>
     <loc>https://www.proathlete.ca/resources/how-to-tape-an-ankle/</loc>
     <lastmod>2026-11-06</lastmod>
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.proathlete.ca/resources/how-to-tape-an-ankle/" />
